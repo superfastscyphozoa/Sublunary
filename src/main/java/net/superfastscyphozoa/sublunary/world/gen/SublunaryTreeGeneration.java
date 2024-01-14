@@ -11,5 +11,8 @@ public class SublunaryTreeGeneration {
     public static void generateTrees(){
         BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.FOREST, BiomeKeys.FLOWER_FOREST),
                 GenerationStep.Feature.VEGETAL_DECORATION, SublunaryPlacedFeatures.OAKIER_OAK_PLACED_KEY);
+
+        BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.OLD_GROWTH_BIRCH_FOREST),
+                GenerationStep.Feature.VEGETAL_DECORATION, SublunaryPlacedFeatures.YELLOW_BIRCH_PLACED_KEY);
     }
 }

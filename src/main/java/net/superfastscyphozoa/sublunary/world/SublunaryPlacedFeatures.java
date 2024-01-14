@@ -40,7 +40,7 @@ public class SublunaryPlacedFeatures {
 
         //flowers
         register(context, LAVENDER_PATCH_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(SublunaryConfiguredFeatures.LAVENDER_PATCH_KEY),
-                VegetationPlacedFeatures.modifiers(1));
+                RarityFilterPlacementModifier.of(4), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
     }
 
 

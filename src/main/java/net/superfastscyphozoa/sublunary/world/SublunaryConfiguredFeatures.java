@@ -55,7 +55,7 @@ public class SublunaryConfiguredFeatures {
         //flowers
         //lavender patch
         register(context, LAVENDER_PATCH_KEY, Feature.FLOWER, new RandomPatchFeatureConfig(
-                100, 12, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK,
+                64, 6, 2, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK,
                 new SimpleBlockFeatureConfig(BlockStateProvider.of(RegisterBlocks.LAVENDER)))));
     }
 

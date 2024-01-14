@@ -8,7 +8,7 @@ import net.superfastscyphozoa.sublunary.world.SublunaryPlacedFeatures;
 
 public class SublunaryFloraGeneration {
     public static void generateFlora(){
-        BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.FOREST),
+        BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.FOREST, BiomeKeys.PLAINS),
                 GenerationStep.Feature.VEGETAL_DECORATION, SublunaryPlacedFeatures.LAVENDER_PATCH_PLACED_KEY);
     }
 }
