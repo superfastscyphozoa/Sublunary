@@ -34,6 +34,10 @@ public class SublunaryPlacedFeatures {
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(8, 0.1f, 4),
                         Blocks.OAK_SAPLING));
 
+        register(context, YELLOW_BIRCH_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(SublunaryConfiguredFeatures.YELLOW_BIRCH_KEY),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(1, 0.5f, 3),
+                        Blocks.OAK_SAPLING));
+
         //flowers
         register(context, LAVENDER_PATCH_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(SublunaryConfiguredFeatures.LAVENDER_PATCH_KEY),
                 VegetationPlacedFeatures.modifiers(1));
