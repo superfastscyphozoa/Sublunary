@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "sublunary:maple_log",
+    "sublunary:maple_wood",
+    "sublunary:stripped_maple_log",
+    "sublunary:stripped_maple_wood"
+  ]
+}

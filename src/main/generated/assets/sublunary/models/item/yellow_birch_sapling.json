@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "sublunary:block/yellow_birch_sapling"
+  }
+}
