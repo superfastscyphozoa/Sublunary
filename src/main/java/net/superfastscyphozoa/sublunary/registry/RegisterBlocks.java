@@ -69,7 +69,7 @@ public class RegisterBlocks {
             new SaplingBlock(new YellowBirchSaplingGenerator(),FabricBlockSettings.copyOf(Blocks.OAK_SAPLING)),
             ItemGroups.NATURAL);
 
-    //
+    // hello
 
     //registry end
 
