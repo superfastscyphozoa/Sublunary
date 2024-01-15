@@ -6,6 +6,7 @@ import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
 import net.superfastscyphozoa.sublunary.registry.RegisterBlocks;
+import net.superfastscyphozoa.sublunary.registry.RegisterItems;
 
 public class SublunaryModelProvider extends FabricModelProvider {
     public SublunaryModelProvider(FabricDataOutput output) {
@@ -23,11 +24,14 @@ public class SublunaryModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.registerSimpleCubeAll(RegisterBlocks.MAPLE_PLANKS);
 
+        blockStateModelGenerator.registerTintableCross(RegisterBlocks.LAVENDER, BlockStateModelGenerator.TintType.NOT_TINTED);
+
         blockStateModelGenerator.registerTintableCross(RegisterBlocks.YELLOW_BIRCH_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
     }
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-        itemModelGenerator.register(RegisterBlocks.LAVENDER.asItem(), Models.GENERATED);
+        itemModelGenerator.register(RegisterItems.FLOUR, Models.GENERATED);
+        itemModelGenerator.register(RegisterItems.DOUGH, Models.GENERATED);
     }
 }

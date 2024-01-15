@@ -23,6 +23,7 @@ import net.superfastscyphozoa.sublunary.registry.RegisterBlocks;
 public class SublunaryConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?,?>> MAPLE_KEY = registerKey("red_maple");
     public static final RegistryKey<ConfiguredFeature<?,?>> YELLOW_BIRCH_KEY = registerKey("yellow_birch");
+    public static final RegistryKey<ConfiguredFeature<?,?>> BIRCHIER_BIRCH_KEY = registerKey("birchier_birch");
     public static final RegistryKey<ConfiguredFeature<?,?>> OAKIER_OAK_KEY = registerKey("oakier_oak");
     public static final RegistryKey<ConfiguredFeature<?,?>> LAVENDER_PATCH_KEY = registerKey("lavender_patch");
 
@@ -52,10 +53,17 @@ public class SublunaryConfiguredFeatures {
                 new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
                 new TwoLayersFeatureSize(0, 0, 0)).dirtProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT)).forceDirt().build());
 
+        register(context, BIRCHIER_BIRCH_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(Blocks.BIRCH_LOG),
+                new StraightTrunkPlacer(5, 2, 6),
+                BlockStateProvider.of(Blocks.BIRCH_LEAVES),
+                new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
+                new TwoLayersFeatureSize(0, 0, 0)).dirtProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT)).forceDirt().build());
+
         //flowers
         //lavender patch
         register(context, LAVENDER_PATCH_KEY, Feature.FLOWER, new RandomPatchFeatureConfig(
-                64, 6, 2, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK,
+                128, 6, 4, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK,
                 new SimpleBlockFeatureConfig(BlockStateProvider.of(RegisterBlocks.LAVENDER)))));
     }
 

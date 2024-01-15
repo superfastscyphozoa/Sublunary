@@ -17,6 +17,7 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.superfastscyphozoa.sublunary.Sublunary;
 import net.superfastscyphozoa.sublunary.blocks.BushyFlowerBlock;
+import net.superfastscyphozoa.sublunary.blocks.ShelfFungusBlock;
 import net.superfastscyphozoa.sublunary.blocks.ShortGrassBlock;
 import net.superfastscyphozoa.sublunary.world.sapling.YellowBirchSaplingGenerator;
 
@@ -69,7 +70,10 @@ public class RegisterBlocks {
             new SaplingBlock(new YellowBirchSaplingGenerator(),FabricBlockSettings.copyOf(Blocks.OAK_SAPLING)),
             ItemGroups.NATURAL);
 
-    // hello
+    //turkey tail
+
+    public static final Block TURKEY_TAIL = registerBlockWithoutItem("turkey_tail",
+            new ShelfFungusBlock(FabricBlockSettings.create().noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.GRASS).pistonBehavior(PistonBehavior.DESTROY)));
 
     //registry end
 

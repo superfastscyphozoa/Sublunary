@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "flour",
+  "ingredients": [{
+      "item": "minecraft:wheat_seeds"
+  }],
+  "result": {
+    "item": "sublunary:flour"
+  }}
