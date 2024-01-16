@@ -2,8 +2,6 @@ package net.superfastscyphozoa.sublunary;
 
 import net.fabricmc.api.ModInitializer;
 
-import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
-import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.superfastscyphozoa.sublunary.blocks.SublunaryFlammableBlocks;
 import net.superfastscyphozoa.sublunary.blocks.SublunaryStrippableBlocks;
 import net.superfastscyphozoa.sublunary.registry.RegisterBlocks;
