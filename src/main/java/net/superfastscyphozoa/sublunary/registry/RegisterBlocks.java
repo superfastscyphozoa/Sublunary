@@ -94,6 +94,6 @@ public class RegisterBlocks {
     }
 
     public static void registerSublunaryBlocks() {
-        Sublunary.LOGGER.info("Registering blocks for" + Sublunary.MOD_ID);
+        Sublunary.LOGGER.info("Registering blocks for " + Sublunary.MOD_ID);
     }
 }

@@ -23,7 +23,7 @@
             },
             {
               "type": "minecraft:item",
-              "name": "minecraft:wheat"
+              "name": "minecraft:wheat_seeds"
             }
           ]
         }

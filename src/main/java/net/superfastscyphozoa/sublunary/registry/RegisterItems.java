@@ -2,13 +2,13 @@ package net.superfastscyphozoa.sublunary.registry;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.block.Blocks;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
 import net.superfastscyphozoa.sublunary.Sublunary;
+import net.superfastscyphozoa.sublunary.items.FlourItem;
 import net.superfastscyphozoa.sublunary.items.SublunaryFoods;
 
 public class RegisterItems {
@@ -24,15 +24,15 @@ public class RegisterItems {
     // flour and dough
 
     public static final Item FLOUR = registerItem("flour",
-            new Item(new FabricItemSettings().food(SublunaryFoods.FLOUR)));
+            new FlourItem(new FabricItemSettings().food(SublunaryFoods.FLOUR)));
 
     public static final Item DOUGH = registerItem("dough",
             new Item(new FabricItemSettings().food(SublunaryFoods.DOUGH)));
 
     //fungus
 
-    public static final Item TURKEY_TAIL_FUNGUS = registerItem (
-            (String)"turkey_tail_fungus", (Item)(new AliasedBlockItem(RegisterBlocks.TURKEY_TAIL, (new FabricItemSettings()).food(SublunaryFoods.TURKEY_TAIL))));
+    public static final Item TURKEY_TAIL_FUNGUS = registerItem ("turkey_tail_fungus",
+            new AliasedBlockItem(RegisterBlocks.TURKEY_TAIL, (new FabricItemSettings()).food(SublunaryFoods.TURKEY_TAIL)));
 
     //registry end
 
@@ -58,7 +58,7 @@ public class RegisterItems {
     }
 
     public static void registerSublunaryItems() {
-        Sublunary.LOGGER.info("Registering items for" + Sublunary.MOD_ID);
+        Sublunary.LOGGER.info("Registering items for " + Sublunary.MOD_ID);
 
         addItemsToItemGroup();
     }
