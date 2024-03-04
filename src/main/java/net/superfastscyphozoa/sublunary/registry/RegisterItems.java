@@ -24,7 +24,7 @@ public class RegisterItems {
     // flour and dough
 
     public static final Item FLOUR = registerItem("flour",
-            new FlourItem(new FabricItemSettings().food(SublunaryFoods.FLOUR)));
+            new FlourItem(new FabricItemSettings()));
 
     public static final Item DOUGH = registerItem("dough",
             new Item(new FabricItemSettings().food(SublunaryFoods.DOUGH)));
