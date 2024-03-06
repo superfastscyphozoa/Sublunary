@@ -12,13 +12,10 @@ import net.minecraft.world.gen.placementmodifier.PlacementModifier;
 import net.minecraft.world.gen.placementmodifier.RarityFilterPlacementModifier;
 import net.minecraft.world.gen.placementmodifier.SquarePlacementModifier;
 import net.superfastscyphozoa.sublunary.Sublunary;
-import net.superfastscyphozoa.sublunary.registry.RegisterBlocks;
 
 import java.util.List;
 
 public class SublunaryPlacedFeatures {
-    public static final RegistryKey<PlacedFeature> MAPLE_PLACED_KEY = registerKey("maple_placed");
-    public static final RegistryKey<PlacedFeature> YELLOW_BIRCH_PLACED_KEY = registerKey("yellow_birch_placed");
     public static final RegistryKey<PlacedFeature> BIRCHIER_BIRCH_PLACED_KEY = registerKey("birchier_birch_placed");
     public static final RegistryKey<PlacedFeature> OAKIER_OAK_PLACED_KEY = registerKey("oakier_oak_placed");
     public static final RegistryKey<PlacedFeature> LAVENDER_PATCH_PLACED_KEY = registerKey("lavender_patch_placed");
@@ -27,24 +24,16 @@ public class SublunaryPlacedFeatures {
         var configuredFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
 
         //trees
-        register(context, MAPLE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(SublunaryConfiguredFeatures.MAPLE_KEY),
-                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(0, 0.2f, 1),
-                        Blocks.OAK_SAPLING));
-
-        register(context, OAKIER_OAK_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(SublunaryConfiguredFeatures.OAKIER_OAK_KEY),
+        register(context, OAKIER_OAK_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(SubTreeConfiguredFeatures.OAKIER_OAK_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(6, 0.1f, 4),
                         Blocks.OAK_SAPLING));
 
-        register(context, YELLOW_BIRCH_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(SublunaryConfiguredFeatures.YELLOW_BIRCH_KEY),
-                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(0, 0.5f, 3),
-                        Blocks.OAK_SAPLING));
-
-        register(context, BIRCHIER_BIRCH_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(SublunaryConfiguredFeatures.BIRCHIER_BIRCH_KEY),
+        register(context, BIRCHIER_BIRCH_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(SubTreeConfiguredFeatures.BIRCHIER_BIRCH_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(6, 0.5f, 4),
                         Blocks.OAK_SAPLING));
 
         //flowers
-        register(context, LAVENDER_PATCH_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(SublunaryConfiguredFeatures.LAVENDER_PATCH_KEY),
+        register(context, LAVENDER_PATCH_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(SubVegetationConfiguredFeatures.LAVENDER_PATCH_KEY),
                 RarityFilterPlacementModifier.of(10), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
     }
 

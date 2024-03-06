@@ -19,7 +19,6 @@ import net.superfastscyphozoa.sublunary.Sublunary;
 import net.superfastscyphozoa.sublunary.blocks.BushyFlowerBlock;
 import net.superfastscyphozoa.sublunary.blocks.ShelfFungusBlock;
 import net.superfastscyphozoa.sublunary.blocks.ShortGrassBlock;
-import net.superfastscyphozoa.sublunary.world.sapling.YellowBirchSaplingGenerator;
 
 public class RegisterBlocks {
 
@@ -64,10 +63,6 @@ public class RegisterBlocks {
 
     public static final Block YELLOW_BIRCH_LEAVES = registerBlock("yellow_birch_leaves",
             new LeavesBlock(FabricBlockSettings.create().mapColor(MapColor.YELLOW).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning(Blocks::canSpawnOnLeaves).suffocates(Blocks::never).blockVision(Blocks::never).burnable().pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::never)),
-            ItemGroups.NATURAL);
-
-    public static final Block YELLOW_BIRCH_SAPLING = registerBlock("yellow_birch_sapling",
-            new SaplingBlock(new YellowBirchSaplingGenerator(),FabricBlockSettings.copyOf(Blocks.OAK_SAPLING)),
             ItemGroups.NATURAL);
 
     //turkey tail

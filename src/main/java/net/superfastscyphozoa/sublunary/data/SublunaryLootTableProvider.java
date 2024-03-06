@@ -12,6 +12,5 @@ public class SublunaryLootTableProvider extends FabricBlockLootTableProvider {
     @Override
     public void generate() {
         addDrop(RegisterBlocks.LAVENDER);
-        addDrop(RegisterBlocks.YELLOW_BIRCH_SAPLING);
     }
 }

@@ -16,7 +16,6 @@ public class SublunaryClient implements ClientModInitializer {
     public void onInitializeClient() {
 
         //render types
-        BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlocks.YELLOW_BIRCH_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlocks.LAVENDER, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlocks.CLOVERS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlocks.SHORT_GRASS, RenderLayer.getCutout());

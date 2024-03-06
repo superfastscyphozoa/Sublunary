@@ -1,9 +1,5 @@
-// 1.20.1	2024-03-04T20:17:15.1671851	Sublunary/sublunary
-aab5f3c856e9b3987b7069d3705faf100051ae92 data\sublunary\worldgen\placed_feature\maple_placed.json
-c80121ffa848d30c25968a8c944348405efdf634 data\sublunary\worldgen\configured_feature\yellow_birch.json
+// 1.20.1	2024-03-06T16:27:34.4050096	Sublunary/sublunary
 4c7db714814494c39b212192a8cb55b00781425c data\sublunary\worldgen\placed_feature\oakier_oak_placed.json
-2cc66ec288373ebe205c771ac5d59d026967c498 data\sublunary\worldgen\placed_feature\yellow_birch_placed.json
-7bffb2e39d8df381d9fd62d702b81d14070e8f67 data\sublunary\worldgen\configured_feature\red_maple.json
 130078962343b88a541a33a5fb6937d1c282da32 data\sublunary\worldgen\configured_feature\oakier_oak.json
 b3896c398f07d38c25cbf0f14ce636c356cdc883 data\sublunary\worldgen\placed_feature\birchier_birch_placed.json
 0bf663f6c796457729bbe9e0819469901fc3fd09 data\sublunary\worldgen\configured_feature\lavender_patch.json

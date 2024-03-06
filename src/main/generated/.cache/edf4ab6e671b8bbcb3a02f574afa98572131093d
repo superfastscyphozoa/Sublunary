@@ -1,12 +1,9 @@
-// 1.20.1	2024-03-04T20:17:15.1612013	Sublunary/Model Definitions
+// 1.20.1	2024-03-06T16:27:34.4020173	Sublunary/Model Definitions
 89ef89ed2a0eefd6ac26648c8fd5de0b846cd4f0 assets\sublunary\models\block\stripped_maple_log.json
 9a31d91374dbcf74fbee8b02e0227a40d14db0ae assets\sublunary\blockstates\maple_planks.json
-30a061fad41a39d6aaa382204ea03b8dfc9a926e assets\sublunary\models\item\yellow_birch_sapling.json
 3b299707eb786a5513b8fab54eb04fb651b19588 assets\sublunary\blockstates\lavender.json
-f91141e56400b1a44e0daf13bb7bc5460a79c06f assets\sublunary\models\block\yellow_birch_sapling.json
 b6eeaa3c2130f58501b8b6eb365de80e8e17845c assets\sublunary\models\item\red_maple_leaves.json
 ccd6d525601a4471a0a31610115585cda35222f3 assets\sublunary\blockstates\red_maple_leaves.json
-f1b1cfe975faf06d3ba2e5b3b71e56a16ed98928 assets\sublunary\blockstates\yellow_birch_sapling.json
 51ad38a89bda6333ca0304e3ff3c1245cd34efd4 assets\sublunary\blockstates\stripped_maple_wood.json
 4bf75d6306f3bffae42602527d8bcf219fce7eb9 assets\sublunary\models\item\maple_log.json
 f46460fd11ded24371c5a1da2cf3be5cf5a7bd7f assets\sublunary\models\item\maple_planks.json
