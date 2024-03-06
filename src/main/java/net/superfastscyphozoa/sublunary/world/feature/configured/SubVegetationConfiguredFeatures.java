@@ -1,4 +1,4 @@
-package net.superfastscyphozoa.sublunary.world;
+package net.superfastscyphozoa.sublunary.world.feature.configured;
 
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
@@ -6,7 +6,7 @@ import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.superfastscyphozoa.sublunary.registry.RegisterBlocks;
 
-import static net.superfastscyphozoa.sublunary.world.SublunaryConfiguredFeatures.registerKey;
+import static net.superfastscyphozoa.sublunary.world.feature.configured.SublunaryConfiguredFeatures.registerKey;
 
 public class SubVegetationConfiguredFeatures {
 

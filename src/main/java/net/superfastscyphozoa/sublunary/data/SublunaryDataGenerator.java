@@ -6,8 +6,8 @@ import net.minecraft.registry.RegistryBuilder;
 import net.minecraft.registry.RegistryKeys;
 import net.superfastscyphozoa.sublunary.data.tags.SublunaryBlockTagProvider;
 import net.superfastscyphozoa.sublunary.data.tags.SublunaryItemTagProvider;
-import net.superfastscyphozoa.sublunary.world.SublunaryConfiguredFeatures;
-import net.superfastscyphozoa.sublunary.world.SublunaryPlacedFeatures;
+import net.superfastscyphozoa.sublunary.world.feature.configured.SublunaryConfiguredFeatures;
+import net.superfastscyphozoa.sublunary.world.feature.placed.SublunaryPlacedFeatures;
 
 public class SublunaryDataGenerator implements DataGeneratorEntrypoint {
 	@Override

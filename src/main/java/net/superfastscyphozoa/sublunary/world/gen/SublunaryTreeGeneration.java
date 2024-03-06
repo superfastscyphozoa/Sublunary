@@ -10,14 +10,14 @@ import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.PlacedFeature;
 import net.minecraft.world.gen.feature.VegetationPlacedFeatures;
 import net.superfastscyphozoa.sublunary.Sublunary;
-import net.superfastscyphozoa.sublunary.world.SublunaryPlacedFeatures;
+import net.superfastscyphozoa.sublunary.world.feature.placed.SubTreePlacedFeatures;
 
 public class SublunaryTreeGeneration {
 
     public static void generateTrees(){
 
         BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.FOREST, BiomeKeys.FLOWER_FOREST),
-                GenerationStep.Feature.VEGETAL_DECORATION, SublunaryPlacedFeatures.OAKIER_OAK_PLACED_KEY);
+                GenerationStep.Feature.VEGETAL_DECORATION, SubTreePlacedFeatures.OAKIER_OAK_PLACED_KEY);
 
     }
 

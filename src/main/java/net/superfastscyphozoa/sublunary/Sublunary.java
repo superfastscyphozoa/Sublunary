@@ -1,8 +1,6 @@
 package net.superfastscyphozoa.sublunary;
 
 import net.fabricmc.api.ModInitializer;
-
-import net.minecraft.resource.Resource;
 import net.minecraft.util.Identifier;
 import net.superfastscyphozoa.sublunary.blocks.SublunaryFlammableBlocks;
 import net.superfastscyphozoa.sublunary.blocks.SublunaryStrippableBlocks;

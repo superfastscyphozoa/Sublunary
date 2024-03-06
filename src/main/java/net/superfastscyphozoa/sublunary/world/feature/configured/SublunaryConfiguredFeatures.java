@@ -1,4 +1,4 @@
-package net.superfastscyphozoa.sublunary.world;
+package net.superfastscyphozoa.sublunary.world.feature.configured;
 
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
