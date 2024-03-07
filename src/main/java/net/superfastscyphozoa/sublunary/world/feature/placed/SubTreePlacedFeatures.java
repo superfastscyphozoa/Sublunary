@@ -4,35 +4,89 @@ import net.minecraft.block.Blocks;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
-import net.minecraft.world.gen.feature.PlacedFeature;
-import net.minecraft.world.gen.feature.PlacedFeatures;
-import net.minecraft.world.gen.feature.VegetationPlacedFeatures;
+import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.placementmodifier.PlacementModifier;
 import net.superfastscyphozoa.sublunary.world.feature.configured.SubTreeConfiguredFeatures;
 
 import static net.superfastscyphozoa.sublunary.world.feature.placed.SublunaryPlacedFeatures.registerKey;
 
 public class SubTreePlacedFeatures {
 
+    public static final RegistryKey<PlacedFeature> OAKIER_OAK_PLACED = registerKey("oakier_oak_placed");
+    public static final RegistryKey<PlacedFeature> LARGE_OAKIER_OAK_PLACED = registerKey("large_oakier_oak_placed");
+    public static final RegistryKey<PlacedFeature> BIRCHIER_BIRCH_PLACED = registerKey("birchier_birch_placed");
+
     public static final RegistryKey<PlacedFeature> FOREST_OAK_PLACED = registerKey("forest_oak_placed");
     public static final RegistryKey<PlacedFeature> LARGE_FOREST_OAK_PLACED = registerKey("large_forest_oak_placed");
     public static final RegistryKey<PlacedFeature> FOREST_BIRCH_PLACED = registerKey("forest_birch_placed");
 
+    public static final RegistryKey<PlacedFeature> FLOWER_FOREST_OAK_PLACED = registerKey("flower_forest_oak_placed");
+    public static final RegistryKey<PlacedFeature> LARGE_FLOWER_FOREST_OAK_PLACED = registerKey("large_flower_forest_oak_placed");
+    public static final RegistryKey<PlacedFeature> FLOWER_FOREST_BIRCH_PLACED = registerKey("flower_forest_birch_placed");
+
+    public static final RegistryKey<PlacedFeature> PLAINS_OAK_PLACED = registerKey("plains_oak_placed");
+
+    public static final RegistryKey<PlacedFeature> OLD_GROWTH_BIRCH_PLACED = registerKey("old_growth_birch_placed");
+
+    public static final RegistryKey<PlacedFeature> MEADOW_OAK_PLACED = registerKey("meadow_oak_placed");
+    public static final RegistryKey<PlacedFeature> MEADOW_BIRCH_PLACED = registerKey("meadow_birch_placed");
+
+    public static final RegistryKey<PlacedFeature> VINY_OAK_PLACED = registerKey("viny_oak_placed");
+    public static final RegistryKey<PlacedFeature> LARGE_VINY_OAK_PLACED = registerKey("large_viny_oak_placed");
+    public static final RegistryKey<PlacedFeature> VINY_BIRCH_PLACED = registerKey("viny_birch_placed");
+    public static final RegistryKey<PlacedFeature> VINY_OLD_GROWTH_BIRCH_PLACED = registerKey("viny_old_growth_birch_placed");
+
     public static void bootstrap(Registerable<PlacedFeature> context) {
         var configuredFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
 
-        //trees
+        RegistryEntry<ConfiguredFeature<?, ?>> oakierOak = configuredFeatureRegistryEntryLookup.getOrThrow(SubTreeConfiguredFeatures.OAKIER_OAK);
+        RegistryEntry<ConfiguredFeature<?, ?>> largeOakierOak = configuredFeatureRegistryEntryLookup.getOrThrow(SubTreeConfiguredFeatures.LARGE_OAKIER_OAK);
+        RegistryEntry<ConfiguredFeature<?, ?>> birchierBirch = configuredFeatureRegistryEntryLookup.getOrThrow(SubTreeConfiguredFeatures.BIRCHIER_BIRCH);
 
-        SublunaryPlacedFeatures.register(context, FOREST_OAK_PLACED, configuredFeatureRegistryEntryLookup.getOrThrow(SubTreeConfiguredFeatures.FOREST_OAK),
-                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(6, 0.1f, 4),
-                        Blocks.OAK_SAPLING));
+        RegistryEntry<ConfiguredFeature<?, ?>> forestOak = configuredFeatureRegistryEntryLookup.getOrThrow(SubTreeConfiguredFeatures.FOREST_OAK);
+        RegistryEntry<ConfiguredFeature<?, ?>> largeForestOak = configuredFeatureRegistryEntryLookup.getOrThrow(SubTreeConfiguredFeatures.LARGE_FOREST_OAK);
+        RegistryEntry<ConfiguredFeature<?, ?>> forestBirch = configuredFeatureRegistryEntryLookup.getOrThrow(SubTreeConfiguredFeatures.FOREST_BIRCH);
 
-        SublunaryPlacedFeatures.register(context, LARGE_FOREST_OAK_PLACED, configuredFeatureRegistryEntryLookup.getOrThrow(SubTreeConfiguredFeatures.LARGE_FOREST_OAK),
-                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(6, 0.1f, 4),
-                        Blocks.OAK_SAPLING));
+        RegistryEntry<ConfiguredFeature<?, ?>> flowerForestOak = configuredFeatureRegistryEntryLookup.getOrThrow(SubTreeConfiguredFeatures.FOREST_OAK);
+        RegistryEntry<ConfiguredFeature<?, ?>> largeFlowerForestOak = configuredFeatureRegistryEntryLookup.getOrThrow(SubTreeConfiguredFeatures.LARGE_FOREST_OAK);
+        RegistryEntry<ConfiguredFeature<?, ?>> flowerForestBirch = configuredFeatureRegistryEntryLookup.getOrThrow(SubTreeConfiguredFeatures.FOREST_BIRCH);
 
-        SublunaryPlacedFeatures.register(context, FOREST_BIRCH_PLACED, configuredFeatureRegistryEntryLookup.getOrThrow(SubTreeConfiguredFeatures.FOREST_BIRCH),
-                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(6, 0.1f, 4),
-                        Blocks.OAK_SAPLING));
+        RegistryEntry<ConfiguredFeature<?, ?>> plainsOak = configuredFeatureRegistryEntryLookup.getOrThrow(SubTreeConfiguredFeatures.PLAINS_OAK);
+
+        RegistryEntry<ConfiguredFeature<?, ?>> oldGrowthBirch = configuredFeatureRegistryEntryLookup.getOrThrow(SubTreeConfiguredFeatures.OLD_GROWTH_BIRCH);
+
+        RegistryEntry<ConfiguredFeature<?, ?>> meadowOak = configuredFeatureRegistryEntryLookup.getOrThrow(SubTreeConfiguredFeatures.MEADOW_OAK);
+        RegistryEntry<ConfiguredFeature<?, ?>> meadowBirch = configuredFeatureRegistryEntryLookup.getOrThrow(SubTreeConfiguredFeatures.MEADOW_BIRCH);
+
+        RegistryEntry<ConfiguredFeature<?, ?>> vinyOak = configuredFeatureRegistryEntryLookup.getOrThrow(SubTreeConfiguredFeatures.VINY_OAK);
+        RegistryEntry<ConfiguredFeature<?, ?>> largeVinyOak = configuredFeatureRegistryEntryLookup.getOrThrow(SubTreeConfiguredFeatures.LARGE_VINY_OAK);
+        RegistryEntry<ConfiguredFeature<?, ?>> vinyBirch = configuredFeatureRegistryEntryLookup.getOrThrow(SubTreeConfiguredFeatures.VINY_BIRCH);
+        RegistryEntry<ConfiguredFeature<?, ?>> vinyOldGrowthBirch = configuredFeatureRegistryEntryLookup.getOrThrow(SubTreeConfiguredFeatures.VINY_OLD_GROWTH_BIRCH);
+
+        SublunaryPlacedFeatures.register(context, OAKIER_OAK_PLACED, oakierOak, PlacedFeatures.wouldSurvive(Blocks.OAK_SAPLING));
+        SublunaryPlacedFeatures.register(context, LARGE_OAKIER_OAK_PLACED, largeOakierOak, PlacedFeatures.wouldSurvive(Blocks.OAK_SAPLING));
+        SublunaryPlacedFeatures.register(context, BIRCHIER_BIRCH_PLACED, birchierBirch, PlacedFeatures.wouldSurvive(Blocks.BIRCH_SAPLING));
+
+        SublunaryPlacedFeatures.register(context, FOREST_OAK_PLACED, forestOak, PlacedFeatures.wouldSurvive(Blocks.OAK_SAPLING));
+        SublunaryPlacedFeatures.register(context, LARGE_FOREST_OAK_PLACED, largeForestOak, PlacedFeatures.wouldSurvive(Blocks.OAK_SAPLING));
+        SublunaryPlacedFeatures.register(context, FOREST_BIRCH_PLACED, forestBirch, PlacedFeatures.wouldSurvive(Blocks.BIRCH_SAPLING));
+
+        SublunaryPlacedFeatures.register(context, FLOWER_FOREST_OAK_PLACED, flowerForestOak, PlacedFeatures.wouldSurvive(Blocks.OAK_SAPLING));
+        SublunaryPlacedFeatures.register(context, LARGE_FLOWER_FOREST_OAK_PLACED, largeFlowerForestOak, PlacedFeatures.wouldSurvive(Blocks.OAK_SAPLING));
+        SublunaryPlacedFeatures.register(context, FLOWER_FOREST_BIRCH_PLACED, flowerForestBirch, PlacedFeatures.wouldSurvive(Blocks.BIRCH_SAPLING));
+
+        SublunaryPlacedFeatures.register(context, PLAINS_OAK_PLACED, plainsOak, PlacedFeatures.wouldSurvive(Blocks.OAK_SAPLING));
+
+        SublunaryPlacedFeatures.register(context, OLD_GROWTH_BIRCH_PLACED, oldGrowthBirch, PlacedFeatures.wouldSurvive(Blocks.BIRCH_SAPLING));
+
+        SublunaryPlacedFeatures.register(context, MEADOW_OAK_PLACED, meadowOak, PlacedFeatures.wouldSurvive(Blocks.OAK_SAPLING));
+        SublunaryPlacedFeatures.register(context, MEADOW_BIRCH_PLACED, meadowBirch, PlacedFeatures.wouldSurvive(Blocks.BIRCH_SAPLING));
+
+        SublunaryPlacedFeatures.register(context, VINY_OAK_PLACED, vinyOak, PlacedFeatures.wouldSurvive(Blocks.OAK_SAPLING));
+        SublunaryPlacedFeatures.register(context, LARGE_VINY_OAK_PLACED, largeVinyOak, PlacedFeatures.wouldSurvive(Blocks.OAK_SAPLING));
+        SublunaryPlacedFeatures.register(context, VINY_BIRCH_PLACED, vinyBirch, PlacedFeatures.wouldSurvive(Blocks.BIRCH_SAPLING));
+        SublunaryPlacedFeatures.register(context, VINY_OLD_GROWTH_BIRCH_PLACED, vinyOldGrowthBirch, PlacedFeatures.wouldSurvive(Blocks.BIRCH_SAPLING));
 
     }
 

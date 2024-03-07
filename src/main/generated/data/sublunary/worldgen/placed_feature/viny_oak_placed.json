@@ -1,12 +1,12 @@
 {
-  "feature": "sublunary:forest_birch",
+  "feature": "sublunary:viny_oak",
   "placement": [
     {
       "type": "minecraft:block_predicate_filter",
       "predicate": {
         "type": "minecraft:would_survive",
         "state": {
-          "Name": "minecraft:birch_sapling",
+          "Name": "minecraft:oak_sapling",
           "Properties": {
             "stage": "0"
           }

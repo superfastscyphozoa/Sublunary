@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": "sublunary:forest_oak_placed",
+    "features": [
+      {
+        "chance": 0.2,
+        "feature": "sublunary:forest_birch_placed"
+      },
+      {
+        "chance": 0.6,
+        "feature": "sublunary:large_forest_oak_placed"
+      },
+      {
+        "chance": 0.08,
+        "feature": "sublunary:viny_oak_placed"
+      },
+      {
+        "chance": 0.04,
+        "feature": "sublunary:viny_birch_placed"
+      },
+      {
+        "chance": 0.06,
+        "feature": "sublunary:large_viny_oak_placed"
+      }
+    ]
+  }
+}
