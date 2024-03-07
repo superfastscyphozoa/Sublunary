@@ -13,25 +13,25 @@ import static net.superfastscyphozoa.sublunary.world.feature.placed.SublunaryPla
 
 public class SubTreePlacedFeatures {
 
-    public static final RegistryKey<PlacedFeature> BIRCHIER_BIRCH_PLACED_KEY = registerKey("birchier_birch_placed");
-    public static final RegistryKey<PlacedFeature> OAKIER_OAK_PLACED_KEY = registerKey("oakier_oak_placed");
-    public static final RegistryKey<PlacedFeature> LARGE_OAKIER_OAK_PLACED_KEY = registerKey("large_oakier_oak_placed");
+    public static final RegistryKey<PlacedFeature> FOREST_OAK_PLACED = registerKey("forest_oak_placed");
+    public static final RegistryKey<PlacedFeature> LARGE_FOREST_OAK_PLACED = registerKey("large_forest_oak_placed");
+    public static final RegistryKey<PlacedFeature> FOREST_BIRCH_PLACED = registerKey("forest_birch_placed");
 
     public static void bootstrap(Registerable<PlacedFeature> context) {
         var configuredFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
 
         //trees
 
-        SublunaryPlacedFeatures.register(context, OAKIER_OAK_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(SubTreeConfiguredFeatures.OAKIER_OAK_KEY),
+        SublunaryPlacedFeatures.register(context, FOREST_OAK_PLACED, configuredFeatureRegistryEntryLookup.getOrThrow(SubTreeConfiguredFeatures.FOREST_OAK),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(6, 0.1f, 4),
                         Blocks.OAK_SAPLING));
 
-        SublunaryPlacedFeatures.register(context, LARGE_OAKIER_OAK_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(SubTreeConfiguredFeatures.LARGE_OAKIER_OAK_KEY),
+        SublunaryPlacedFeatures.register(context, LARGE_FOREST_OAK_PLACED, configuredFeatureRegistryEntryLookup.getOrThrow(SubTreeConfiguredFeatures.LARGE_FOREST_OAK),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(6, 0.1f, 4),
                         Blocks.OAK_SAPLING));
 
-        SublunaryPlacedFeatures.register(context, BIRCHIER_BIRCH_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(SubTreeConfiguredFeatures.BIRCHIER_BIRCH_KEY),
-                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(6, 0.5f, 4),
+        SublunaryPlacedFeatures.register(context, FOREST_BIRCH_PLACED, configuredFeatureRegistryEntryLookup.getOrThrow(SubTreeConfiguredFeatures.FOREST_BIRCH),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(6, 0.1f, 4),
                         Blocks.OAK_SAPLING));
 
     }

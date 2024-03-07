@@ -11,6 +11,6 @@ public class MapleSaplingGenerator extends SaplingGenerator {
     @Nullable
     @Override
     protected RegistryKey<ConfiguredFeature<?, ?>> getTreeFeature(Random random, boolean bees) {
-        return SubTreeConfiguredFeatures.OAKIER_OAK_KEY;
+        return SubTreeConfiguredFeatures.FOREST_OAK;
     }
 }
