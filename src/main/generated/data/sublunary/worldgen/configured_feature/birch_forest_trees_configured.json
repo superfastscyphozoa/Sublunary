@@ -4,8 +4,12 @@
     "default": "sublunary:forest_birch_placed",
     "features": [
       {
-        "chance": 0.05,
+        "chance": 0.01,
         "feature": "sublunary:viny_birch_placed"
+      },
+      {
+        "chance": 0.1,
+        "feature": "sublunary:small_birch_placed"
       }
     ]
   }

@@ -27,6 +27,9 @@ public class SubTreeConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?,?>> LARGE_OAKIER_OAK = registerKey("large_oakier_oak");
     public static final RegistryKey<ConfiguredFeature<?,?>> BIRCHIER_BIRCH = registerKey("birchier_birch");
 
+    public static final RegistryKey<ConfiguredFeature<?,?>> SMALL_OAK = registerKey("small_oak");
+    public static final RegistryKey<ConfiguredFeature<?,?>> SMALL_BIRCH = registerKey("small_birch");
+
     public static final RegistryKey<ConfiguredFeature<?,?>> FOREST_OAK = registerKey("forest_oak");
     public static final RegistryKey<ConfiguredFeature<?,?>> LARGE_FOREST_OAK = registerKey("large_forest_oak");
     public static final RegistryKey<ConfiguredFeature<?,?>> FOREST_BIRCH = registerKey("forest_birch");
@@ -90,7 +93,7 @@ public class SubTreeConfiguredFeatures {
     public static void bootstrap(Registerable<ConfiguredFeature<?,?>> context) {
 
         //beehives
-        BeehiveTreeDecorator ForestBeehive = new BeehiveTreeDecorator(0.005F);
+        BeehiveTreeDecorator ForestBeehive = new BeehiveTreeDecorator(0.004F);
         BeehiveTreeDecorator FlowerForestBeehive = new BeehiveTreeDecorator(0.02F);
         BeehiveTreeDecorator PlainsBeehive = new BeehiveTreeDecorator(0.05F);
         BeehiveTreeDecorator MeadowBeehive = new BeehiveTreeDecorator(1.0F);
@@ -99,6 +102,22 @@ public class SubTreeConfiguredFeatures {
         SublunaryConfiguredFeatures.register(context, OAKIER_OAK, Feature.TREE, oak().build());
         SublunaryConfiguredFeatures.register(context, LARGE_OAKIER_OAK, Feature.TREE, fancyOak().build());
         SublunaryConfiguredFeatures.register(context, BIRCHIER_BIRCH, Feature.TREE, birch().build());
+
+        SublunaryConfiguredFeatures.register(context, SMALL_OAK, Feature.TREE, (new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(Blocks.OAK_LOG),
+                new StraightTrunkPlacer(4, 2, 0),
+                BlockStateProvider.of(Blocks.OAK_LEAVES),
+                new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
+                new TwoLayersFeatureSize(0, 0, 0))
+                .dirtProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT)).forceDirt()).build());
+
+        SublunaryConfiguredFeatures.register(context, SMALL_BIRCH, Feature.TREE, (new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(Blocks.BIRCH_LOG),
+                new StraightTrunkPlacer(4, 3, 0),
+                BlockStateProvider.of(Blocks.BIRCH_LEAVES),
+                new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
+                new TwoLayersFeatureSize(0, 0, 0))
+                .dirtProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT)).forceDirt()).build());
 
         SublunaryConfiguredFeatures.register(context, FOREST_OAK, Feature.TREE, oak().decorators(List.of(ForestBeehive)).build());
         SublunaryConfiguredFeatures.register(context, LARGE_FOREST_OAK, Feature.TREE, fancyOak().decorators(List.of(ForestBeehive)).build());

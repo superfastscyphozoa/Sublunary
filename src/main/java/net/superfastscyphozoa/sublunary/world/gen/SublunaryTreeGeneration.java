@@ -30,14 +30,17 @@ public class SublunaryTreeGeneration {
     public static void removeTrees(){
 
         RegistryKey<PlacedFeature> VANILLA_FOREST_TREES = VegetationPlacedFeatures.TREES_BIRCH_AND_OAK;
+        RegistryKey<PlacedFeature> VANILLA_FLOWER_FOREST_TREES = VegetationPlacedFeatures.TREES_FLOWER_FOREST;
         RegistryKey<PlacedFeature> VANILLA_BIRCH_FOREST_TREES = VegetationPlacedFeatures.TREES_BIRCH;
         RegistryKey<PlacedFeature> VANILLA_OLD_GROWTH_BIRCH_TREES = VegetationPlacedFeatures.BIRCH_TALL;
 
         BiomeModifications.create(new Identifier(Sublunary.MOD_ID, "remove_vanilla_trees"))
-                .add(ModificationPhase.REMOVALS, BiomeSelectors.includeByKey(BiomeKeys.FOREST, BiomeKeys.BIRCH_FOREST, BiomeKeys.OLD_GROWTH_BIRCH_FOREST),
+                .add(ModificationPhase.REMOVALS, BiomeSelectors.includeByKey(
+                        BiomeKeys.FOREST, BiomeKeys.FLOWER_FOREST, BiomeKeys.BIRCH_FOREST, BiomeKeys.OLD_GROWTH_BIRCH_FOREST),
                         (context) ->
                         {
                             context.getGenerationSettings().removeFeature(VANILLA_FOREST_TREES);
+                            context.getGenerationSettings().removeFeature(VANILLA_FLOWER_FOREST_TREES);
                             context.getGenerationSettings().removeFeature(VANILLA_BIRCH_FOREST_TREES);
                             context.getGenerationSettings().removeFeature(VANILLA_OLD_GROWTH_BIRCH_TREES);
                         });
