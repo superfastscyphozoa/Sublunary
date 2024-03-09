@@ -39,6 +39,7 @@ public class SubTreeConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?,?>> FLOWER_FOREST_BIRCH = registerKey("flower_forest_birch");
 
     public static final RegistryKey<ConfiguredFeature<?,?>> PLAINS_OAK = registerKey("plains_oak");
+    public static final RegistryKey<ConfiguredFeature<?,?>> LARGE_PLAINS_OAK = registerKey("large_plains_oak");
 
     public static final RegistryKey<ConfiguredFeature<?,?>> OLD_GROWTH_BIRCH = registerKey("old_growth_birch");
 
@@ -127,7 +128,8 @@ public class SubTreeConfiguredFeatures {
         SublunaryConfiguredFeatures.register(context, LARGE_FLOWER_FOREST_OAK, Feature.TREE, fancyOak().decorators(List.of(FlowerForestBeehive)).build());
         SublunaryConfiguredFeatures.register(context, FLOWER_FOREST_BIRCH, Feature.TREE, birch().decorators(List.of(FlowerForestBeehive)).build());
 
-        SublunaryConfiguredFeatures.register(context, PLAINS_OAK, Feature.TREE, fancyOak().decorators(List.of(PlainsBeehive)).build());
+        SublunaryConfiguredFeatures.register(context, PLAINS_OAK, Feature.TREE, oak().decorators(List.of(PlainsBeehive)).build());
+        SublunaryConfiguredFeatures.register(context, LARGE_PLAINS_OAK, Feature.TREE, fancyOak().decorators(List.of(PlainsBeehive)).build());
 
         SublunaryConfiguredFeatures.register(context, OLD_GROWTH_BIRCH, Feature.TREE, superBirch().decorators(List.of(FlowerForestBeehive)).build());
 

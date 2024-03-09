@@ -32,8 +32,7 @@ public class SublunaryFloraGeneration {
 
         RegistryKey<PlacedFeature> VANILLA_PLAINS_FLOWERS = VegetationPlacedFeatures.FLOWER_PLAIN;
         RegistryKey<PlacedFeature> VANILLA_DEFAULT_FLOWERS = VegetationPlacedFeatures.FLOWER_DEFAULT;
-
-        RegistryKey<PlacedFeature> VANILLA_FOREST_GRASS = VegetationPlacedFeatures.PATCH_GRASS_FOREST;
+        RegistryKey<PlacedFeature> VANILLA_WARM_FLOWERS = VegetationPlacedFeatures.FLOWER_WARM;
 
         BiomeModifications.create(new Identifier(Sublunary.MOD_ID, "remove_vanilla_flowers"))
                 .add(ModificationPhase.REMOVALS, BiomeSelectors.foundInOverworld(),
@@ -41,7 +40,10 @@ public class SublunaryFloraGeneration {
                         {
                             context.getGenerationSettings().removeFeature(VANILLA_PLAINS_FLOWERS);
                             context.getGenerationSettings().removeFeature(VANILLA_DEFAULT_FLOWERS);
+                            context.getGenerationSettings().removeFeature(VANILLA_WARM_FLOWERS);
                         });
+
+        RegistryKey<PlacedFeature> VANILLA_FOREST_GRASS = VegetationPlacedFeatures.PATCH_GRASS_FOREST;
 
         BiomeModifications.create(new Identifier(Sublunary.MOD_ID, "remove_vanilla_grass"))
                 .add(ModificationPhase.REMOVALS, BiomeSelectors.includeByKey(

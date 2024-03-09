@@ -60,6 +60,7 @@ public class SubVegetationConfiguredFeatures {
         RegistryEntry<PlacedFeature> flowerForestBirch = placedFeatureRegistryEntryLookup.getOrThrow(SubTreePlacedFeatures.FLOWER_FOREST_BIRCH_PLACED);
 
         RegistryEntry<PlacedFeature> plainsOak = placedFeatureRegistryEntryLookup.getOrThrow(SubTreePlacedFeatures.PLAINS_OAK_PLACED);
+        RegistryEntry<PlacedFeature> largePlainsOak = placedFeatureRegistryEntryLookup.getOrThrow(SubTreePlacedFeatures.LARGE_PLAINS_OAK_PLACED);
 
         RegistryEntry<PlacedFeature> oldGrowthBirch = placedFeatureRegistryEntryLookup.getOrThrow(SubTreePlacedFeatures.OLD_GROWTH_BIRCH_PLACED);
 
@@ -83,17 +84,31 @@ public class SubVegetationConfiguredFeatures {
                 new RandomFeatureEntry(largeForestOak, 0.7F)),
                 forestOak));
 
+        SublunaryConfiguredFeatures.register(context, FLOWER_FOREST_TREES_CONFIGURED, Feature.RANDOM_SELECTOR, new RandomFeatureConfig(List.of(
+                new RandomFeatureEntry(vinyOak, 0.02F),
+                new RandomFeatureEntry(vinyBirch, 0.02F),
+                new RandomFeatureEntry(largeVinyOak, 0.02F),
+
+                new RandomFeatureEntry(flowerForestOak, 0.15F),
+                new RandomFeatureEntry(largeFlowerForestOak, 0.7F)),
+                flowerForestBirch));
+
         SublunaryConfiguredFeatures.register(context, BIRCH_FOREST_TREES_CONFIGURED, Feature.RANDOM_SELECTOR, new RandomFeatureConfig(List.of(
-                new RandomFeatureEntry(vinyBirch, 0.01F),
+                new RandomFeatureEntry(vinyBirch, 0.015F),
 
                 new RandomFeatureEntry(smallBirch, 0.1F)),
                 forestBirch));
 
         SublunaryConfiguredFeatures.register(context, OLD_GROWTH_BIRCH_TREES_CONFIGURED, Feature.RANDOM_SELECTOR, new RandomFeatureConfig(List.of(
                 new RandomFeatureEntry(vinyOldGrowthBirch, 0.01F),
+                new RandomFeatureEntry(vinyBirch, 0.01F),
 
                 new RandomFeatureEntry(forestBirch, 0.1F)),
                 oldGrowthBirch));
+
+        SublunaryConfiguredFeatures.register(context, PLAINS_TREES_CONFIGURED, Feature.RANDOM_SELECTOR, new RandomFeatureConfig(List.of(
+                new RandomFeatureEntry(largePlainsOak, 0.5F)),
+                plainsOak));
 
 
 

@@ -8,6 +8,10 @@
         "feature": "sublunary:viny_old_growth_birch_placed"
       },
       {
+        "chance": 0.01,
+        "feature": "sublunary:viny_birch_placed"
+      },
+      {
         "chance": 0.1,
         "feature": "sublunary:forest_birch_placed"
       }

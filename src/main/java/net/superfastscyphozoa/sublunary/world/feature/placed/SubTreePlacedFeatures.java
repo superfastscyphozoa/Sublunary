@@ -29,6 +29,7 @@ public class SubTreePlacedFeatures {
     public static final RegistryKey<PlacedFeature> FLOWER_FOREST_BIRCH_PLACED = registerKey("flower_forest_birch_placed");
 
     public static final RegistryKey<PlacedFeature> PLAINS_OAK_PLACED = registerKey("plains_oak_placed");
+    public static final RegistryKey<PlacedFeature> LARGE_PLAINS_OAK_PLACED = registerKey("large_plains_oak_placed");
 
     public static final RegistryKey<PlacedFeature> OLD_GROWTH_BIRCH_PLACED = registerKey("old_growth_birch_placed");
 
@@ -59,6 +60,7 @@ public class SubTreePlacedFeatures {
         RegistryEntry<ConfiguredFeature<?, ?>> flowerForestBirch = configuredFeatureRegistryEntryLookup.getOrThrow(SubTreeConfiguredFeatures.FOREST_BIRCH);
 
         RegistryEntry<ConfiguredFeature<?, ?>> plainsOak = configuredFeatureRegistryEntryLookup.getOrThrow(SubTreeConfiguredFeatures.PLAINS_OAK);
+        RegistryEntry<ConfiguredFeature<?, ?>> largePlainsOak = configuredFeatureRegistryEntryLookup.getOrThrow(SubTreeConfiguredFeatures.LARGE_PLAINS_OAK);
 
         RegistryEntry<ConfiguredFeature<?, ?>> oldGrowthBirch = configuredFeatureRegistryEntryLookup.getOrThrow(SubTreeConfiguredFeatures.OLD_GROWTH_BIRCH);
 
@@ -86,6 +88,7 @@ public class SubTreePlacedFeatures {
         SublunaryPlacedFeatures.register(context, FLOWER_FOREST_BIRCH_PLACED, flowerForestBirch, PlacedFeatures.wouldSurvive(Blocks.BIRCH_SAPLING));
 
         SublunaryPlacedFeatures.register(context, PLAINS_OAK_PLACED, plainsOak, PlacedFeatures.wouldSurvive(Blocks.OAK_SAPLING));
+        SublunaryPlacedFeatures.register(context, LARGE_PLAINS_OAK_PLACED, largePlainsOak, PlacedFeatures.wouldSurvive(Blocks.OAK_SAPLING));
 
         SublunaryPlacedFeatures.register(context, OLD_GROWTH_BIRCH_PLACED, oldGrowthBirch, PlacedFeatures.wouldSurvive(Blocks.BIRCH_SAPLING));
 

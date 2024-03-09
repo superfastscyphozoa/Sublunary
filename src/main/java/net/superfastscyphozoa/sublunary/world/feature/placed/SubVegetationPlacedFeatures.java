@@ -33,17 +33,25 @@ public class SubVegetationPlacedFeatures {
         var configuredFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
 
         RegistryEntry<ConfiguredFeature<?, ?>> forestTrees = configuredFeatureRegistryEntryLookup.getOrThrow(SubVegetationConfiguredFeatures.FOREST_TREES_CONFIGURED);
+        RegistryEntry<ConfiguredFeature<?, ?>> flowerForestTrees = configuredFeatureRegistryEntryLookup.getOrThrow(SubVegetationConfiguredFeatures.FLOWER_FOREST_TREES_CONFIGURED);
         RegistryEntry<ConfiguredFeature<?, ?>> birchForestTrees = configuredFeatureRegistryEntryLookup.getOrThrow(SubVegetationConfiguredFeatures.BIRCH_FOREST_TREES_CONFIGURED);
         RegistryEntry<ConfiguredFeature<?, ?>> oldGrowthBirchTrees = configuredFeatureRegistryEntryLookup.getOrThrow(SubVegetationConfiguredFeatures.OLD_GROWTH_BIRCH_TREES_CONFIGURED);
+        RegistryEntry<ConfiguredFeature<?, ?>> plainsTrees = configuredFeatureRegistryEntryLookup.getOrThrow(SubVegetationConfiguredFeatures.PLAINS_TREES_CONFIGURED);
 
         SublunaryPlacedFeatures.register(context, FOREST_TREES, forestTrees,
                 treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(10, 0.1F, 4), Blocks.OAK_SAPLING));
+
+        SublunaryPlacedFeatures.register(context, FLOWER_FOREST_TREES, flowerForestTrees,
+                treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(8, 0.1F, 4), Blocks.OAK_SAPLING));
 
         SublunaryPlacedFeatures.register(context, BIRCH_FOREST_TREES, birchForestTrees,
                 treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(9, 0.1F, 2), Blocks.OAK_SAPLING));
 
         SublunaryPlacedFeatures.register(context, OLD_GROWTH_BIRCH_TREES, oldGrowthBirchTrees,
                 treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(8, 0.1F, 3), Blocks.OAK_SAPLING));
+
+        SublunaryPlacedFeatures.register(context, PLAINS_TREES, plainsTrees,
+                treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(0, 0.05F, 1), Blocks.OAK_SAPLING));
 
 
 
@@ -52,7 +60,7 @@ public class SubVegetationPlacedFeatures {
 
         SublunaryPlacedFeatures.register(context, TALL_GRASS_PATCH, configuredFeatureRegistryEntryLookup.getOrThrow(SubVegetationConfiguredFeatures.TALL_GRASS_PATCH_CONFIGURED),
                 NoiseThresholdCountPlacementModifier.of(-0.8D, 0, 7),
-                RarityFilterPlacementModifier.of(32), SquarePlacementModifier.of(),
+                RarityFilterPlacementModifier.of(16), SquarePlacementModifier.of(),
                 PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
 
 

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": "sublunary:plains_oak_placed",
+    "features": [
+      {
+        "chance": 0.5,
+        "feature": "sublunary:large_plains_oak_placed"
+      }
+    ]
+  }
+}
