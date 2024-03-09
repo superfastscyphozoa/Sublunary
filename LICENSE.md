@@ -1,5 +1,5 @@
 The license of this project is:
-"CC-BY-NC-4.0"
+"GPL-3.0"
 
 Except for the following folders and files:
 
