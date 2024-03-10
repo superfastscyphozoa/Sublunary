@@ -3,6 +3,8 @@ package net.superfastscyphozoa.sublunary.world.gen;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.passive.CowEntity;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.biome.BiomeKeys;
@@ -51,7 +53,6 @@ public class SublunaryTreeGeneration {
                             context.getGenerationSettings().removeFeature(VANILLA_OLD_GROWTH_BIRCH_TREES);
                             context.getGenerationSettings().removeFeature(VANILLA_PLAINS_TREES);
                         });
-
     }
 
 }
