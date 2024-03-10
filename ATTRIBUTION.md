@@ -6,7 +6,7 @@ KaupenJoe's tutorials provided the basis for this mod
 
 FrozenBlock - Wilder Wild - https://github.com/FrozenBlock/WilderWild
 
-I used the Wilder Wild source code to learn how to do a number of things:
+I used and translated the Wilder Wild source code into a different mapping to learn how to do a number of things:
 
 Use ColorProviderRegistry to colour certain blocks as the biome colour (If I recall correctly? I'm actually not 100% sure but I'm including it anyway)
 
