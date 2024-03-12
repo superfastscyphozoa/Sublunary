@@ -3,11 +3,15 @@ package net.superfastscyphozoa.sublunary.client;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
-import net.minecraft.block.Blocks;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.client.render.RenderLayer;
+import net.superfastscyphozoa.sublunary.entity.SublunaryEntities;
+import net.superfastscyphozoa.sublunary.entity.client.BadgerModel;
+import net.superfastscyphozoa.sublunary.entity.client.BadgerRenderer;
+import net.superfastscyphozoa.sublunary.entity.client.SublunaryModelLayers;
 import net.superfastscyphozoa.sublunary.registry.RegisterBlocks;
-import net.superfastscyphozoa.sublunary.registry.RegisterItems;
 
 import java.util.Objects;
 
@@ -21,6 +25,10 @@ public class SublunaryClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlocks.SHORT_GRASS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlocks.TURKEY_TAIL, RenderLayer.getCutout());
 
+
+        //render mobs
+        EntityRendererRegistry.register(SublunaryEntities.BADGER, BadgerRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(SublunaryModelLayers.BADGER, BadgerModel::getTexturedModelData);
 
         //register block and item colours
 

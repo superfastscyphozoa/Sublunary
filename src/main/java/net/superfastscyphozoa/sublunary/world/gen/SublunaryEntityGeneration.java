@@ -13,6 +13,7 @@ import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.PlacedFeature;
 import net.minecraft.world.gen.feature.VegetationPlacedFeatures;
 import net.superfastscyphozoa.sublunary.Sublunary;
+import net.superfastscyphozoa.sublunary.entity.SublunaryEntities;
 import net.superfastscyphozoa.sublunary.world.feature.placed.SubVegetationPlacedFeatures;
 
 public class SublunaryEntityGeneration {
@@ -29,7 +30,7 @@ public class SublunaryEntityGeneration {
                 SpawnGroup.CREATURE, EntityType.FOX, 8, 2, 3);
 
         BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.FOREST),
-                SpawnGroup.CREATURE, EntityType.PANDA, 8, 1, 2);
+                SpawnGroup.CREATURE, SublunaryEntities.BADGER, 8, 1, 2);
 
     }
 

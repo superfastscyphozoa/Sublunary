@@ -1,9 +1,12 @@
 package net.superfastscyphozoa.sublunary;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.minecraft.util.Identifier;
 import net.superfastscyphozoa.sublunary.blocks.SublunaryFlammableBlocks;
 import net.superfastscyphozoa.sublunary.blocks.SublunaryStrippableBlocks;
+import net.superfastscyphozoa.sublunary.entity.BadgerEntity;
+import net.superfastscyphozoa.sublunary.entity.SublunaryEntities;
 import net.superfastscyphozoa.sublunary.registry.RegisterBlocks;
 import net.superfastscyphozoa.sublunary.registry.RegisterItems;
 import net.superfastscyphozoa.sublunary.world.gen.SublunaryWorldGeneration;
@@ -31,5 +34,7 @@ public class Sublunary implements ModInitializer {
 
 		SublunaryFlammableBlocks.registerFlammableBlocks();
 		SublunaryStrippableBlocks.registerStrippableBlocks();
+
+        FabricDefaultAttributeRegistry.register(SublunaryEntities.BADGER, BadgerEntity.createBadgerAttributes());
 	}
 }
