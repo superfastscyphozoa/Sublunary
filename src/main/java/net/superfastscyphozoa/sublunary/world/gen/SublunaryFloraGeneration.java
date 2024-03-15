@@ -15,22 +15,18 @@ import net.superfastscyphozoa.sublunary.world.feature.placed.SubVegetationPlaced
 public class SublunaryFloraGeneration {
     public static void generateFlora(){
 
-        BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.PLAINS),
-                GenerationStep.Feature.VEGETAL_DECORATION, SubVegetationPlacedFeatures.LAVENDER_PATCH_PLACED_KEY);
-
-        BiomeModifications.addFeature(BiomeSelectors.includeByKey(
-                BiomeKeys.FOREST, BiomeKeys.FLOWER_FOREST, BiomeKeys.BIRCH_FOREST, BiomeKeys.OLD_GROWTH_BIRCH_FOREST, BiomeKeys.DARK_FOREST),
-                GenerationStep.Feature.VEGETAL_DECORATION, SubVegetationPlacedFeatures.FOREST_GRASS);
-
-        BiomeModifications.addFeature(BiomeSelectors.includeByKey(
-                        BiomeKeys.FOREST, BiomeKeys.FLOWER_FOREST, BiomeKeys.BIRCH_FOREST, BiomeKeys.OLD_GROWTH_BIRCH_FOREST, BiomeKeys.DARK_FOREST),
-                GenerationStep.Feature.VEGETAL_DECORATION, SubVegetationPlacedFeatures.TALL_GRASS_PATCH);
-
-    }
-
-    public static void removeFlora(){
-
         RegistryKey<PlacedFeature> VANILLA_PLAINS_FLOWERS = VegetationPlacedFeatures.FLOWER_PLAIN;
+
+        BiomeModifications.create(new Identifier(Sublunary.MOD_ID, "replace_plains_flowers"))
+                .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.foundInOverworld(),
+                        (context) ->
+                        {
+                            if (context.getGenerationSettings().removeFeature(VANILLA_PLAINS_FLOWERS)){
+                                context.getGenerationSettings()
+                                        .addFeature(GenerationStep.Feature.VEGETAL_DECORATION, SubVegetationPlacedFeatures.LAVENDER_PATCH_PLACED_KEY);
+                            }
+                        });
+
         RegistryKey<PlacedFeature> VANILLA_DEFAULT_FLOWERS = VegetationPlacedFeatures.FLOWER_DEFAULT;
         RegistryKey<PlacedFeature> VANILLA_WARM_FLOWERS = VegetationPlacedFeatures.FLOWER_WARM;
 
@@ -38,20 +34,25 @@ public class SublunaryFloraGeneration {
                 .add(ModificationPhase.REMOVALS, BiomeSelectors.foundInOverworld(),
                         (context) ->
                         {
-                            context.getGenerationSettings().removeFeature(VANILLA_PLAINS_FLOWERS);
                             context.getGenerationSettings().removeFeature(VANILLA_DEFAULT_FLOWERS);
                             context.getGenerationSettings().removeFeature(VANILLA_WARM_FLOWERS);
                         });
 
         RegistryKey<PlacedFeature> VANILLA_FOREST_GRASS = VegetationPlacedFeatures.PATCH_GRASS_FOREST;
 
-        BiomeModifications.create(new Identifier(Sublunary.MOD_ID, "remove_vanilla_grass"))
-                .add(ModificationPhase.REMOVALS, BiomeSelectors.includeByKey(
-                        BiomeKeys.FOREST, BiomeKeys.FLOWER_FOREST, BiomeKeys.BIRCH_FOREST, BiomeKeys.OLD_GROWTH_BIRCH_FOREST),
+        BiomeModifications.create(new Identifier(Sublunary.MOD_ID, "replace_vanilla_grass"))
+                .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.includeByKey
+                                (BiomeKeys.FOREST, BiomeKeys.FLOWER_FOREST, BiomeKeys.BIRCH_FOREST, BiomeKeys.OLD_GROWTH_BIRCH_FOREST, BiomeKeys.DARK_FOREST),
                         (context) ->
                         {
-                            context.getGenerationSettings().removeFeature(VANILLA_FOREST_GRASS);
+                            if (context.getGenerationSettings().removeFeature(VANILLA_FOREST_GRASS)){
+                                context.getGenerationSettings()
+                                        .addFeature(GenerationStep.Feature.VEGETAL_DECORATION, SubVegetationPlacedFeatures.FOREST_GRASS);
+                                context.getGenerationSettings()
+                                        .addFeature(GenerationStep.Feature.VEGETAL_DECORATION, SubVegetationPlacedFeatures.TALL_GRASS_PATCH);
+                            }
                         });
+
 
     }
 }

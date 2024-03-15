@@ -6,12 +6,20 @@ KaupenJoe's tutorials provided the basis for this mod
 
 FrozenBlock - Wilder Wild - https://github.com/FrozenBlock/WilderWild
 
-I used and translated the Wilder Wild source code into a different mapping to learn how to do a number of things:
+I read, used, and translated the Wilder Wild source code into a different mapping to learn how to do a number of things:
 
 Use ColorProviderRegistry to colour certain blocks as the biome colour (If I recall correctly? I'm actually not 100% sure but I'm including it anyway)
 
 Use datapools to provide multiple blockstates for WeightedBlockStateProvider
 
-Use BiomeModifications.create to remove certain vanilla placed features from generating in biomes
+Use BiomeModifications.create to remove certain vanilla mobs and placed features
+
+Use BiomeModifications.create to replace certain vanilla mobs and placed features
 
 --------------
+
+CallMeEchoCodes - Hollow - https://github.com/CallMeEchoCodes/Hollow
+
+I read the Hollow source code to learn how to:
+
+Use BiomeModifications.create to replace certain vanilla mobs and placed features
