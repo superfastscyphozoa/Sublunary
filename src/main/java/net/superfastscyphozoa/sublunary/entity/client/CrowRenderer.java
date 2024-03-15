@@ -6,22 +6,22 @@ import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 import net.superfastscyphozoa.sublunary.Sublunary;
-import net.superfastscyphozoa.sublunary.entity.BadgerEntity;
+import net.superfastscyphozoa.sublunary.entity.CrowEntity;
 
-public class BadgerRenderer extends MobEntityRenderer<BadgerEntity, BadgerModel<BadgerEntity>> {
-    private static final Identifier TEXTURE = new Identifier(Sublunary.MOD_ID, "textures/entity/badger.png");
+public class CrowRenderer extends MobEntityRenderer<CrowEntity, CrowModel<CrowEntity>> {
+    private static final Identifier TEXTURE = new Identifier(Sublunary.MOD_ID, "textures/entity/crow.png");
 
-    public BadgerRenderer(EntityRendererFactory.Context context) {
-        super(context, new BadgerModel<>(context.getPart(SublunaryModelLayers.BADGER)), 0.6f);
+    public CrowRenderer(EntityRendererFactory.Context context) {
+        super(context, new CrowModel<>(context.getPart(SublunaryModelLayers.CROW)), 0.2f);
     }
 
     @Override
-    public Identifier getTexture(BadgerEntity entity) {
+    public Identifier getTexture(CrowEntity entity) {
         return TEXTURE;
     }
 
     @Override
-    public void render(BadgerEntity mobEntity, float f, float g, MatrixStack matrixStack,
+    public void render(CrowEntity mobEntity, float f, float g, MatrixStack matrixStack,
                        VertexConsumerProvider vertexConsumerProvider, int i) {
 
         if(mobEntity.isBaby()){

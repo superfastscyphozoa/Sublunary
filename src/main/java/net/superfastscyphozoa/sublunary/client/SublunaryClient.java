@@ -7,9 +7,9 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.client.render.RenderLayer;
-import net.superfastscyphozoa.sublunary.entity.SublunaryEntities;
-import net.superfastscyphozoa.sublunary.entity.client.BadgerModel;
-import net.superfastscyphozoa.sublunary.entity.client.BadgerRenderer;
+import net.superfastscyphozoa.sublunary.registry.RegisterEntities;
+import net.superfastscyphozoa.sublunary.entity.client.CrowModel;
+import net.superfastscyphozoa.sublunary.entity.client.CrowRenderer;
 import net.superfastscyphozoa.sublunary.entity.client.SublunaryModelLayers;
 import net.superfastscyphozoa.sublunary.registry.RegisterBlocks;
 
@@ -27,8 +27,8 @@ public class SublunaryClient implements ClientModInitializer {
 
 
         //render mobs
-        EntityRendererRegistry.register(SublunaryEntities.BADGER, BadgerRenderer::new);
-        EntityModelLayerRegistry.registerModelLayer(SublunaryModelLayers.BADGER, BadgerModel::getTexturedModelData);
+        EntityRendererRegistry.register(RegisterEntities.CROW, CrowRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(SublunaryModelLayers.CROW, CrowModel::getTexturedModelData);
 
         //register block and item colours
 

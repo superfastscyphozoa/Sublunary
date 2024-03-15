@@ -5,6 +5,6 @@ import net.minecraft.util.Identifier;
 import net.superfastscyphozoa.sublunary.Sublunary;
 
 public class SublunaryModelLayers {
-    public static final EntityModelLayer BADGER =
-            new EntityModelLayer(new Identifier(Sublunary.MOD_ID, "badger"), "main");
+    public static final EntityModelLayer CROW =
+            new EntityModelLayer(new Identifier(Sublunary.MOD_ID, "crow"), "main");
 }

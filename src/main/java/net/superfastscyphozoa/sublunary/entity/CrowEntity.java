@@ -15,15 +15,16 @@ import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.world.World;
+import net.superfastscyphozoa.sublunary.registry.RegisterEntities;
 import org.jetbrains.annotations.Nullable;
 
-public class BadgerEntity extends AnimalEntity {
-    private static final Ingredient TEMPT_INGREDIENT = Ingredient.ofItems(Items.RABBIT, Items.HONEYCOMB, Items.SWEET_BERRIES);
+public class CrowEntity extends AnimalEntity {
+    private static final Ingredient TEMPT_INGREDIENT = Ingredient.ofItems(Items.WHEAT_SEEDS, Items.MELON_SEEDS, Items.PUMPKIN_SEEDS);
 
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationCooldown = 0;
 
-    public BadgerEntity(EntityType<? extends AnimalEntity> entityType, World world) {
+    public CrowEntity(EntityType<? extends AnimalEntity> entityType, World world) {
         super(entityType, world);
     }
 
@@ -62,7 +63,7 @@ public class BadgerEntity extends AnimalEntity {
         this.goalSelector.add(7, new LookAroundGoal(this));
     }
 
-    public static DefaultAttributeContainer.Builder createBadgerAttributes(){
+    public static DefaultAttributeContainer.Builder createCrowAttributes(){
         return MobEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 10)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.25);
@@ -70,12 +71,12 @@ public class BadgerEntity extends AnimalEntity {
 
     @Override
     public boolean isBreedingItem(ItemStack stack) {
-        return stack.isOf(Items.RABBIT);
+        return stack.isOf(Items.WHEAT_SEEDS);
     }
 
     @Nullable
     @Override
     public PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
-        return SublunaryEntities.BADGER.create(world);
+        return RegisterEntities.CROW.create(world);
     }
 }

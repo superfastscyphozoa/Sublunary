@@ -5,32 +5,26 @@ import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
-import net.minecraft.entity.passive.RabbitEntity;
-import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.biome.BiomeKeys;
-import net.minecraft.world.gen.GenerationStep;
-import net.minecraft.world.gen.feature.PlacedFeature;
-import net.minecraft.world.gen.feature.VegetationPlacedFeatures;
 import net.superfastscyphozoa.sublunary.Sublunary;
-import net.superfastscyphozoa.sublunary.entity.SublunaryEntities;
-import net.superfastscyphozoa.sublunary.world.feature.placed.SubVegetationPlacedFeatures;
+import net.superfastscyphozoa.sublunary.registry.RegisterEntities;
 
 public class SublunaryEntityGeneration {
 
     public static void generateEntities(){
 
         BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.FOREST),
-                SpawnGroup.CREATURE, EntityType.RABBIT, 12, 3, 6);
+                SpawnGroup.CREATURE, EntityType.MULE, 12, 1, 4);
 
         BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.FOREST),
-                SpawnGroup.CREATURE, EntityType.MULE, 10, 1, 4);
+                SpawnGroup.CREATURE, EntityType.RABBIT, 10, 3, 6);
+
+        BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.FOREST),
+                SpawnGroup.CREATURE, RegisterEntities.CROW, 10, 1, 2);
 
         BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.FOREST),
                 SpawnGroup.CREATURE, EntityType.FOX, 8, 2, 3);
-
-        BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.FOREST),
-                SpawnGroup.CREATURE, SublunaryEntities.BADGER, 8, 1, 2);
 
     }
 
@@ -42,8 +36,9 @@ public class SublunaryEntityGeneration {
                         {
                             context.getSpawnSettings().removeSpawnsOfEntityType(EntityType.COW);
                             context.getSpawnSettings().removeSpawnsOfEntityType(EntityType.PIG);
-                            context.getSpawnSettings().removeSpawnsOfEntityType(EntityType.CHICKEN);
                             context.getSpawnSettings().removeSpawnsOfEntityType(EntityType.SHEEP);
+                            context.getSpawnSettings().removeSpawnsOfEntityType(EntityType.CHICKEN);
                         });
+
     }
 }

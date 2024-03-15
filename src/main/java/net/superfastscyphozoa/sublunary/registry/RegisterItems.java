@@ -8,7 +8,6 @@ import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
 import net.superfastscyphozoa.sublunary.Sublunary;
-import net.superfastscyphozoa.sublunary.entity.SublunaryEntities;
 import net.superfastscyphozoa.sublunary.items.FlourItem;
 import net.superfastscyphozoa.sublunary.items.SublunaryFoods;
 
@@ -36,8 +35,8 @@ public class RegisterItems {
             new AliasedBlockItem(RegisterBlocks.TURKEY_TAIL, (new FabricItemSettings()).food(SublunaryFoods.TURKEY_TAIL)));
 
     //spawn eggs
-    public static final Item BADGER_SPAWN_EGG = registerItem("badger_spawn_egg",
-            new SpawnEggItem(SublunaryEntities.BADGER, 0xa86518, 0xa86519, new FabricItemSettings()));
+    public static final Item CROW_SPAWN_EGG = registerItem("crow_spawn_egg",
+            new SpawnEggItem(RegisterEntities.CROW, 0xa86518, 0xa86519, new FabricItemSettings()));
 
     //registry end
 
@@ -57,7 +56,7 @@ public class RegisterItems {
         addToItemGroup(ItemGroups.NATURAL, TURKEY_TAIL_FUNGUS);
         addToItemGroup(ItemGroups.FOOD_AND_DRINK, TURKEY_TAIL_FUNGUS);
 
-        addToItemGroup(ItemGroups.SPAWN_EGGS, BADGER_SPAWN_EGG);
+        addToItemGroup(ItemGroups.SPAWN_EGGS, CROW_SPAWN_EGG);
     }
 
     public static void addToItemGroup(RegistryKey<ItemGroup> group, Item item){
