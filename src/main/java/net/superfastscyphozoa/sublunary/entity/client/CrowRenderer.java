@@ -9,7 +9,9 @@ import net.superfastscyphozoa.sublunary.Sublunary;
 import net.superfastscyphozoa.sublunary.entity.CrowEntity;
 
 public class CrowRenderer extends MobEntityRenderer<CrowEntity, CrowModel<CrowEntity>> {
-    private static final Identifier TEXTURE = new Identifier(Sublunary.MOD_ID, "textures/entity/crow.png");
+    private static final Identifier BLACK_TEXTURE = new Identifier(Sublunary.MOD_ID, "textures/entity/crow/crow.png");
+    private static final Identifier BROWN_TEXTURE = new Identifier(Sublunary.MOD_ID, "textures/entity/crow/brown_crow.png");
+    private static final Identifier WHITE_TEXTURE = new Identifier(Sublunary.MOD_ID, "textures/entity/crow/white_crow.png");
 
     public CrowRenderer(EntityRendererFactory.Context context) {
         super(context, new CrowModel<>(context.getPart(SublunaryModelLayers.CROW)), 0.2f);
@@ -17,7 +19,7 @@ public class CrowRenderer extends MobEntityRenderer<CrowEntity, CrowModel<CrowEn
 
     @Override
     public Identifier getTexture(CrowEntity entity) {
-        return TEXTURE;
+        return BROWN_TEXTURE;
     }
 
     @Override

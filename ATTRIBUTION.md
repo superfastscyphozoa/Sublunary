@@ -2,7 +2,7 @@ KaupenJoe - https://github.com/Tutorials-By-Kaupenjoe/Fabric-Tutorial-1.20.X
 
 KaupenJoe's tutorials provided the basis for this mod
 
--------------
+--------------
 
 FrozenBlock - Wilder Wild - https://github.com/FrozenBlock/WilderWild
 
@@ -12,9 +12,7 @@ Use ColorProviderRegistry to colour certain blocks as the biome colour (If I rec
 
 Use datapools to provide multiple blockstates for WeightedBlockStateProvider
 
-Use BiomeModifications.create to remove certain vanilla mobs and placed features
-
-Use BiomeModifications.create to replace certain vanilla mobs and placed features
+Use BiomeModifications.create to replace and remove certain vanilla mobs and placed features
 
 --------------
 
@@ -22,4 +20,6 @@ CallMeEchoCodes - Hollow - https://github.com/CallMeEchoCodes/Hollow
 
 I read the Hollow source code to learn how to:
 
-Use BiomeModifications.create to replace certain vanilla mobs and placed features
+Use an if statement in BiomeModifications.create to replace certain vanilla mobs and placed features
+
+--------------
