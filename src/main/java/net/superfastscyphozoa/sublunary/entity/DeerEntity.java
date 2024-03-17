@@ -6,8 +6,12 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.data.DataTracker;
+import net.minecraft.entity.data.TrackedData;
+import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.AnimalEntity;
+import net.minecraft.entity.passive.FoxEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -18,8 +22,6 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 public class DeerEntity extends AnimalEntity{
-    private static final Ingredient TEMPT_INGREDIENT = Ingredient.ofItems(Items.WHEAT, Items.SWEET_BERRIES, Items.APPLE);
-
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationCooldown = 0;
 
@@ -56,13 +58,13 @@ public class DeerEntity extends AnimalEntity{
         this.goalSelector.add(0, new SwimGoal(this));
         this.goalSelector.add(1, new EscapeDangerGoal(this, 1.25));
         this.goalSelector.add(2, new AnimalMateGoal(this, 1.0));
-        this.goalSelector.add(3, new TemptGoal(this, 1.2, TEMPT_INGREDIENT, false));
+        this.goalSelector.add(3, new FleeEntityGoal<>(this, PlayerEntity.class, 16.0f, 1.6, 1.4));
         this.goalSelector.add(4, new FollowParentGoal(this, 1.1));
-        this.goalSelector.add(5, new LookAtEntityGoal(this, PlayerEntity.class, 6.0f));
+        this.goalSelector.add(5, new LookAtEntityGoal(this, CrowEntity.class, 6.0f));
         this.goalSelector.add(6, new LookAroundGoal(this));
     }
 
-    public static DefaultAttributeContainer.Builder createCrowAttributes(){
+    public static DefaultAttributeContainer.Builder createDeerAttributes(){
         return MobEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 15)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.4);
