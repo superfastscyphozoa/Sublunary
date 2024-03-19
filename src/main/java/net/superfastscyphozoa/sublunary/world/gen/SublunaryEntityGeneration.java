@@ -15,32 +15,16 @@ public class SublunaryEntityGeneration {
 
     public static void generateEntities(){
 
-        BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.PLAINS),
-                SpawnGroup.CREATURE, RegisterEntities.CROW, 8, 3, 5);
+        BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.FOREST),
+                SpawnGroup.CREATURE, EntityType.MULE, 16, 1, 4);
 
-        BiomeModifications.create(new Identifier(Sublunary.MOD_ID, "replace_forest_creaturas"))
-                .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.includeByKey(BiomeKeys.FOREST),
-                        (context) ->
-                        {
-                            if (context.getSpawnSettings().removeSpawnsOfEntityType(EntityType.SHEEP)){
-                                context.getSpawnSettings().addSpawn(SpawnGroup.CREATURE,
-                                        new SpawnSettings.SpawnEntry(EntityType.MULE, 12, 1, 4));
-                            }
+        BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.FOREST),
+                SpawnGroup.CREATURE, EntityType.RABBIT, 12, 3, 5);
 
-                            if (context.getSpawnSettings().removeSpawnsOfEntityType(EntityType.CHICKEN)){
-                                context.getSpawnSettings().addSpawn(SpawnGroup.CREATURE,
-                                        new SpawnSettings.SpawnEntry(EntityType.RABBIT, 10, 3, 6));
-                            }
+        BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.FOREST),
+                SpawnGroup.CREATURE, EntityType.FOX, 14, 2, 3);
 
-                            if (context.getSpawnSettings().removeSpawnsOfEntityType(EntityType.PIG)){
-                                context.getSpawnSettings().addSpawn(SpawnGroup.CREATURE,
-                                        new SpawnSettings.SpawnEntry(RegisterEntities.CROW, 10, 3, 5));
-                            }
-
-                            if (context.getSpawnSettings().removeSpawnsOfEntityType(EntityType.COW)){
-                                context.getSpawnSettings().addSpawn(SpawnGroup.CREATURE,
-                                        new SpawnSettings.SpawnEntry(EntityType.FOX, 8, 2, 3));
-                            }
-                        });
+        BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.PLAINS, BiomeKeys.FOREST),
+                SpawnGroup.CREATURE, RegisterEntities.CROW, 16, 3, 5);
     }
 }

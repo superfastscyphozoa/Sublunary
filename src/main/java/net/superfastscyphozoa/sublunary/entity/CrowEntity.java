@@ -89,7 +89,7 @@ public class CrowEntity extends AnimalEntity{
 
         float f = this.getPose() == EntityPose.STANDING ? Math.min(posDelta * 6.0f, 1.0f) : 0.0f;
 
-        this.limbAnimator.updateLimbs(f, 0.8f);
+        this.limbAnimator.updateLimbs(f, 0.3f);
     }
 
     @Override
@@ -177,10 +177,18 @@ public class CrowEntity extends AnimalEntity{
             BlockPos blockPos = this.mob.getBlockPos();
             BlockPos.Mutable mutable = new BlockPos.Mutable();
             BlockPos.Mutable mutable2 = new BlockPos.Mutable();
-            Iterable<BlockPos> iterable = BlockPos.iterate(MathHelper.floor(this.mob.getX() - 3.0), MathHelper.floor(this.mob.getY() - 6.0), MathHelper.floor(this.mob.getZ() - 3.0), MathHelper.floor(this.mob.getX() + 3.0), MathHelper.floor(this.mob.getY() + 6.0), MathHelper.floor(this.mob.getZ() + 3.0));
+            Iterable<BlockPos> iterable = BlockPos.iterate(MathHelper.floor(this.mob.getX() - 3.0),
+                    MathHelper.floor(this.mob.getY() - 6.0),
+                    MathHelper.floor(this.mob.getZ() - 3.0),
+                    MathHelper.floor(this.mob.getX() + 3.0),
+                    MathHelper.floor(this.mob.getY() + 6.0),
+                    MathHelper.floor(this.mob.getZ() + 3.0));
             for (BlockPos blockPos2 : iterable) {
                 BlockState blockState;
-                if (blockPos.equals(blockPos2) || !((blockState = this.mob.getWorld().getBlockState(mutable2.set(blockPos2, Direction.DOWN))).getBlock() instanceof LeavesBlock || blockState.isIn(BlockTags.LOGS)) || !this.mob.getWorld().isAir(blockPos2) || !this.mob.getWorld().isAir(mutable.set(blockPos2, Direction.UP))) continue;
+                if (blockPos.equals(blockPos2) || !((blockState = this.mob.getWorld()
+                        .getBlockState(mutable2.set(blockPos2, Direction.DOWN))).getBlock() instanceof LeavesBlock ||
+                        blockState.isIn(BlockTags.LOGS)) || !this.mob.getWorld().isAir(blockPos2) || !this.mob.getWorld()
+                        .isAir(mutable.set(blockPos2, Direction.UP))) continue;
                 return Vec3d.ofBottomCenter(blockPos2);
             }
             return null;

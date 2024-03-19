@@ -14,5 +14,5 @@ public class RegisterEntities {
     public static final EntityType<CrowEntity> CROW = Registry.register(Registries.ENTITY_TYPE,
             new Identifier(Sublunary.MOD_ID, "crow"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, CrowEntity::new)
-                    .dimensions(EntityDimensions.fixed(0.4f,0.5f)).build());
+                    .dimensions(EntityDimensions.fixed(0.3f,0.6f)).build());
 }
