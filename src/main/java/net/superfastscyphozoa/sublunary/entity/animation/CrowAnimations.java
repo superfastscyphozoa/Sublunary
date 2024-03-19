@@ -161,6 +161,18 @@ public class CrowAnimations {
                                         Transformation.Interpolations.LINEAR),
                                 new Keyframe(0.5f, AnimationHelper.createTranslationalVector(0f, 0f, 0f),
                                         Transformation.Interpolations.LINEAR)))
+                .addBoneAnimation("body",
+                        new Transformation(Transformation.Targets.ROTATE,
+                                new Keyframe(0f, AnimationHelper.createRotationalVector(0f, 0f, 0f),
+                                        Transformation.Interpolations.LINEAR),
+                                new Keyframe(0.16766666f, AnimationHelper.createRotationalVector(0f, 2.5f, 0f),
+                                        Transformation.Interpolations.LINEAR),
+                                new Keyframe(0.25f, AnimationHelper.createRotationalVector(0f, 0f, 0f),
+                                        Transformation.Interpolations.LINEAR),
+                                new Keyframe(0.4167667f, AnimationHelper.createRotationalVector(0f, -2.5f, 0f),
+                                        Transformation.Interpolations.LINEAR),
+                                new Keyframe(0.5f, AnimationHelper.createRotationalVector(0f, 0f, 0f),
+                                        Transformation.Interpolations.LINEAR)))
                 .addBoneAnimation("leg1",
                         new Transformation(Transformation.Targets.ROTATE,
                                 new Keyframe(0f, AnimationHelper.createRotationalVector(0f, 0f, 0f),
