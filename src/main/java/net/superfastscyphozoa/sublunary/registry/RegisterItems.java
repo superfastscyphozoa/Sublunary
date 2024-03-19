@@ -36,7 +36,7 @@ public class RegisterItems {
 
     //spawn eggs
     public static final Item CROW_SPAWN_EGG = registerItem("crow_spawn_egg",
-            new SpawnEggItem(RegisterEntities.CROW, 0xa86518, 0xa86519, new FabricItemSettings()));
+            new SpawnEggItem(RegisterEntities.CROW, 1051950, 5715335, new FabricItemSettings()));
 
     //registry end
 
