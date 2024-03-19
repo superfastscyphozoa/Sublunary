@@ -2,7 +2,9 @@ package net.superfastscyphozoa.sublunary.entity;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.LeavesBlock;
-import net.minecraft.entity.*;
+import net.minecraft.entity.AnimationState;
+import net.minecraft.entity.EntityPose;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.FuzzyTargeting;
 import net.minecraft.entity.ai.control.FlightMoveControl;
 import net.minecraft.entity.ai.goal.*;
@@ -13,14 +15,18 @@ import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.mob.PathAwareEntity;
-import net.minecraft.entity.passive.*;
+import net.minecraft.entity.passive.AnimalEntity;
+import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.math.*;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.superfastscyphozoa.sublunary.registry.RegisterEntities;
 import org.jetbrains.annotations.Nullable;
@@ -29,30 +35,51 @@ public class CrowEntity extends AnimalEntity{
     private static final Ingredient TEMPT_INGREDIENT = Ingredient.ofItems(Items.WHEAT_SEEDS, Items.MELON_SEEDS, Items.PUMPKIN_SEEDS);
 
     public final AnimationState idleAnimationState = new AnimationState();
-    public final AnimationState hoverAnimationState = new AnimationState();
+    public final AnimationState flyAnimationState = new AnimationState();
+    public final AnimationState hopAnimationState = new AnimationState();
 
     public CrowEntity(EntityType<? extends AnimalEntity> entityType, World world) {
         super(entityType, world);
+
         this.moveControl = new FlightMoveControl(this, 10, false);
         this.setPathfindingPenalty(PathNodeType.DANGER_FIRE, -1.0F);
         this.setPathfindingPenalty(PathNodeType.DAMAGE_FIRE, -1.0F);
     }
 
     private void updateAnimations(){
-        if(this.prevY <= this.getY()){
-            if(!this.idleAnimationState.isRunning()){
-                this.idleAnimationState.start(this.age);
+        var idle = this.idleAnimationState;
+        var fly = this.flyAnimationState;
+        var hop = this.hopAnimationState;
+
+        if (this.getY() == this.prevY) {
+            if(this.getX() == this.prevX && this.getZ() == this.prevZ) {
+
+                if (!idle.isRunning()) {
+                    idle.start(this.age);
+                }
+                if (fly.isRunning() || hop.isRunning()) {
+                    fly.stop();
+                    hop.stop();
+                }
+
+            } else {
+
+                if (!hop.isRunning()) {
+                    hop.start(this.age);
+                }
+                if (fly.isRunning() || idle.isRunning()) {
+                    fly.stop();
+                    idle.stop();
+                }
             }
-            if(this.hoverAnimationState.isRunning()){
-                this.hoverAnimationState.stop();
+        } else {
+
+            if (!fly.isRunning()) {
+                fly.start(this.age);
             }
-        }
-        else {
-            if(!this.hoverAnimationState.isRunning()){
-                this.hoverAnimationState.start(this.age);
-            }
-            if(this.idleAnimationState.isRunning()){
-                this.idleAnimationState.stop();
+            if (idle.isRunning() || hop.isRunning()) {
+                idle.stop();
+                hop.stop();
             }
         }
     }
@@ -90,7 +117,7 @@ public class CrowEntity extends AnimalEntity{
         this.goalSelector.add(2, new AnimalMateGoal(this, 1.0));
         this.goalSelector.add(3, new TemptGoal(this, 1.2, TEMPT_INGREDIENT, false));
         this.goalSelector.add(4, new FollowParentGoal(this, 1.1));
-        this.goalSelector.add(2, new FlyOntoTreeGoal(this, 1.0));
+        this.goalSelector.add(5, new FlyOntoTreeGoal(this, 1.0));
         this.goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, 6.0f));
         this.goalSelector.add(7, new LookAroundGoal(this));
     }

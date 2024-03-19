@@ -60,9 +60,10 @@ public class CrowModel<T extends CrowEntity> extends SinglePartEntityModel<T> {
 		this.getPart().traverse().forEach(ModelPart::resetTransform);
 		this.setHeadAngles(netHeadYaw, headPitch);
 
-		this.animateMovement(CrowAnimations.CROWFLY, limbSwing, limbSwingAmount, 2f, 2.5f);
+		//this.animateMovement(CrowAnimations.CROWFLY, limbSwing, limbSwingAmount, 2f, 2.5f);
 		this.updateAnimation(entity.idleAnimationState, CrowAnimations.CROWIDLE, ageInTicks, 1f);
-		this.updateAnimation(entity.hoverAnimationState, CrowAnimations.CROWHOVER, ageInTicks, 1f);
+		this.updateAnimation(entity.flyAnimationState, CrowAnimations.CROWFLY, ageInTicks, 1f);
+		this.updateAnimation(entity.hopAnimationState, CrowAnimations.CROWHOP, ageInTicks, 1f);
 	}
 
 	private void setHeadAngles(float headYaw, float headPitch){

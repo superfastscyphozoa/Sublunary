@@ -8,80 +8,6 @@ import net.minecraft.client.render.entity.animation.Transformation;
 public class CrowAnimations {
 
         //Crow
-        public static final Animation CROWFLY = Animation.Builder.create(0.25f).looping()
-                .addBoneAnimation("body",
-                        new Transformation(Transformation.Targets.TRANSLATE,
-                                new Keyframe(0f, AnimationHelper.createTranslationalVector(0f, 0f, 0f),
-                                        Transformation.Interpolations.LINEAR),
-                                new Keyframe(0.08343333f, AnimationHelper.createTranslationalVector(0f, 0.3f, 0f),
-                                        Transformation.Interpolations.LINEAR),
-                                new Keyframe(0.25f, AnimationHelper.createTranslationalVector(0f, 0f, 0f),
-                                        Transformation.Interpolations.LINEAR)))
-                .addBoneAnimation("body",
-                        new Transformation(Transformation.Targets.ROTATE,
-                                new Keyframe(0f, AnimationHelper.createRotationalVector(3.5f, 0f, 0f),
-                                        Transformation.Interpolations.LINEAR),
-                                new Keyframe(0.16766666f, AnimationHelper.createRotationalVector(3f, 0f, 0f),
-                                        Transformation.Interpolations.LINEAR),
-                                new Keyframe(0.25f, AnimationHelper.createRotationalVector(3.5f, 0f, 0f),
-                                        Transformation.Interpolations.LINEAR)))
-                .addBoneAnimation("leg1",
-                        new Transformation(Transformation.Targets.ROTATE,
-                                new Keyframe(0f, AnimationHelper.createRotationalVector(50f, 0f, 0f),
-                                        Transformation.Interpolations.LINEAR),
-                                new Keyframe(0.16766666f, AnimationHelper.createRotationalVector(57.5f, 0f, 0f),
-                                        Transformation.Interpolations.LINEAR),
-                                new Keyframe(0.25f, AnimationHelper.createRotationalVector(50f, 0f, 0f),
-                                        Transformation.Interpolations.LINEAR)))
-                .addBoneAnimation("leg2",
-                        new Transformation(Transformation.Targets.ROTATE,
-                                new Keyframe(0f, AnimationHelper.createRotationalVector(50f, 0f, 0f),
-                                        Transformation.Interpolations.LINEAR),
-                                new Keyframe(0.16766666f, AnimationHelper.createRotationalVector(57.5f, 0f, 0f),
-                                        Transformation.Interpolations.LINEAR),
-                                new Keyframe(0.25f, AnimationHelper.createRotationalVector(50f, 0f, 0f),
-                                        Transformation.Interpolations.LINEAR)))
-                .addBoneAnimation("wing1",
-                        new Transformation(Transformation.Targets.TRANSLATE,
-                                new Keyframe(0f, AnimationHelper.createTranslationalVector(0f, 0f, 0f),
-                                        Transformation.Interpolations.LINEAR),
-                                new Keyframe(0.16766666f, AnimationHelper.createTranslationalVector(0.3f, -1f, 1f),
-                                        Transformation.Interpolations.LINEAR),
-                                new Keyframe(0.25f, AnimationHelper.createTranslationalVector(0f, 0f, 0f),
-                                        Transformation.Interpolations.LINEAR)))
-                .addBoneAnimation("wing1",
-                        new Transformation(Transformation.Targets.ROTATE,
-                                new Keyframe(0f, AnimationHelper.createRotationalVector(-35f, 0f, 0f),
-                                        Transformation.Interpolations.LINEAR),
-                                new Keyframe(0.16766666f, AnimationHelper.createRotationalVector(-35f, 0f, 97.5f),
-                                        Transformation.Interpolations.LINEAR),
-                                new Keyframe(0.25f, AnimationHelper.createRotationalVector(-35f, 0f, 0f),
-                                        Transformation.Interpolations.LINEAR)))
-                .addBoneAnimation("wing2",
-                        new Transformation(Transformation.Targets.TRANSLATE,
-                                new Keyframe(0f, AnimationHelper.createTranslationalVector(0f, 0f, 0f),
-                                        Transformation.Interpolations.LINEAR),
-                                new Keyframe(0.16766666f, AnimationHelper.createTranslationalVector(-0.3f, -1f, 1f),
-                                        Transformation.Interpolations.LINEAR),
-                                new Keyframe(0.25f, AnimationHelper.createTranslationalVector(0f, 0f, 0f),
-                                        Transformation.Interpolations.LINEAR)))
-                .addBoneAnimation("wing2",
-                        new Transformation(Transformation.Targets.ROTATE,
-                                new Keyframe(0f, AnimationHelper.createRotationalVector(-35f, 0f, 0f),
-                                        Transformation.Interpolations.LINEAR),
-                                new Keyframe(0.16766666f, AnimationHelper.createRotationalVector(-35f, 0f, -97.5f),
-                                        Transformation.Interpolations.LINEAR),
-                                new Keyframe(0.25f, AnimationHelper.createRotationalVector(-35f, 0f, 0f),
-                                        Transformation.Interpolations.LINEAR)))
-                .addBoneAnimation("tail",
-                        new Transformation(Transformation.Targets.ROTATE,
-                                new Keyframe(0f, AnimationHelper.createRotationalVector(0f, 0f, 0f),
-                                        Transformation.Interpolations.LINEAR),
-                                new Keyframe(0.16766666f, AnimationHelper.createRotationalVector(4f, 0f, 0f),
-                                        Transformation.Interpolations.LINEAR),
-                                new Keyframe(0.25f, AnimationHelper.createRotationalVector(0f, 0f, 0f),
-                                        Transformation.Interpolations.LINEAR))).build();
-
         public static final Animation CROWIDLE = Animation.Builder.create(1f).looping()
                 .addBoneAnimation("body",
                         new Transformation(Transformation.Targets.TRANSLATE,
@@ -148,7 +74,7 @@ public class CrowAnimations {
                                 new Keyframe(1f, AnimationHelper.createRotationalVector(0f, 0f, 0f),
                                         Transformation.Interpolations.LINEAR))).build();
 
-        public static final Animation CROWHOVER = Animation.Builder.create(0.25f).looping()
+        public static final Animation CROWFLY = Animation.Builder.create(0.25f).looping()
                 .addBoneAnimation("body",
                         new Transformation(Transformation.Targets.TRANSLATE,
                                 new Keyframe(0f, AnimationHelper.createTranslationalVector(0f, 0f, 0f),
@@ -167,19 +93,19 @@ public class CrowAnimations {
                                         Transformation.Interpolations.LINEAR)))
                 .addBoneAnimation("leg1",
                         new Transformation(Transformation.Targets.ROTATE,
-                                new Keyframe(0f, AnimationHelper.createRotationalVector(10f, 0f, 0f),
+                                new Keyframe(0f, AnimationHelper.createRotationalVector(50f, 0f, 0f),
                                         Transformation.Interpolations.LINEAR),
-                                new Keyframe(0.16766666f, AnimationHelper.createRotationalVector(15f, 0f, 0f),
+                                new Keyframe(0.16766666f, AnimationHelper.createRotationalVector(57.5f, 0f, 0f),
                                         Transformation.Interpolations.LINEAR),
-                                new Keyframe(0.25f, AnimationHelper.createRotationalVector(10f, 0f, 0f),
+                                new Keyframe(0.25f, AnimationHelper.createRotationalVector(50f, 0f, 0f),
                                         Transformation.Interpolations.LINEAR)))
                 .addBoneAnimation("leg2",
                         new Transformation(Transformation.Targets.ROTATE,
-                                new Keyframe(0f, AnimationHelper.createRotationalVector(10f, 0f, 0f),
+                                new Keyframe(0f, AnimationHelper.createRotationalVector(50f, 0f, 0f),
                                         Transformation.Interpolations.LINEAR),
-                                new Keyframe(0.16766666f, AnimationHelper.createRotationalVector(15f, 0f, 0f),
+                                new Keyframe(0.16766666f, AnimationHelper.createRotationalVector(57.5f, 0f, 0f),
                                         Transformation.Interpolations.LINEAR),
-                                new Keyframe(0.25f, AnimationHelper.createRotationalVector(10f, 0f, 0f),
+                                new Keyframe(0.25f, AnimationHelper.createRotationalVector(50f, 0f, 0f),
                                         Transformation.Interpolations.LINEAR)))
                 .addBoneAnimation("wing1",
                         new Transformation(Transformation.Targets.TRANSLATE,
@@ -193,7 +119,7 @@ public class CrowAnimations {
                         new Transformation(Transformation.Targets.ROTATE,
                                 new Keyframe(0f, AnimationHelper.createRotationalVector(-35f, 0f, 0f),
                                         Transformation.Interpolations.LINEAR),
-                                new Keyframe(0.16766666f, AnimationHelper.createRotationalVector(-35f, 0f, 75f),
+                                new Keyframe(0.16766666f, AnimationHelper.createRotationalVector(-35f, 0f, 120f),
                                         Transformation.Interpolations.LINEAR),
                                 new Keyframe(0.25f, AnimationHelper.createRotationalVector(-35f, 0f, 0f),
                                         Transformation.Interpolations.LINEAR)))
@@ -209,7 +135,7 @@ public class CrowAnimations {
                         new Transformation(Transformation.Targets.ROTATE,
                                 new Keyframe(0f, AnimationHelper.createRotationalVector(-35f, 0f, 0f),
                                         Transformation.Interpolations.LINEAR),
-                                new Keyframe(0.16766666f, AnimationHelper.createRotationalVector(-35f, 0f, -75f),
+                                new Keyframe(0.16766666f, AnimationHelper.createRotationalVector(-35f, 0f, -120f),
                                         Transformation.Interpolations.LINEAR),
                                 new Keyframe(0.25f, AnimationHelper.createRotationalVector(-35f, 0f, 0f),
                                         Transformation.Interpolations.LINEAR)))
@@ -218,6 +144,56 @@ public class CrowAnimations {
                                 new Keyframe(0f, AnimationHelper.createRotationalVector(0f, 0f, 0f),
                                         Transformation.Interpolations.LINEAR),
                                 new Keyframe(0.16766666f, AnimationHelper.createRotationalVector(4f, 0f, 0f),
+                                        Transformation.Interpolations.LINEAR),
+                                new Keyframe(0.25f, AnimationHelper.createRotationalVector(0f, 0f, 0f),
+                                        Transformation.Interpolations.LINEAR))).build();
+
+        public static final Animation CROWHOP = Animation.Builder.create(0.25f).looping()
+                .addBoneAnimation("body",
+                        new Transformation(Transformation.Targets.TRANSLATE,
+                                new Keyframe(0f, AnimationHelper.createTranslationalVector(0f, 0f, 0f),
+                                        Transformation.Interpolations.LINEAR),
+                                new Keyframe(0.16766666f, AnimationHelper.createTranslationalVector(0f, 0.6f, 0f),
+                                        Transformation.Interpolations.LINEAR),
+                                new Keyframe(0.25f, AnimationHelper.createTranslationalVector(0f, 0f, 0f),
+                                        Transformation.Interpolations.LINEAR)))
+                .addBoneAnimation("leg1",
+                        new Transformation(Transformation.Targets.ROTATE,
+                                new Keyframe(0f, AnimationHelper.createRotationalVector(0f, 0f, 0f),
+                                        Transformation.Interpolations.LINEAR),
+                                new Keyframe(0.16766666f, AnimationHelper.createRotationalVector(35f, 0f, 0f),
+                                        Transformation.Interpolations.LINEAR),
+                                new Keyframe(0.25f, AnimationHelper.createRotationalVector(0f, 0f, 0f),
+                                        Transformation.Interpolations.LINEAR)))
+                .addBoneAnimation("leg2",
+                        new Transformation(Transformation.Targets.ROTATE,
+                                new Keyframe(0f, AnimationHelper.createRotationalVector(0f, 0f, 0f),
+                                        Transformation.Interpolations.LINEAR),
+                                new Keyframe(0.16766666f, AnimationHelper.createRotationalVector(35f, 0f, 0f),
+                                        Transformation.Interpolations.LINEAR),
+                                new Keyframe(0.25f, AnimationHelper.createRotationalVector(0f, 0f, 0f),
+                                        Transformation.Interpolations.LINEAR)))
+                .addBoneAnimation("wing1",
+                        new Transformation(Transformation.Targets.ROTATE,
+                                new Keyframe(0f, AnimationHelper.createRotationalVector(0f, 0f, 0f),
+                                        Transformation.Interpolations.LINEAR),
+                                new Keyframe(0.16766666f, AnimationHelper.createRotationalVector(22.5f, 0f, 0f),
+                                        Transformation.Interpolations.LINEAR),
+                                new Keyframe(0.25f, AnimationHelper.createRotationalVector(0f, 0f, 0f),
+                                        Transformation.Interpolations.LINEAR)))
+                .addBoneAnimation("wing2",
+                        new Transformation(Transformation.Targets.ROTATE,
+                                new Keyframe(0f, AnimationHelper.createRotationalVector(0f, 0f, 0f),
+                                        Transformation.Interpolations.LINEAR),
+                                new Keyframe(0.16766666f, AnimationHelper.createRotationalVector(22.5f, 0f, 0f),
+                                        Transformation.Interpolations.LINEAR),
+                                new Keyframe(0.25f, AnimationHelper.createRotationalVector(0f, 0f, 0f),
+                                        Transformation.Interpolations.LINEAR)))
+                .addBoneAnimation("tail",
+                        new Transformation(Transformation.Targets.ROTATE,
+                                new Keyframe(0f, AnimationHelper.createRotationalVector(0f, 0f, 0f),
+                                        Transformation.Interpolations.LINEAR),
+                                new Keyframe(0.16766666f, AnimationHelper.createRotationalVector(10f, 0f, 0f),
                                         Transformation.Interpolations.LINEAR),
                                 new Keyframe(0.25f, AnimationHelper.createRotationalVector(0f, 0f, 0f),
                                         Transformation.Interpolations.LINEAR))).build();
