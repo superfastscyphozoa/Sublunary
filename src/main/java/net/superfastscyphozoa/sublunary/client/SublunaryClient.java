@@ -23,23 +23,9 @@ public class SublunaryClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlocks.LAVENDER, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlocks.CLOVERS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlocks.SHORT_GRASS, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlocks.TURKEY_TAIL, RenderLayer.getCutout());
-
 
         //render mobs
         EntityRendererRegistry.register(RegisterEntities.CROW, CrowRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(SublunaryModelLayers.CROW, CrowModel::getTexturedModelData);
-
-        //register block and item colours
-
-        int itemGrassColour = 7979098;
-        int itemFoliageColour = 5877296;
-
-        ColorProviderRegistry.BLOCK.register(((state, level, pos, tintIndex) ->
-                        BiomeColors.getGrassColor(Objects.requireNonNull(level), Objects.requireNonNull(pos))),
-                RegisterBlocks.CLOVERS, RegisterBlocks.SHORT_GRASS);
-
-        ColorProviderRegistry.ITEM.register(((state, tintIndex) -> itemGrassColour),
-                RegisterBlocks.SHORT_GRASS);
     }
 }

@@ -17,7 +17,6 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.superfastscyphozoa.sublunary.Sublunary;
 import net.superfastscyphozoa.sublunary.blocks.BushyFlowerBlock;
-import net.superfastscyphozoa.sublunary.blocks.ShelfFungusBlock;
 import net.superfastscyphozoa.sublunary.blocks.ShortGrassBlock;
 
 public class RegisterBlocks {
@@ -56,19 +55,8 @@ public class RegisterBlocks {
             new Block(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).requiresTool()),
             null);
     public static final Block RED_MAPLE_LEAVES = registerBlock("red_maple_leaves",
-            new LeavesBlock(FabricBlockSettings.create().mapColor(MapColor.RED).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.AZALEA_LEAVES).nonOpaque().allowsSpawning(Blocks::canSpawnOnLeaves).suffocates(Blocks::never).blockVision(Blocks::never).burnable().pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::never)),
+            new LeavesBlock(FabricBlockSettings.create().mapColor(MapColor.RED).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning(Blocks::canSpawnOnLeaves).suffocates(Blocks::never).blockVision(Blocks::never).burnable().pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::never)),
             null);
-
-    // yellow birch
-
-    public static final Block YELLOW_BIRCH_LEAVES = registerBlock("yellow_birch_leaves",
-            new LeavesBlock(FabricBlockSettings.create().mapColor(MapColor.YELLOW).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning(Blocks::canSpawnOnLeaves).suffocates(Blocks::never).blockVision(Blocks::never).burnable().pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::never)),
-            ItemGroups.NATURAL);
-
-    //turkey tail
-
-    public static final Block TURKEY_TAIL = registerBlockWithoutItem("turkey_tail",
-            new ShelfFungusBlock(FabricBlockSettings.create().noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.GRASS).pistonBehavior(PistonBehavior.DESTROY)));
 
     //registry end
 

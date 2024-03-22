@@ -29,56 +29,47 @@ public class SublunaryTreeGeneration {
 
         BiomeModifications.create(new Identifier(Sublunary.MOD_ID, "replace_forest_trees"))
                 .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.includeByKey(BiomeKeys.FOREST),
-                        (context) ->
-                        {
-                            if (context.getGenerationSettings().removeFeature(VANILLA_FOREST_TREES)){
-                                context.getGenerationSettings()
-                                        .addFeature(GenerationStep.Feature.VEGETAL_DECORATION, SubVegetationPlacedFeatures.FOREST_TREES);
-                            }
-                        });
+                        biomeModificationContext -> {
+                            biomeModificationContext.getGenerationSettings()
+                                    .removeFeature(GenerationStep.Feature.VEGETAL_DECORATION, VANILLA_FOREST_TREES);
+                            biomeModificationContext.getGenerationSettings()
+                                    .addFeature(GenerationStep.Feature.VEGETAL_DECORATION, SubVegetationPlacedFeatures.FOREST_TREES);}
+                );
 
         BiomeModifications.create(new Identifier(Sublunary.MOD_ID, "replace_flower_forest_trees"))
                 .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.includeByKey(BiomeKeys.FLOWER_FOREST),
-                        (context) ->
-                        {
-                            if (context.getGenerationSettings().removeFeature(VANILLA_FLOWER_FOREST_TREES)){
-                                context.getGenerationSettings()
-                                        .addFeature(GenerationStep.Feature.VEGETAL_DECORATION, SubVegetationPlacedFeatures.FLOWER_FOREST_TREES);
-                            }
-                        });
+                        biomeModificationContext -> {
+                            biomeModificationContext.getGenerationSettings()
+                                    .removeFeature(GenerationStep.Feature.VEGETAL_DECORATION, VANILLA_FLOWER_FOREST_TREES);
+                            biomeModificationContext.getGenerationSettings()
+                                    .addFeature(GenerationStep.Feature.VEGETAL_DECORATION, SubVegetationPlacedFeatures.FLOWER_FOREST_TREES);}
+                );
 
         BiomeModifications.create(new Identifier(Sublunary.MOD_ID, "replace_birch_forest_trees"))
                 .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.includeByKey(BiomeKeys.BIRCH_FOREST),
-                        (context) ->
-                        {
-                            if (context.getGenerationSettings().removeFeature(VANILLA_BIRCH_FOREST_TREES)){
-                                context.getGenerationSettings()
-                                        .addFeature(GenerationStep.Feature.VEGETAL_DECORATION, SubVegetationPlacedFeatures.BIRCH_FOREST_TREES);
-                            }
-                        });
+                        biomeModificationContext -> {
+                            biomeModificationContext.getGenerationSettings()
+                                    .removeFeature(GenerationStep.Feature.VEGETAL_DECORATION, VANILLA_BIRCH_FOREST_TREES);
+                            biomeModificationContext.getGenerationSettings()
+                                    .addFeature(GenerationStep.Feature.VEGETAL_DECORATION, SubVegetationPlacedFeatures.BIRCH_FOREST_TREES);}
+                );
 
         BiomeModifications.create(new Identifier(Sublunary.MOD_ID, "replace_old_growth_birch_trees"))
                 .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.includeByKey(BiomeKeys.OLD_GROWTH_BIRCH_FOREST),
-                        (context) ->
-                        {
-                            if (context.getGenerationSettings().removeFeature(VANILLA_OLD_GROWTH_BIRCH_TREES)){
-                                context.getGenerationSettings()
-                                        .addFeature(GenerationStep.Feature.VEGETAL_DECORATION, SubVegetationPlacedFeatures.OLD_GROWTH_BIRCH_TREES);
-                            }
-                        });
+                        biomeModificationContext -> {
+                            biomeModificationContext.getGenerationSettings()
+                                    .removeFeature(GenerationStep.Feature.VEGETAL_DECORATION, VANILLA_OLD_GROWTH_BIRCH_TREES);
+                            biomeModificationContext.getGenerationSettings()
+                                    .addFeature(GenerationStep.Feature.VEGETAL_DECORATION, SubVegetationPlacedFeatures.OLD_GROWTH_BIRCH_TREES);}
+                );
 
         BiomeModifications.create(new Identifier(Sublunary.MOD_ID, "replace_plains_trees"))
-                .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.includeByKey(BiomeKeys.PLAINS, BiomeKeys.SUNFLOWER_PLAINS, BiomeKeys.DEEP_DARK, BiomeKeys.DRIPSTONE_CAVES),
-                        (context) ->
-                        {
-                            if (context.getGenerationSettings().removeFeature(VANILLA_PLAINS_TREES)){
-                                context.getGenerationSettings()
-                                        .addFeature(GenerationStep.Feature.VEGETAL_DECORATION, SubVegetationPlacedFeatures.PLAINS_TREES);
-                            }
-                        });
+                .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.includeByKey(BiomeKeys.PLAINS, BiomeKeys.SUNFLOWER_PLAINS),
+                        biomeModificationContext -> {
+                            biomeModificationContext.getGenerationSettings()
+                                    .removeFeature(GenerationStep.Feature.VEGETAL_DECORATION, VANILLA_PLAINS_TREES);
+                            biomeModificationContext.getGenerationSettings()
+                                    .addFeature(GenerationStep.Feature.VEGETAL_DECORATION, SubVegetationPlacedFeatures.PLAINS_TREES);}
+                );
     }
-
-    //BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.BIRCH_FOREST),
-    //        GenerationStep.Feature.VEGETAL_DECORATION, SubVegetationPlacedFeatures.BIRCH_FOREST_TREES);
-
 }

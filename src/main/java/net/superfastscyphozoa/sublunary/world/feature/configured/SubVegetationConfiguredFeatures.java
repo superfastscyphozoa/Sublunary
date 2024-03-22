@@ -23,23 +23,12 @@ import java.util.List;
 import static net.superfastscyphozoa.sublunary.world.feature.configured.SublunaryConfiguredFeatures.registerKey;
 
 public class SubVegetationConfiguredFeatures {
-
-    public static final RegistryKey<ConfiguredFeature<?,?>> LAVENDER_PATCH_KEY = registerKey("lavender_patch");
-
     public static final RegistryKey<ConfiguredFeature<?,?>> FOREST_TREES_CONFIGURED = registerKey("forest_trees_configured");
     public static final RegistryKey<ConfiguredFeature<?,?>> BIRCH_FOREST_TREES_CONFIGURED = registerKey("birch_forest_trees_configured");
     public static final RegistryKey<ConfiguredFeature<?,?>> FLOWER_FOREST_TREES_CONFIGURED = registerKey("flower_forest_trees_configured");
     public static final RegistryKey<ConfiguredFeature<?,?>> PLAINS_TREES_CONFIGURED = registerKey("plains_trees_configured");
     public static final RegistryKey<ConfiguredFeature<?,?>> OLD_GROWTH_BIRCH_TREES_CONFIGURED = registerKey("old_growth_birch_trees_configured");
     public static final RegistryKey<ConfiguredFeature<?,?>> MEADOW_TREES_CONFIGURED = registerKey("meadow_trees_configured");
-
-    public static final RegistryKey<ConfiguredFeature<?,?>> FOREST_GRASS_CONFIGURED = registerKey("forest_grass_configured");
-    public static final RegistryKey<ConfiguredFeature<?,?>> TALL_GRASS_PATCH_CONFIGURED = registerKey("tall_grass_patch_configured");
-
-    public static final DataPool<BlockState> FOREST_GRASS_POOL = DataPool.<BlockState>builder()
-            .add(Blocks.GRASS.getDefaultState(), 5)
-            .add(Blocks.FERN.getDefaultState(), 1)
-            .build();
 
     public static void bootstrap(Registerable<ConfiguredFeature<?,?>> context) {
         var placedFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.PLACED_FEATURE);
@@ -109,21 +98,5 @@ public class SubVegetationConfiguredFeatures {
         SublunaryConfiguredFeatures.register(context, PLAINS_TREES_CONFIGURED, Feature.RANDOM_SELECTOR, new RandomFeatureConfig(List.of(
                 new RandomFeatureEntry(largePlainsOak, 0.5F)),
                 plainsOak));
-
-
-
-        SublunaryConfiguredFeatures.register(context, FOREST_GRASS_CONFIGURED, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig
-                (32, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK,
-                        new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(FOREST_GRASS_POOL)))));
-
-        SublunaryConfiguredFeatures.register(context, TALL_GRASS_PATCH_CONFIGURED, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(
-                96, 6, 4, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK,
-                new SimpleBlockFeatureConfig(BlockStateProvider.of(Blocks.TALL_GRASS)))));
-
-
-
-        SublunaryConfiguredFeatures.register(context, LAVENDER_PATCH_KEY, Feature.FLOWER, new RandomPatchFeatureConfig(
-                128, 6, 4, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK,
-                new SimpleBlockFeatureConfig(BlockStateProvider.of(RegisterBlocks.LAVENDER)))));
     }
 }

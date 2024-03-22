@@ -15,9 +15,6 @@ public class RegisterItems {
 
     //registry
 
-    public static final Item PUPA = registerItem("pupa",
-            new Item(new FabricItemSettings()));
-
     public static final Item FOUR_LEAF_CLOVER = registerItem("four_leaf_clover",
             new Item(new FabricItemSettings()));
 
@@ -28,11 +25,6 @@ public class RegisterItems {
 
     public static final Item DOUGH = registerItem("dough",
             new Item(new FabricItemSettings().food(SublunaryFoods.DOUGH)));
-
-    //fungus
-
-    public static final Item TURKEY_TAIL_FUNGUS = registerItem ("turkey_tail_fungus",
-            new AliasedBlockItem(RegisterBlocks.TURKEY_TAIL, (new FabricItemSettings()).food(SublunaryFoods.TURKEY_TAIL)));
 
     //spawn eggs
     public static final Item CROW_SPAWN_EGG = registerItem("crow_spawn_egg",
@@ -52,9 +44,6 @@ public class RegisterItems {
         addToItemGroup(ItemGroups.FOOD_AND_DRINK, FLOUR);
         addToItemGroup(ItemGroups.INGREDIENTS, DOUGH);
         addToItemGroup(ItemGroups.FOOD_AND_DRINK, DOUGH);
-
-        addToItemGroup(ItemGroups.NATURAL, TURKEY_TAIL_FUNGUS);
-        addToItemGroup(ItemGroups.FOOD_AND_DRINK, TURKEY_TAIL_FUNGUS);
 
         addToItemGroup(ItemGroups.SPAWN_EGGS, CROW_SPAWN_EGG);
     }

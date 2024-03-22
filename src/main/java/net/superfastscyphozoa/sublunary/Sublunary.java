@@ -18,11 +18,6 @@ public class Sublunary implements ModInitializer {
 	public static final String MOD_ID = "sublunary";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
-	@NotNull
-	public static Identifier id(@NotNull String path) {
-		return new Identifier(MOD_ID, path);
-	}
-
 	@Override
 	public void onInitialize() {
 		LOGGER.info("Goo Goobie!");
