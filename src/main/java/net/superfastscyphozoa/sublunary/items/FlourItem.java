@@ -1,5 +1,6 @@
 package net.superfastscyphozoa.sublunary.items;
 
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -37,7 +38,7 @@ public class FlourItem extends Item {
                     return TypedActionResult.pass(itemStack);
                 }
 
-                if (world.getFluidState(blockPos).isIn(FluidTags.WATER)) {
+                if (world.getFluidState(blockPos).isIn(FluidTags.WATER) || world.getBlockState(blockPos).isOf(Blocks.WATER_CAULDRON)) {
 
                     world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.ENTITY_AXOLOTL_SPLASH, SoundCategory.NEUTRAL, 1.0F, 1.0F);
 
