@@ -8,35 +8,35 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Util;
 import net.superfastscyphozoa.sublunary.Sublunary;
-import net.superfastscyphozoa.sublunary.entity.CrowEntity;
-import net.superfastscyphozoa.sublunary.entity.variant.CrowVariant;
+import net.superfastscyphozoa.sublunary.entity.PasserineEntity;
+import net.superfastscyphozoa.sublunary.entity.variant.PasserineVariant;
 
 import java.util.Map;
 
-public class CrowRenderer extends MobEntityRenderer<CrowEntity, CrowModel<CrowEntity>> {
+public class PasserineRenderer extends MobEntityRenderer<PasserineEntity, PasserineModel<PasserineEntity>> {
     //private static final Identifier BLACK_TEXTURE = new Identifier(Sublunary.MOD_ID, "textures/entity/crow/crow.png");
 
-    public static final Map<CrowVariant, Identifier> LOCATION_BY_VARIANT =
-            Util.make(Maps.newEnumMap(CrowVariant.class), (map) -> {
-                map.put(CrowVariant.BLACK,
+    public static final Map<PasserineVariant, Identifier> LOCATION_BY_VARIANT =
+            Util.make(Maps.newEnumMap(PasserineVariant.class), (map) -> {
+                map.put(PasserineVariant.BLACK,
                         new Identifier(Sublunary.MOD_ID, "textures/entity/crow/crow.png"));
-                map.put(CrowVariant.BROWN,
+                map.put(PasserineVariant.BROWN,
                         new Identifier(Sublunary.MOD_ID, "textures/entity/crow/brown_crow.png"));
-                map.put(CrowVariant.WHITE,
+                map.put(PasserineVariant.WHITE,
                         new Identifier(Sublunary.MOD_ID, "textures/entity/crow/white_crow.png"));
             });
 
-    public CrowRenderer(EntityRendererFactory.Context context) {
-        super(context, new CrowModel<>(context.getPart(SublunaryModelLayers.CROW)), 0.2f);
+    public PasserineRenderer(EntityRendererFactory.Context context) {
+        super(context, new PasserineModel<>(context.getPart(SublunaryModelLayers.PASSERINE)), 0.2f);
     }
 
     @Override
-    public Identifier getTexture(CrowEntity entity) {
+    public Identifier getTexture(PasserineEntity entity) {
         return LOCATION_BY_VARIANT.get(entity.getVariant());
     }
 
     @Override
-    public void render(CrowEntity mobEntity, float f, float g, MatrixStack matrixStack,
+    public void render(PasserineEntity mobEntity, float f, float g, MatrixStack matrixStack,
                        VertexConsumerProvider vertexConsumerProvider, int i) {
 
         if(mobEntity.isBaby()){

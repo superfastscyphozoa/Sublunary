@@ -27,8 +27,8 @@ public class RegisterItems {
             new Item(new FabricItemSettings().food(SublunaryFoods.DOUGH)));
 
     //spawn eggs
-    public static final Item CROW_SPAWN_EGG = registerItem("crow_spawn_egg",
-            new SpawnEggItem(RegisterEntities.CROW, 1051950, 5715335, new FabricItemSettings()));
+    public static final Item PASSERINE_SPAWN_EGG = registerItem("passerine_spawn_egg",
+            new SpawnEggItem(RegisterEntities.PASSERINE, 1051950, 5715335, new FabricItemSettings()));
 
     //registry end
 
@@ -45,7 +45,7 @@ public class RegisterItems {
         addToItemGroup(ItemGroups.INGREDIENTS, DOUGH);
         addToItemGroup(ItemGroups.FOOD_AND_DRINK, DOUGH);
 
-        addToItemGroup(ItemGroups.SPAWN_EGGS, CROW_SPAWN_EGG);
+        addToItemGroup(ItemGroups.SPAWN_EGGS, PASSERINE_SPAWN_EGG);
     }
 
     public static void addToItemGroup(RegistryKey<ItemGroup> group, Item item){

@@ -33,18 +33,18 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
-import net.superfastscyphozoa.sublunary.entity.variant.CrowVariant;
+import net.superfastscyphozoa.sublunary.entity.variant.PasserineVariant;
 import net.superfastscyphozoa.sublunary.registry.RegisterEntities;
 import org.jetbrains.annotations.Nullable;
 
-public class CrowEntity extends AnimalEntity{
+public class PasserineEntity extends AnimalEntity{
     private static final Ingredient TEMPT_INGREDIENT = Ingredient.ofItems(Items.WHEAT_SEEDS, Items.MELON_SEEDS, Items.PUMPKIN_SEEDS);
 
     public final AnimationState idleAnimationState = new AnimationState();
     public final AnimationState flyAnimationState = new AnimationState();
     public final AnimationState hopAnimationState = new AnimationState();
 
-    public CrowEntity(EntityType<? extends AnimalEntity> entityType, World world) {
+    public PasserineEntity(EntityType<? extends AnimalEntity> entityType, World world) {
         super(entityType, world);
 
         this.moveControl = new FlightMoveControl(this, 10, false);
@@ -128,7 +128,7 @@ public class CrowEntity extends AnimalEntity{
         this.goalSelector.add(7, new LookAroundGoal(this));
     }
 
-    public static DefaultAttributeContainer.Builder createCrowAttributes(){
+    public static DefaultAttributeContainer.Builder createPasserineAttributes(){
         return MobEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 10)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.1)
@@ -157,8 +157,8 @@ public class CrowEntity extends AnimalEntity{
     @Nullable
     @Override
     public PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
-        CrowEntity baby = RegisterEntities.CROW.create(world);
-        CrowVariant variant = Util.getRandom(CrowVariant.values(), this.random);
+        PasserineEntity baby = RegisterEntities.PASSERINE.create(world);
+        PasserineVariant variant = Util.getRandom(PasserineVariant.values(), this.random);
         assert baby != null;
         baby.setVariant(variant);
         return baby;
@@ -226,25 +226,25 @@ public class CrowEntity extends AnimalEntity{
     //variants
 
     private static final TrackedData<Integer> DATA_ID_TYPE_VARIANT =
-            DataTracker.registerData(CrowEntity.class, TrackedDataHandlerRegistry.INTEGER);
+            DataTracker.registerData(PasserineEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
     @Override
     public EntityData initialize(
             ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound entityNbt) {
-        CrowVariant variant = Util.getRandom(CrowVariant.values(), this.random);
+        PasserineVariant variant = Util.getRandom(PasserineVariant.values(), this.random);
         setVariant(variant);
         return super.initialize(world, difficulty, spawnReason, entityData, entityNbt);
     }
 
-    public CrowVariant getVariant() {
-        return CrowVariant.byId(this.getTypeVariant() & 255);
+    public PasserineVariant getVariant() {
+        return PasserineVariant.byId(this.getTypeVariant() & 255);
     }
 
     private int getTypeVariant() {
         return this.dataTracker.get(DATA_ID_TYPE_VARIANT);
     }
 
-    private void setVariant(CrowVariant variant) {
+    private void setVariant(PasserineVariant variant) {
         this.dataTracker.set(DATA_ID_TYPE_VARIANT, variant.getId() & 255);
     }
 }

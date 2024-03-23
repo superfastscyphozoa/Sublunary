@@ -5,28 +5,28 @@ import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.MathHelper;
-import net.superfastscyphozoa.sublunary.entity.CrowEntity;
-import net.superfastscyphozoa.sublunary.entity.animation.CrowAnimations;
+import net.superfastscyphozoa.sublunary.entity.PasserineEntity;
+import net.superfastscyphozoa.sublunary.entity.animation.PasserineAnimations;
 
 // Made with Blockbench 4.9.4
 // Exported for Minecraft version 1.17+ for Yarn
 // Paste this class into your mod and generate all required imports
-public class CrowModel<T extends CrowEntity> extends SinglePartEntityModel<T> {
+public class PasserineModel<T extends PasserineEntity> extends SinglePartEntityModel<T> {
 
-	private final ModelPart crow;
+	private final ModelPart passerine;
 	private final ModelPart head;
 
-	public CrowModel(ModelPart root) {
-		this.crow = root.getChild("crow");
-		this.head = crow.getChild("body").getChild("head");
+	public PasserineModel(ModelPart root) {
+		this.passerine = root.getChild("passerine");
+		this.head = passerine.getChild("body").getChild("head");
 	}
 
 	public static TexturedModelData getTexturedModelData() {
 		ModelData modelData = new ModelData();
 		ModelPartData modelPartData = modelData.getRoot();
-		ModelPartData crow = modelPartData.addChild("crow", ModelPartBuilder.create(), ModelTransform.pivot(-0.5F, 24.0F, 0.0F));
+		ModelPartData passerine = modelPartData.addChild("passerine", ModelPartBuilder.create(), ModelTransform.pivot(-0.5F, 24.0F, 0.0F));
 
-		ModelPartData body = crow.addChild("body", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
+		ModelPartData body = passerine.addChild("body", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
 
 		ModelPartData cube_r1 = body.addChild("cube_r1", ModelPartBuilder.create().uv(0, 23).cuboid(-1.0F, -0.0287F, -4.7804F, 3.0F, 3.0F, 5.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, -3.5F, 1.5F, -0.9599F, 0.0F, 0.0F));
 
@@ -56,14 +56,14 @@ public class CrowModel<T extends CrowEntity> extends SinglePartEntityModel<T> {
 	}
 
 	@Override
-	public void setAngles(CrowEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+	public void setAngles(PasserineEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.getPart().traverse().forEach(ModelPart::resetTransform);
 		this.setHeadAngles(netHeadYaw, headPitch);
 
-		//this.animateMovement(CrowAnimations.CROWFLY, limbSwing, limbSwingAmount, 2f, 2.5f);
-		this.updateAnimation(entity.idleAnimationState, CrowAnimations.CROWIDLE, ageInTicks, 1f);
-		this.updateAnimation(entity.flyAnimationState, CrowAnimations.CROWFLY, ageInTicks, 1f);
-		this.updateAnimation(entity.hopAnimationState, CrowAnimations.CROWHOP, ageInTicks, 1f);
+		//this.animateMovement(PasserineAnimations.PASSERINEFLY, limbSwing, limbSwingAmount, 2f, 2.5f);
+		this.updateAnimation(entity.idleAnimationState, PasserineAnimations.PASSERINEIDLE, ageInTicks, 1f);
+		this.updateAnimation(entity.flyAnimationState, PasserineAnimations.PASSERINEFLY, ageInTicks, 1f);
+		this.updateAnimation(entity.hopAnimationState, PasserineAnimations.PASSERINEHOP, ageInTicks, 1f);
 	}
 
 	private void setHeadAngles(float headYaw, float headPitch){
@@ -76,11 +76,11 @@ public class CrowModel<T extends CrowEntity> extends SinglePartEntityModel<T> {
 
 	@Override
 	public void render(MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, float red, float green, float blue, float alpha) {
-		crow.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
+		passerine.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
 	}
 
 	@Override
 	public ModelPart getPart() {
-		return crow;
+		return passerine;
 	}
 }

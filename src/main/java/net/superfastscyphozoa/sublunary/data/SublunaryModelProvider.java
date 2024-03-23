@@ -34,7 +34,7 @@ public class SublunaryModelProvider extends FabricModelProvider {
         itemModelGenerator.register(RegisterItems.FLOUR, Models.GENERATED);
         itemModelGenerator.register(RegisterItems.DOUGH, Models.GENERATED);
 
-        itemModelGenerator.register(RegisterItems.CROW_SPAWN_EGG,
+        itemModelGenerator.register(RegisterItems.PASSERINE_SPAWN_EGG,
                 new Model(Optional.of(new Identifier("item/template_spawn_egg")), Optional.empty()));
     }
 }
