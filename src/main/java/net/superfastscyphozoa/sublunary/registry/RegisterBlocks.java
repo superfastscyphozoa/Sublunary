@@ -25,11 +25,11 @@ public class RegisterBlocks {
 
     public static final Block SHORT_GRASS = registerBlock("short_grass",
             new ShortGrassBlock(FabricBlockSettings.create().replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offset(AbstractBlock.OffsetType.XZ)),
-            ItemGroups.NATURAL);
+            null);
 
     public static final Block CLOVERS = registerBlock("clovers",
             new FlowerbedBlock(FabricBlockSettings.create().noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS)),
-            ItemGroups.NATURAL);
+            null);
 
     //flowers
 
