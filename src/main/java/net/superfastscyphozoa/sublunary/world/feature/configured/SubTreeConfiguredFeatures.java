@@ -4,14 +4,14 @@ import net.minecraft.block.Blocks;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
-import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
+import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.TreeFeatureConfig;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
-import net.minecraft.world.gen.foliage.BushFoliagePlacer;
 import net.minecraft.world.gen.foliage.LargeOakFoliagePlacer;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.treedecorator.BeehiveTreeDecorator;
-import net.minecraft.world.gen.treedecorator.LeavesVineTreeDecorator;
 import net.minecraft.world.gen.treedecorator.TrunkVineTreeDecorator;
 import net.minecraft.world.gen.trunk.LargeOakTrunkPlacer;
 import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
@@ -66,7 +66,7 @@ public class SubTreeConfiguredFeatures {
     private static TreeFeatureConfig.Builder birch() {
         return (new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(Blocks.BIRCH_LOG),
-                new StraightBranchedTrunkPlacer(6, 4, 0),
+                new StraightBranchedTrunkPlacer(6, 3, 0),
                 BlockStateProvider.of(Blocks.BIRCH_LEAVES),
                 new BirchFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
                 new TwoLayersFeatureSize(0, 0, 0))
@@ -76,7 +76,7 @@ public class SubTreeConfiguredFeatures {
     private static TreeFeatureConfig.Builder superBirch() {
         return (new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(Blocks.BIRCH_LOG),
-                new StraightBranchedTrunkPlacer(7, 4, 5),
+                new StraightBranchedTrunkPlacer(7, 3, 5),
                 BlockStateProvider.of(Blocks.BIRCH_LEAVES),
                 new BirchFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
                 new TwoLayersFeatureSize(0, 0, 0))
@@ -116,7 +116,7 @@ public class SubTreeConfiguredFeatures {
 
         SublunaryConfiguredFeatures.register(context, SMALL_BIRCH, Feature.TREE, (new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(Blocks.BIRCH_LOG),
-                new StraightTrunkPlacer(4, 3, 0),
+                new StraightTrunkPlacer(6, 1, 0),
                 BlockStateProvider.of(Blocks.BIRCH_LEAVES),
                 new BirchFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
                 new TwoLayersFeatureSize(0, 0, 0))

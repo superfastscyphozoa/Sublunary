@@ -31,6 +31,8 @@ public class SublunaryModelProvider extends FabricModelProvider {
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
+        itemModelGenerator.register(RegisterItems.RUSTED_SWORD, Models.HANDHELD);
+
         itemModelGenerator.register(RegisterItems.FLOUR, Models.GENERATED);
         itemModelGenerator.register(RegisterItems.DOUGH, Models.GENERATED);
 

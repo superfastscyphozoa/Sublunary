@@ -43,35 +43,35 @@ public class StraightBranchedTrunkPlacer extends TrunkPlacer {
 
             if (i % 2 == 0 && random.nextBoolean()){
 
-                if (random.nextFloat() > 0.50f){
-                    for(int x = 1; x <= 1; x++){
-                        replacer.accept(startPos.up(i).offset(Direction.NORTH, x), (BlockState) Function.identity().apply(config.trunkProvider
-                                .get(random, startPos.up(i).offset(Direction.NORTH, x)).with(PillarBlock.AXIS, Direction.Axis.Z)));
-                    }
-                }
+                if (random.nextFloat() > 0.75f){
 
-                if (random.nextFloat() > 0.50f){
-                    for(int x = 1; x <= 1; x++){
-                        replacer.accept(startPos.up(i).offset(Direction.SOUTH, x), (BlockState) Function.identity().apply(config.trunkProvider
-                                .get(random, startPos.up(i).offset(Direction.SOUTH, x)).with(PillarBlock.AXIS, Direction.Axis.Z)));
-                    }
-                }
-
-                if (random.nextFloat() > 0.50f){
-                    for(int x = 1; x <= 1; x++){
-                        replacer.accept(startPos.up(i).offset(Direction.EAST, x), (BlockState) Function.identity().apply(config.trunkProvider
-                                .get(random, startPos.up(i).offset(Direction.EAST, x)).with(PillarBlock.AXIS, Direction.Axis.X)));
-                    }
-                }
-
-                if (random.nextFloat() > 0.50f){
-                    for(int x = 1; x <= 1; x++){
-                        replacer.accept(startPos.up(i).offset(Direction.WEST, x), (BlockState) Function.identity().apply(config.trunkProvider
-                                .get(random, startPos.up(i).offset(Direction.WEST, x)).with(PillarBlock.AXIS, Direction.Axis.X)));
+                    if (random.nextBoolean()) {
+                        if (random.nextBoolean()) {
+                            for (int x = 1; x <= 1; x++) {
+                                replacer.accept(startPos.up(i).offset(Direction.NORTH, x), (BlockState) Function.identity().apply(config.trunkProvider
+                                        .get(random, startPos.up(i).offset(Direction.NORTH, x)).with(PillarBlock.AXIS, Direction.Axis.Z)));
+                            }
+                        } else {
+                            for (int x = 1; x <= 1; x++) {
+                                replacer.accept(startPos.up(i).offset(Direction.EAST, x), (BlockState) Function.identity().apply(config.trunkProvider
+                                        .get(random, startPos.up(i).offset(Direction.EAST, x)).with(PillarBlock.AXIS, Direction.Axis.X)));
+                            }
+                        }
+                    } else {
+                        if (random.nextBoolean()) {
+                            for (int x = 1; x <= 1; x++) {
+                                replacer.accept(startPos.up(i).offset(Direction.SOUTH, x), (BlockState) Function.identity().apply(config.trunkProvider
+                                        .get(random, startPos.up(i).offset(Direction.SOUTH, x)).with(PillarBlock.AXIS, Direction.Axis.Z)));
+                            }
+                        } else {
+                            for (int x = 1; x <= 1; x++) {
+                                replacer.accept(startPos.up(i).offset(Direction.WEST, x), (BlockState) Function.identity().apply(config.trunkProvider
+                                        .get(random, startPos.up(i).offset(Direction.WEST, x)).with(PillarBlock.AXIS, Direction.Axis.X)));
+                            }
+                        }
                     }
                 }
             }
-
         }
 
         return ImmutableList.of(new FoliagePlacer.TreeNode(startPos.up(height_), 0, false));

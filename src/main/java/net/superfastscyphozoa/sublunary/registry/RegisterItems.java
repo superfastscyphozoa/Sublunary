@@ -10,6 +10,7 @@ import net.minecraft.util.Identifier;
 import net.superfastscyphozoa.sublunary.Sublunary;
 import net.superfastscyphozoa.sublunary.items.FlourItem;
 import net.superfastscyphozoa.sublunary.items.SublunaryFoods;
+import net.superfastscyphozoa.sublunary.items.SublunaryToolMaterials;
 
 public class RegisterItems {
 
@@ -17,6 +18,11 @@ public class RegisterItems {
 
     public static final Item FOUR_LEAF_CLOVER = registerItem("four_leaf_clover",
             new Item(new FabricItemSettings()));
+
+    // equipment
+
+    public static final Item RUSTED_SWORD = registerItem("rusted_sword",
+            new SwordItem(SublunaryToolMaterials.RUSTED, 3,-2.4f,new FabricItemSettings()));
 
     // flour and dough
 
@@ -40,12 +46,12 @@ public class RegisterItems {
         //add items to item groups
         addToItemGroup(ItemGroups.INGREDIENTS, FOUR_LEAF_CLOVER);
 
+        addToItemGroup(ItemGroups.COMBAT, RUSTED_SWORD);
+
         addToItemGroup(ItemGroups.INGREDIENTS, FLOUR);
         addToItemGroup(ItemGroups.FOOD_AND_DRINK, FLOUR);
         addToItemGroup(ItemGroups.INGREDIENTS, DOUGH);
         addToItemGroup(ItemGroups.FOOD_AND_DRINK, DOUGH);
-
-        addToItemGroup(ItemGroups.SPAWN_EGGS, PASSERINE_SPAWN_EGG);
     }
 
     public static void addToItemGroup(RegistryKey<ItemGroup> group, Item item){
