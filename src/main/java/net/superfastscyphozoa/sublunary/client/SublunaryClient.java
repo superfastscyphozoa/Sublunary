@@ -24,15 +24,13 @@ public class SublunaryClient implements ClientModInitializer {
         //render types
         BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlocks.LAVENDER, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlocks.CLOVERS, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlocks.SHORT_GRASS, RenderLayer.getCutout());
 
         //render mobs
         EntityRendererRegistry.register(RegisterEntities.PASSERINE, PasserineRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(SublunaryModelLayers.PASSERINE, PasserineModel::getTexturedModelData);
 
         ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> 7979098, RegisterBlocks.CLOVERS);
-        ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> 7979098, RegisterBlocks.SHORT_GRASS);
 
-        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> 7979098, RegisterBlocks.SHORT_GRASS.asItem());
+        //ColorProviderRegistry.ITEM.register((stack, tintIndex) -> 7979098, RegisterBlocks.SHORT_GRASS.asItem());
     }
 }

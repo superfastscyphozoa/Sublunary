@@ -17,15 +17,10 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.superfastscyphozoa.sublunary.Sublunary;
 import net.superfastscyphozoa.sublunary.blocks.BushyFlowerBlock;
-import net.superfastscyphozoa.sublunary.blocks.ShortGrassBlock;
 
 public class RegisterBlocks {
 
     //registry
-
-    public static final Block SHORT_GRASS = registerBlock("short_grass",
-            new ShortGrassBlock(FabricBlockSettings.create().replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offset(AbstractBlock.OffsetType.XZ)),
-            null);
 
     public static final Block CLOVERS = registerBlock("clovers",
             new FlowerbedBlock(FabricBlockSettings.create().noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS)),

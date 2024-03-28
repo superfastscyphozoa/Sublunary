@@ -120,10 +120,10 @@ public class SubVegetationConfiguredFeatures {
 
         SublunaryConfiguredFeatures.register(context, GRASS_FERNS_PATCH_CONFIGURED, Feature.RANDOM_PATCH,
                 createRandomPatchFeatureConfig(new WeightedBlockStateProvider(new DataPool.Builder<BlockState>()
-                        .add(Blocks.GRASS.getDefaultState(), 4).add(Blocks.FERN.getDefaultState(), 1)), 32));
+                        .add(Blocks.SHORT_GRASS.getDefaultState(), 4).add(Blocks.FERN.getDefaultState(), 1)), 32));
 
         SublunaryConfiguredFeatures.register(context, GRASS_PATCH_CONFIGURED, Feature.RANDOM_PATCH,
-                createRandomPatchFeatureConfig(BlockStateProvider.of(Blocks.GRASS), 32));
+                createRandomPatchFeatureConfig(BlockStateProvider.of(Blocks.SHORT_GRASS), 32));
 
         SublunaryConfiguredFeatures.register(context, TALL_GRASS_PATCH_CONFIGURED, Feature.RANDOM_PATCH,
                 ConfiguredFeatures.createRandomPatchFeatureConfig
