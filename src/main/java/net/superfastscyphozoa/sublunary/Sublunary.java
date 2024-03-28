@@ -9,6 +9,8 @@ import net.superfastscyphozoa.sublunary.registry.RegisterEntities;
 import net.superfastscyphozoa.sublunary.registry.RegisterBlocks;
 import net.superfastscyphozoa.sublunary.registry.RegisterItems;
 import net.superfastscyphozoa.sublunary.world.gen.SublunaryWorldGeneration;
+import net.superfastscyphozoa.sublunary.world.tree.SublunaryFoliagePlacerTypes;
+import net.superfastscyphozoa.sublunary.world.tree.SublunaryTrunkPlacerTypes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -27,6 +29,9 @@ public class Sublunary implements ModInitializer {
 
 		SublunaryFlammableBlocks.registerFlammableBlocks();
 		SublunaryStrippableBlocks.registerStrippableBlocks();
+
+		SublunaryTrunkPlacerTypes.register();
+		SublunaryFoliagePlacerTypes.register();
 
         FabricDefaultAttributeRegistry.register(RegisterEntities.PASSERINE, PasserineEntity.createPasserineAttributes());
 	}

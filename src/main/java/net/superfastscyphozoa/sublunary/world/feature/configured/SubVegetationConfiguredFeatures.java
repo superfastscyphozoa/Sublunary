@@ -81,11 +81,11 @@ public class SubVegetationConfiguredFeatures {
                 new RandomFeatureEntry(vinyBirch, 0.01F),
                 new RandomFeatureEntry(largeVinyOak, 0.02F),
 
-                new RandomFeatureEntry(smallOak, 0.1F),
-                new RandomFeatureEntry(smallBirch, 0.1F),
+                new RandomFeatureEntry(smallOak, 0.15F),
+                new RandomFeatureEntry(smallBirch, 0.15F),
 
-                new RandomFeatureEntry(forestBirch, 0.2F),
-                new RandomFeatureEntry(largeForestOak, 0.7F)),
+                new RandomFeatureEntry(forestBirch, 0.25F),
+                new RandomFeatureEntry(largeForestOak, 0.8F)),
                 forestOak));
 
         SublunaryConfiguredFeatures.register(context, FLOWER_FOREST_TREES_CONFIGURED, Feature.RANDOM_SELECTOR, new RandomFeatureConfig(List.of(

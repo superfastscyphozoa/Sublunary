@@ -26,6 +26,7 @@ public class SublunaryTreeGeneration {
         RegistryKey<PlacedFeature> VANILLA_BIRCH_FOREST_TREES = VegetationPlacedFeatures.TREES_BIRCH;
         RegistryKey<PlacedFeature> VANILLA_OLD_GROWTH_BIRCH_TREES = VegetationPlacedFeatures.BIRCH_TALL;
         RegistryKey<PlacedFeature> VANILLA_PLAINS_TREES = VegetationPlacedFeatures.TREES_PLAINS;
+        RegistryKey<PlacedFeature> VANILLA_MEADOW_TREES = VegetationPlacedFeatures.TREES_MEADOW;
 
         BiomeModifications.create(new Identifier(Sublunary.MOD_ID, "replace_forest_trees"))
                 .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.includeByKey(BiomeKeys.FOREST),
@@ -70,6 +71,15 @@ public class SublunaryTreeGeneration {
                                     .removeFeature(GenerationStep.Feature.VEGETAL_DECORATION, VANILLA_PLAINS_TREES);
                             biomeModificationContext.getGenerationSettings()
                                     .addFeature(GenerationStep.Feature.VEGETAL_DECORATION, SubVegetationPlacedFeatures.PLAINS_TREES);}
+                );
+
+        BiomeModifications.create(new Identifier(Sublunary.MOD_ID, "replace_meadow_trees"))
+                .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.includeByKey(BiomeKeys.MEADOW),
+                        biomeModificationContext -> {
+                            biomeModificationContext.getGenerationSettings()
+                                    .removeFeature(GenerationStep.Feature.VEGETAL_DECORATION, VANILLA_MEADOW_TREES);
+                            biomeModificationContext.getGenerationSettings()
+                                    .addFeature(GenerationStep.Feature.VEGETAL_DECORATION, SubVegetationPlacedFeatures.MEADOW_TREES);}
                 );
     }
 }

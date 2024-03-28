@@ -15,6 +15,8 @@ import net.minecraft.world.gen.treedecorator.LeavesVineTreeDecorator;
 import net.minecraft.world.gen.treedecorator.TrunkVineTreeDecorator;
 import net.minecraft.world.gen.trunk.LargeOakTrunkPlacer;
 import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
+import net.superfastscyphozoa.sublunary.world.tree.foliage.BirchFoliagePlacer;
+import net.superfastscyphozoa.sublunary.world.tree.trunk.StraightBranchedTrunkPlacer;
 
 import java.util.List;
 import java.util.OptionalInt;
@@ -64,9 +66,9 @@ public class SubTreeConfiguredFeatures {
     private static TreeFeatureConfig.Builder birch() {
         return (new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(Blocks.BIRCH_LOG),
-                new StraightTrunkPlacer(6, 4, 0),
+                new StraightBranchedTrunkPlacer(6, 4, 0),
                 BlockStateProvider.of(Blocks.BIRCH_LEAVES),
-                new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
+                new BirchFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
                 new TwoLayersFeatureSize(0, 0, 0))
                 .dirtProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT)).forceDirt());
     }
@@ -74,9 +76,9 @@ public class SubTreeConfiguredFeatures {
     private static TreeFeatureConfig.Builder superBirch() {
         return (new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(Blocks.BIRCH_LOG),
-                new StraightTrunkPlacer(7, 4, 5),
+                new StraightBranchedTrunkPlacer(7, 4, 5),
                 BlockStateProvider.of(Blocks.BIRCH_LEAVES),
-                new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
+                new BirchFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
                 new TwoLayersFeatureSize(0, 0, 0))
                 .dirtProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT)).forceDirt());
     }
@@ -116,7 +118,7 @@ public class SubTreeConfiguredFeatures {
                 BlockStateProvider.of(Blocks.BIRCH_LOG),
                 new StraightTrunkPlacer(4, 3, 0),
                 BlockStateProvider.of(Blocks.BIRCH_LEAVES),
-                new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
+                new BirchFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
                 new TwoLayersFeatureSize(0, 0, 0))
                 .dirtProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT)).forceDirt()).build());
 
