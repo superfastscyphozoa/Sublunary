@@ -6,17 +6,19 @@
   "block.sublunary.clovers": "Clover",
   "item.sublunary.four_leaf_clover": "Four Leaf Clover",
 
-  "block.sublunary.short_grass": "Short Grass",
-
-  "block.sublunary.yellow_birch_sapling": "Golden Birch Sapling",
-  "block.sublunary.yellow_birch_leaves": "Golden Birch Leaves",
-
-  "item.sublunary.turkey_tail_fungus": "Turkey Tail Fungus",
-
   "item.sublunary.flour": "Flour",
   "item.sublunary.dough": "Dough",
 
   "item.sublunary.rusted_sword": "Rusted Sword",
 
-  "item.sublunary.passerine_spawn_egg": "Passerine Spawn Egg"
+  "item.sublunary.passerine_spawn_egg": "Passerine Spawn Egg",
+
+  "block.sublunary.hickory_log": "Hickory Log",
+  "block.sublunary.hickory_wood": "Hickory Wood",
+  "block.sublunary.stripped_hickory_log": "Stripped Hickory Log",
+  "block.sublunary.stripped_hickory_wood": "Stripped Hickory Wood",
+  "block.sublunary.hickory_planks": "Hickory Planks",
+  "block.sublunary.hickory_leaves": "Hickory Leaves",
+
+  "block.sublunary.hickory_sapling": "Hickory Sapling"
 }

@@ -33,6 +33,10 @@ public class SubVegetationConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?,?>> PLAINS_TREES_CONFIGURED = registerKey("plains_trees_configured");
     public static final RegistryKey<ConfiguredFeature<?,?>> OLD_GROWTH_BIRCH_TREES_CONFIGURED = registerKey("old_growth_birch_trees_configured");
     public static final RegistryKey<ConfiguredFeature<?,?>> MEADOW_TREES_CONFIGURED = registerKey("meadow_trees_configured");
+    public static final RegistryKey<ConfiguredFeature<?,?>> DARK_FOREST_TREES_CONFIGURED = registerKey("dark_forest_trees_configured");
+    public static final RegistryKey<ConfiguredFeature<?,?>> TAIGA_TREES_CONFIGURED = registerKey("taiga_trees_configured");
+    public static final RegistryKey<ConfiguredFeature<?,?>> SNOWY_PLAINS_TREES_CONFIGURED = registerKey("snowy_plains_trees_configured");
+
 
     public static final RegistryKey<ConfiguredFeature<?,?>> GRASS_FERNS_PATCH_CONFIGURED = registerKey("grass_ferns_patch_configured");
     public static final RegistryKey<ConfiguredFeature<?,?>> GRASS_PATCH_CONFIGURED = registerKey("grass_patch_configured");
@@ -71,21 +75,29 @@ public class SubVegetationConfiguredFeatures {
         RegistryEntry<PlacedFeature> meadowOak = placedFeatureRegistryEntryLookup.getOrThrow(SubTreePlacedFeatures.MEADOW_OAK_PLACED);
         RegistryEntry<PlacedFeature> meadowBirch = placedFeatureRegistryEntryLookup.getOrThrow(SubTreePlacedFeatures.MEADOW_BIRCH_PLACED);
 
+        RegistryEntry<PlacedFeature> darkOak = placedFeatureRegistryEntryLookup.getOrThrow(SubTreePlacedFeatures.DARK_OAK_PLACED);
+
+        RegistryEntry<PlacedFeature> spruceFull = placedFeatureRegistryEntryLookup.getOrThrow(SubTreePlacedFeatures.SPRUCE_FULL_PLACED);
+        RegistryEntry<PlacedFeature> spruceSparse = placedFeatureRegistryEntryLookup.getOrThrow(SubTreePlacedFeatures.SPRUCE_SPARSE_PLACED);
+
         RegistryEntry<PlacedFeature> vinyOak = placedFeatureRegistryEntryLookup.getOrThrow(SubTreePlacedFeatures.VINY_OAK_PLACED);
         RegistryEntry<PlacedFeature> largeVinyOak = placedFeatureRegistryEntryLookup.getOrThrow(SubTreePlacedFeatures.LARGE_VINY_OAK_PLACED);
+
         RegistryEntry<PlacedFeature> vinyBirch = placedFeatureRegistryEntryLookup.getOrThrow(SubTreePlacedFeatures.VINY_BIRCH_PLACED);
         RegistryEntry<PlacedFeature> vinyOldGrowthBirch = placedFeatureRegistryEntryLookup.getOrThrow(SubTreePlacedFeatures.VINY_OLD_GROWTH_BIRCH_PLACED);
 
+        RegistryEntry<PlacedFeature> vinyDarkOak = placedFeatureRegistryEntryLookup.getOrThrow(SubTreePlacedFeatures.VINY_DARK_OAK_PLACED);
+
         SublunaryConfiguredFeatures.register(context, FOREST_TREES_CONFIGURED, Feature.RANDOM_SELECTOR, new RandomFeatureConfig(List.of(
                 new RandomFeatureEntry(vinyOak, 0.03F),
-                new RandomFeatureEntry(vinyBirch, 0.01F),
                 new RandomFeatureEntry(largeVinyOak, 0.02F),
 
                 new RandomFeatureEntry(smallOak, 0.15F),
                 new RandomFeatureEntry(smallBirch, 0.15F),
 
-                new RandomFeatureEntry(forestBirch, 0.25F),
-                new RandomFeatureEntry(largeForestOak, 0.8F)),
+                new RandomFeatureEntry(forestBirch, 0.15F),
+
+                new RandomFeatureEntry(largeForestOak, 0.9F)),
                 forestOak));
 
         SublunaryConfiguredFeatures.register(context, FLOWER_FOREST_TREES_CONFIGURED, Feature.RANDOM_SELECTOR, new RandomFeatureConfig(List.of(
@@ -117,6 +129,21 @@ public class SubVegetationConfiguredFeatures {
         SublunaryConfiguredFeatures.register(context, MEADOW_TREES_CONFIGURED, Feature.RANDOM_SELECTOR, new RandomFeatureConfig(List.of(
                 new RandomFeatureEntry(meadowOak, 0.5F)),
                 meadowBirch));
+
+        SublunaryConfiguredFeatures.register(context, DARK_FOREST_TREES_CONFIGURED, Feature.RANDOM_SELECTOR, new RandomFeatureConfig(List.of(
+                new RandomFeatureEntry(darkOak, 0.7F),
+                new RandomFeatureEntry(birchierBirch, 0.2F),
+                new RandomFeatureEntry(largeOakierOak, 0.2F),
+                new RandomFeatureEntry(vinyDarkOak, 0.2F)),
+                oakierOak));
+
+        SublunaryConfiguredFeatures.register(context, TAIGA_TREES_CONFIGURED, Feature.RANDOM_SELECTOR, new RandomFeatureConfig(List.of(
+                new RandomFeatureEntry(spruceSparse, 0.34F)),
+                spruceFull));
+
+        SublunaryConfiguredFeatures.register(context, SNOWY_PLAINS_TREES_CONFIGURED, Feature.RANDOM_SELECTOR, new RandomFeatureConfig(List.of(
+                new RandomFeatureEntry(spruceSparse, 0.05F)),
+                spruceFull));
 
         SublunaryConfiguredFeatures.register(context, GRASS_FERNS_PATCH_CONFIGURED, Feature.RANDOM_PATCH,
                 createRandomPatchFeatureConfig(new WeightedBlockStateProvider(new DataPool.Builder<BlockState>()

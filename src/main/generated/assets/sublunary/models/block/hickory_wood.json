@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "sublunary:block/hickory_log",
+    "side": "sublunary:block/hickory_log"
+  }
+}

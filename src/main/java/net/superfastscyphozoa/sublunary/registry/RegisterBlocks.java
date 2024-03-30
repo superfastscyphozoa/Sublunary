@@ -17,6 +17,7 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.superfastscyphozoa.sublunary.Sublunary;
 import net.superfastscyphozoa.sublunary.blocks.BushyFlowerBlock;
+import net.superfastscyphozoa.sublunary.world.tree.SublunarySaplings;
 
 public class RegisterBlocks {
 
@@ -32,26 +33,30 @@ public class RegisterBlocks {
             new BushyFlowerBlock(StatusEffects.REGENERATION, 8, FabricBlockSettings.create().noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offset(AbstractBlock.OffsetType.XZ)),
             ItemGroups.NATURAL);
 
-    //maple
+    //hickory
 
-    public static final Block MAPLE_LOG = registerBlock("maple_log",
+    public static final Block HICKORY_LOG = registerBlock("hickory_log",
             new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_LOG).requiresTool()),
-            null);
-    public static final Block MAPLE_WOOD = registerBlock("maple_wood",
+            ItemGroups.BUILDING_BLOCKS);
+    public static final Block HICKORY_WOOD = registerBlock("hickory_wood",
             new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_WOOD).requiresTool()),
-            null);
-    public static final Block STRIPPED_MAPLE_LOG = registerBlock("stripped_maple_log",
+            ItemGroups.BUILDING_BLOCKS);
+    public static final Block STRIPPED_HICKORY_LOG = registerBlock("stripped_hickory_log",
             new PillarBlock(FabricBlockSettings.copyOf(Blocks.STRIPPED_OAK_LOG).requiresTool()),
-            null);
-    public static final Block STRIPPED_MAPLE_WOOD = registerBlock("stripped_maple_wood",
+            ItemGroups.BUILDING_BLOCKS);
+    public static final Block STRIPPED_HICKORY_WOOD = registerBlock("stripped_hickory_wood",
             new PillarBlock(FabricBlockSettings.copyOf(Blocks.STRIPPED_OAK_WOOD).requiresTool()),
-            null);
-    public static final Block MAPLE_PLANKS = registerBlock("maple_planks",
+            ItemGroups.BUILDING_BLOCKS);
+    public static final Block HICKORY_PLANKS = registerBlock("hickory_planks",
             new Block(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).requiresTool()),
-            null);
-    public static final Block RED_MAPLE_LEAVES = registerBlock("red_maple_leaves",
+            ItemGroups.BUILDING_BLOCKS);
+    public static final Block HICKORY_LEAVES = registerBlock("hickory_leaves",
             new LeavesBlock(FabricBlockSettings.create().mapColor(MapColor.RED).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning(Blocks::canSpawnOnLeaves).suffocates(Blocks::never).blockVision(Blocks::never).burnable().pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::never)),
-            null);
+            ItemGroups.NATURAL);
+
+    public static final Block HICKORY_SAPLING = registerBlock("hickory_sapling",
+            new SaplingBlock(SublunarySaplings.HICKORY, FabricBlockSettings.copyOf(Blocks.OAK_SAPLING)),
+            ItemGroups.NATURAL);
 
     //registry end
 

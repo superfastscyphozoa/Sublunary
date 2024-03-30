@@ -44,8 +44,6 @@ public class RegisterItems {
 
     public static void addItemsToItemGroup(){
         //add items to item groups
-        addToItemGroup(ItemGroups.INGREDIENTS, FOUR_LEAF_CLOVER);
-
         addToItemGroup(ItemGroups.COMBAT, RUSTED_SWORD);
 
         addToItemGroup(ItemGroups.INGREDIENTS, FLOUR);

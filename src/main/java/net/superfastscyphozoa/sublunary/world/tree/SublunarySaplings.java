@@ -7,9 +7,9 @@ import net.superfastscyphozoa.sublunary.world.feature.configured.SubVegetationCo
 import java.util.Optional;
 
 public class SublunarySaplings {
-    public static final SaplingGenerator MAPLE =
-            new SaplingGenerator("maple", 0f ,Optional.empty(), Optional.empty(),
-                    Optional.of(SubTreeConfiguredFeatures.FLOWER_FOREST_OAK),
+    public static final SaplingGenerator HICKORY =
+            new SaplingGenerator("hickory", 0f ,Optional.empty(), Optional.empty(),
+                    Optional.of(SubTreeConfiguredFeatures.HICKORY),
                     Optional.empty(),
                     Optional.empty(),
                     Optional.empty());

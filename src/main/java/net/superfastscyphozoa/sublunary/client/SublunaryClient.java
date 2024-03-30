@@ -24,6 +24,7 @@ public class SublunaryClient implements ClientModInitializer {
         //render types
         BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlocks.LAVENDER, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlocks.CLOVERS, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlocks.HICKORY_SAPLING, RenderLayer.getCutout());
 
         //render mobs
         EntityRendererRegistry.register(RegisterEntities.PASSERINE, PasserineRenderer::new);

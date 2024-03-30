@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": "sublunary:spruce_full_placed",
+    "features": [
+      {
+        "chance": 0.34,
+        "feature": "sublunary:spruce_sparse_placed"
+      }
+    ]
+  }
+}

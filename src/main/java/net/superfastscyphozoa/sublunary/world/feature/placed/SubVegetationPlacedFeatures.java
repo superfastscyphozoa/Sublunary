@@ -23,6 +23,9 @@ public class SubVegetationPlacedFeatures {
     public static final RegistryKey<PlacedFeature> PLAINS_TREES = registerKey("plains_trees");
     public static final RegistryKey<PlacedFeature> OLD_GROWTH_BIRCH_TREES = registerKey("old_growth_birch_trees");
     public static final RegistryKey<PlacedFeature> MEADOW_TREES = registerKey("meadow_trees");
+    public static final RegistryKey<PlacedFeature> DARK_FOREST_TREES = registerKey("dark_forest_trees");
+    public static final RegistryKey<PlacedFeature> TAIGA_TREES = registerKey("taiga_trees");
+    public static final RegistryKey<PlacedFeature> SNOWY_PLAINS_TREES = registerKey("snowy_plains_trees");
 
     public static final RegistryKey<PlacedFeature> GRASS_FERNS_PATCH = registerKey("grass_ferns_patch");
     public static final RegistryKey<PlacedFeature> GRASS_PATCH = registerKey("grass_patch");
@@ -41,6 +44,9 @@ public class SubVegetationPlacedFeatures {
         RegistryEntry<ConfiguredFeature<?, ?>> oldGrowthBirchTrees = configuredFeatureRegistryEntryLookup.getOrThrow(SubVegetationConfiguredFeatures.OLD_GROWTH_BIRCH_TREES_CONFIGURED);
         RegistryEntry<ConfiguredFeature<?, ?>> plainsTrees = configuredFeatureRegistryEntryLookup.getOrThrow(SubVegetationConfiguredFeatures.PLAINS_TREES_CONFIGURED);
         RegistryEntry<ConfiguredFeature<?, ?>> meadowTrees = configuredFeatureRegistryEntryLookup.getOrThrow(SubVegetationConfiguredFeatures.MEADOW_TREES_CONFIGURED);
+        RegistryEntry<ConfiguredFeature<?, ?>> darkForestTrees = configuredFeatureRegistryEntryLookup.getOrThrow(SubVegetationConfiguredFeatures.DARK_FOREST_TREES_CONFIGURED);
+        RegistryEntry<ConfiguredFeature<?, ?>> taigaTrees = configuredFeatureRegistryEntryLookup.getOrThrow(SubVegetationConfiguredFeatures.TAIGA_TREES_CONFIGURED);
+        RegistryEntry<ConfiguredFeature<?, ?>> snowyPlainsTrees = configuredFeatureRegistryEntryLookup.getOrThrow(SubVegetationConfiguredFeatures.SNOWY_PLAINS_TREES_CONFIGURED);
 
         RegistryEntry<ConfiguredFeature<?, ?>> grassFernsPatch = configuredFeatureRegistryEntryLookup.getOrThrow(SubVegetationConfiguredFeatures.GRASS_FERNS_PATCH_CONFIGURED);
         RegistryEntry<ConfiguredFeature<?, ?>> grassPatch = configuredFeatureRegistryEntryLookup.getOrThrow(SubVegetationConfiguredFeatures.GRASS_PATCH_CONFIGURED);
@@ -51,22 +57,32 @@ public class SubVegetationPlacedFeatures {
 
 
         SublunaryPlacedFeatures.register(context, FOREST_TREES, forestTrees,
-                treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(10, 0.1F, 4), Blocks.OAK_SAPLING));
+                treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(9, 0.1F, 4), Blocks.OAK_SAPLING));
 
         SublunaryPlacedFeatures.register(context, FLOWER_FOREST_TREES, flowerForestTrees,
                 treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(8, 0.1F, 4), Blocks.OAK_SAPLING));
 
         SublunaryPlacedFeatures.register(context, BIRCH_FOREST_TREES, birchForestTrees,
-                treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(9, 0.1F, 2), Blocks.OAK_SAPLING));
+                treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(9, 0.1F, 2), Blocks.BIRCH_SAPLING));
 
         SublunaryPlacedFeatures.register(context, OLD_GROWTH_BIRCH_TREES, oldGrowthBirchTrees,
-                treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(8, 0.1F, 3), Blocks.OAK_SAPLING));
+                treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(8, 0.1F, 3), Blocks.BIRCH_SAPLING));
 
         SublunaryPlacedFeatures.register(context, PLAINS_TREES, plainsTrees,
                 treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(0, 0.05F, 1), Blocks.OAK_SAPLING));
 
         SublunaryPlacedFeatures.register(context, MEADOW_TREES, meadowTrees,
                 treeModifiersWithWouldSurvive(RarityFilterPlacementModifier.of(100), Blocks.OAK_SAPLING));
+
+        SublunaryPlacedFeatures.register(context, DARK_FOREST_TREES, darkForestTrees,
+                CountPlacementModifier.of(16), SquarePlacementModifier.of(),
+                SurfaceWaterDepthFilterPlacementModifier.of(0), PlacedFeatures.OCEAN_FLOOR_HEIGHTMAP, BiomePlacementModifier.of());
+
+        SublunaryPlacedFeatures.register(context, TAIGA_TREES, taigaTrees,
+                treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(9, 0.1F, 1), Blocks.OAK_SAPLING));
+
+        SublunaryPlacedFeatures.register(context, SNOWY_PLAINS_TREES, snowyPlainsTrees,
+                treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(0, 0.1F, 1), Blocks.SPRUCE_SAPLING));
 
 
         SublunaryPlacedFeatures.register(context, GRASS_FERNS_PATCH, grassFernsPatch, VegetationPlacedFeatures.modifiers(20));
