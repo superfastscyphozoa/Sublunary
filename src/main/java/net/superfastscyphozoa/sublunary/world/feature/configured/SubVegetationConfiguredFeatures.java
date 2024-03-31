@@ -37,11 +37,11 @@ public class SubVegetationConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?,?>> TAIGA_TREES_CONFIGURED = registerKey("taiga_trees_configured");
     public static final RegistryKey<ConfiguredFeature<?,?>> SNOWY_PLAINS_TREES_CONFIGURED = registerKey("snowy_plains_trees_configured");
 
-
-    public static final RegistryKey<ConfiguredFeature<?,?>> GRASS_FERNS_PATCH_CONFIGURED = registerKey("grass_ferns_patch_configured");
     public static final RegistryKey<ConfiguredFeature<?,?>> GRASS_PATCH_CONFIGURED = registerKey("grass_patch_configured");
+    public static final RegistryKey<ConfiguredFeature<?,?>> GRASS_FERNS_PATCH_CONFIGURED = registerKey("grass_ferns_patch_configured");
 
     public static final RegistryKey<ConfiguredFeature<?,?>> TALL_GRASS_PATCH_CONFIGURED = registerKey("tall_grass_patch_configured");
+    public static final RegistryKey<ConfiguredFeature<?,?>> TALL_FERNS_PATCH_CONFIGURED = registerKey("tall_ferns_patch_configured");
 
     public static final RegistryKey<ConfiguredFeature<?,?>> PLAINS_FLOWER_PATCH_CONFIGURED = registerKey("plains_flower_patch_configured");
 
@@ -79,6 +79,7 @@ public class SubVegetationConfiguredFeatures {
 
         RegistryEntry<PlacedFeature> spruceFull = placedFeatureRegistryEntryLookup.getOrThrow(SubTreePlacedFeatures.SPRUCE_FULL_PLACED);
         RegistryEntry<PlacedFeature> spruceSparse = placedFeatureRegistryEntryLookup.getOrThrow(SubTreePlacedFeatures.SPRUCE_SPARSE_PLACED);
+        RegistryEntry<PlacedFeature> dyingSpruce = placedFeatureRegistryEntryLookup.getOrThrow(SubTreePlacedFeatures.DYING_SPRUCE_PLACED);
 
         RegistryEntry<PlacedFeature> vinyOak = placedFeatureRegistryEntryLookup.getOrThrow(SubTreePlacedFeatures.VINY_OAK_PLACED);
         RegistryEntry<PlacedFeature> largeVinyOak = placedFeatureRegistryEntryLookup.getOrThrow(SubTreePlacedFeatures.LARGE_VINY_OAK_PLACED);
@@ -138,6 +139,7 @@ public class SubVegetationConfiguredFeatures {
                 oakierOak));
 
         SublunaryConfiguredFeatures.register(context, TAIGA_TREES_CONFIGURED, Feature.RANDOM_SELECTOR, new RandomFeatureConfig(List.of(
+                new RandomFeatureEntry(dyingSpruce, 0.002F),
                 new RandomFeatureEntry(spruceSparse, 0.34F)),
                 spruceFull));
 
@@ -145,16 +147,20 @@ public class SubVegetationConfiguredFeatures {
                 new RandomFeatureEntry(spruceSparse, 0.05F)),
                 spruceFull));
 
+        SublunaryConfiguredFeatures.register(context, GRASS_PATCH_CONFIGURED, Feature.RANDOM_PATCH,
+                createRandomPatchFeatureConfig(BlockStateProvider.of(Blocks.SHORT_GRASS), 32));
+
         SublunaryConfiguredFeatures.register(context, GRASS_FERNS_PATCH_CONFIGURED, Feature.RANDOM_PATCH,
                 createRandomPatchFeatureConfig(new WeightedBlockStateProvider(new DataPool.Builder<BlockState>()
                         .add(Blocks.SHORT_GRASS.getDefaultState(), 4).add(Blocks.FERN.getDefaultState(), 1)), 32));
 
-        SublunaryConfiguredFeatures.register(context, GRASS_PATCH_CONFIGURED, Feature.RANDOM_PATCH,
-                createRandomPatchFeatureConfig(BlockStateProvider.of(Blocks.SHORT_GRASS), 32));
-
         SublunaryConfiguredFeatures.register(context, TALL_GRASS_PATCH_CONFIGURED, Feature.RANDOM_PATCH,
                 ConfiguredFeatures.createRandomPatchFeatureConfig
                         (Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(Blocks.TALL_GRASS))));
+
+        SublunaryConfiguredFeatures.register(context, TALL_FERNS_PATCH_CONFIGURED, Feature.RANDOM_PATCH,
+                ConfiguredFeatures.createRandomPatchFeatureConfig
+                        (Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(Blocks.LARGE_FERN))));
 
         SublunaryConfiguredFeatures.register(context, PLAINS_FLOWER_PATCH_CONFIGURED, Feature.FLOWER,
                 new RandomPatchFeatureConfig(96, 6, 2, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig

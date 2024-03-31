@@ -19,7 +19,7 @@ public class SublunaryBlockTagProvider extends FabricTagProvider.BlockTagProvide
                 .add(RegisterBlocks.LAVENDER);
 
         getOrCreateTagBuilder(BlockTags.LEAVES)
-                .add(RegisterBlocks.HICKORY_LEAVES);
+                .add(RegisterBlocks.HICKORY_LEAVES, RegisterBlocks.DEAD_SPRUCE_LEAVES);
 
         getOrCreateTagBuilder(BlockTags.LOGS)
                 .add(RegisterBlocks.HICKORY_LOG, RegisterBlocks.HICKORY_WOOD, RegisterBlocks.STRIPPED_HICKORY_LOG, RegisterBlocks.STRIPPED_HICKORY_WOOD);

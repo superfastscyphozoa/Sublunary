@@ -61,6 +61,7 @@ public class SubTreeConfiguredFeatures {
 
     public static final RegistryKey<ConfiguredFeature<?,?>> SPRUCE_FULL = registerKey("spruce_full");
     public static final RegistryKey<ConfiguredFeature<?,?>> SPRUCE_SPARSE = registerKey("spruce_sparse");
+    public static final RegistryKey<ConfiguredFeature<?,?>> DYING_SPRUCE = registerKey("dying_spruce");
 
     public static final RegistryKey<ConfiguredFeature<?,?>> VINY_OAK = registerKey("viny_oak");
     public static final RegistryKey<ConfiguredFeature<?,?>> LARGE_VINY_OAK = registerKey("large_viny_oak");
@@ -115,12 +116,9 @@ public class SubTreeConfiguredFeatures {
     private static TreeFeatureConfig.Builder hickory() {
         return (new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(RegisterBlocks.HICKORY_LOG),
-                new CherryTrunkPlacer(7, 1, 0,
-                        new WeightedListIntProvider(new DataPool.Builder<IntProvider>().add(ConstantIntProvider.create(2), 1)
-                                .add(ConstantIntProvider.create(3), 1).build()),
-                        UniformIntProvider.create(2, 4), UniformIntProvider.create(-4, -3), UniformIntProvider.create(-1, 0)),
+                new LargeOakTrunkPlacer(6, 12, 0),
                 BlockStateProvider.of(RegisterBlocks.HICKORY_LEAVES),
-                new CherryFoliagePlacer(ConstantIntProvider.create(4), ConstantIntProvider.create(0), ConstantIntProvider.create(5),
+                new CherryFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(0), ConstantIntProvider.create(5),
                         0.25F, 0.5F, 0.16666667F, 0.33333334F),
                 new TwoLayersFeatureSize(1, 0, 2)))
                 .ignoreVines().dirtProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT)).forceDirt();
@@ -144,6 +142,20 @@ public class SubTreeConfiguredFeatures {
             new PineFoliagePlacer(ConstantIntProvider.create(1), ConstantIntProvider.create(1), UniformIntProvider.create(3, 4)),
             new TwoLayersFeatureSize(2, 0, 2)))
             .ignoreVines().dirtProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT)).forceDirt();
+    }
+
+    private static TreeFeatureConfig.Builder cherry() {
+        return (new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(Blocks.CHERRY_LOG),
+                new CherryTrunkPlacer(7, 1, 0,
+                        new WeightedListIntProvider(new DataPool.Builder<IntProvider>().add(ConstantIntProvider.create(2), 1)
+                                .add(ConstantIntProvider.create(3), 1).build()),
+                        UniformIntProvider.create(2, 4), UniformIntProvider.create(-4, -3), UniformIntProvider.create(-1, 0)),
+                BlockStateProvider.of(Blocks.CHERRY_LEAVES),
+                new CherryFoliagePlacer(ConstantIntProvider.create(4), ConstantIntProvider.create(0), ConstantIntProvider.create(5),
+                        0.25F, 0.5F, 0.16666667F, 0.33333334F),
+                new TwoLayersFeatureSize(1, 0, 2)))
+                .ignoreVines().dirtProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT)).forceDirt();
     }
 
     public static void bootstrap(Registerable<ConfiguredFeature<?,?>> context) {
@@ -204,6 +216,14 @@ public class SubTreeConfiguredFeatures {
                 .ignoreVines().dirtProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT)).forceDirt().build());
 
         SublunaryConfiguredFeatures.register(context, SPRUCE_SPARSE, Feature.TREE, spruce_sparse().build());
+
+        SublunaryConfiguredFeatures.register(context, DYING_SPRUCE, Feature.TREE, (new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(Blocks.SPRUCE_LOG),
+                new StraightTrunkPlacer(5, 2, 1),
+                BlockStateProvider.of(RegisterBlocks.DEAD_SPRUCE_LEAVES),
+                new SpruceFoliagePlacer(UniformIntProvider.create(2, 3), UniformIntProvider.create(0, 2), UniformIntProvider.create(1, 2)),
+                new TwoLayersFeatureSize(2, 0, 2)))
+                .ignoreVines().dirtProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT)).forceDirt().build());
 
         //tree variants
         SublunaryConfiguredFeatures.register(context, VINY_OAK, Feature.TREE, oak().decorators(List.of(TrunkVineTreeDecorator.INSTANCE)).build());

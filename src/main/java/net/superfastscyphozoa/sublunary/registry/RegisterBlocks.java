@@ -51,11 +51,15 @@ public class RegisterBlocks {
             new Block(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).requiresTool()),
             ItemGroups.BUILDING_BLOCKS);
     public static final Block HICKORY_LEAVES = registerBlock("hickory_leaves",
-            new LeavesBlock(FabricBlockSettings.create().mapColor(MapColor.RED).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning(Blocks::canSpawnOnLeaves).suffocates(Blocks::never).blockVision(Blocks::never).burnable().pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::never)),
+            new LeavesBlock(FabricBlockSettings.create().mapColor(MapColor.YELLOW).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning(Blocks::canSpawnOnLeaves).suffocates(Blocks::never).blockVision(Blocks::never).burnable().pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::never)),
             ItemGroups.NATURAL);
 
     public static final Block HICKORY_SAPLING = registerBlock("hickory_sapling",
             new SaplingBlock(SublunarySaplings.HICKORY, FabricBlockSettings.copyOf(Blocks.OAK_SAPLING)),
+            ItemGroups.NATURAL);
+
+    public static final Block DEAD_SPRUCE_LEAVES = registerBlock("dead_spruce_leaves",
+            new LeavesBlock(FabricBlockSettings.create().mapColor(MapColor.ORANGE).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning(Blocks::canSpawnOnLeaves).suffocates(Blocks::never).blockVision(Blocks::never).burnable().pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::never)),
             ItemGroups.NATURAL);
 
     //registry end

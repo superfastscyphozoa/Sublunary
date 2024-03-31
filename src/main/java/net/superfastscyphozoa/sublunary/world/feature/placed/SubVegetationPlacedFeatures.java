@@ -27,10 +27,11 @@ public class SubVegetationPlacedFeatures {
     public static final RegistryKey<PlacedFeature> TAIGA_TREES = registerKey("taiga_trees");
     public static final RegistryKey<PlacedFeature> SNOWY_PLAINS_TREES = registerKey("snowy_plains_trees");
 
-    public static final RegistryKey<PlacedFeature> GRASS_FERNS_PATCH = registerKey("grass_ferns_patch");
     public static final RegistryKey<PlacedFeature> GRASS_PATCH = registerKey("grass_patch");
+    public static final RegistryKey<PlacedFeature> GRASS_FERNS_PATCH = registerKey("grass_ferns_patch");
 
     public static final RegistryKey<PlacedFeature> TALL_GRASS_PATCH = registerKey("tall_grass_patch");
+    public static final RegistryKey<PlacedFeature> TALL_FERNS_PATCH = registerKey("tall_ferns_patch");
 
     public static final RegistryKey<PlacedFeature> PLAINS_FLOWER_PATCH = registerKey("plains_flower_patch");
 
@@ -48,10 +49,11 @@ public class SubVegetationPlacedFeatures {
         RegistryEntry<ConfiguredFeature<?, ?>> taigaTrees = configuredFeatureRegistryEntryLookup.getOrThrow(SubVegetationConfiguredFeatures.TAIGA_TREES_CONFIGURED);
         RegistryEntry<ConfiguredFeature<?, ?>> snowyPlainsTrees = configuredFeatureRegistryEntryLookup.getOrThrow(SubVegetationConfiguredFeatures.SNOWY_PLAINS_TREES_CONFIGURED);
 
-        RegistryEntry<ConfiguredFeature<?, ?>> grassFernsPatch = configuredFeatureRegistryEntryLookup.getOrThrow(SubVegetationConfiguredFeatures.GRASS_FERNS_PATCH_CONFIGURED);
         RegistryEntry<ConfiguredFeature<?, ?>> grassPatch = configuredFeatureRegistryEntryLookup.getOrThrow(SubVegetationConfiguredFeatures.GRASS_PATCH_CONFIGURED);
+        RegistryEntry<ConfiguredFeature<?, ?>> grassFernsPatch = configuredFeatureRegistryEntryLookup.getOrThrow(SubVegetationConfiguredFeatures.GRASS_FERNS_PATCH_CONFIGURED);
 
         RegistryEntry<ConfiguredFeature<?, ?>> tallGrassPatch = configuredFeatureRegistryEntryLookup.getOrThrow(SubVegetationConfiguredFeatures.TALL_GRASS_PATCH_CONFIGURED);
+        RegistryEntry<ConfiguredFeature<?, ?>> tallFernsPatch = configuredFeatureRegistryEntryLookup.getOrThrow(SubVegetationConfiguredFeatures.TALL_FERNS_PATCH_CONFIGURED);
 
         RegistryEntry<ConfiguredFeature<?, ?>> plainsFlowerPatch = configuredFeatureRegistryEntryLookup.getOrThrow(SubVegetationConfiguredFeatures.PLAINS_FLOWER_PATCH_CONFIGURED);
 
@@ -85,10 +87,14 @@ public class SubVegetationPlacedFeatures {
                 treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(0, 0.1F, 1), Blocks.SPRUCE_SAPLING));
 
 
-        SublunaryPlacedFeatures.register(context, GRASS_FERNS_PATCH, grassFernsPatch, VegetationPlacedFeatures.modifiers(20));
         SublunaryPlacedFeatures.register(context, GRASS_PATCH, grassPatch, VegetationPlacedFeatures.modifiers(20));
+        SublunaryPlacedFeatures.register(context, GRASS_FERNS_PATCH, grassFernsPatch, VegetationPlacedFeatures.modifiers(20));
 
         SublunaryPlacedFeatures.register(context, TALL_GRASS_PATCH, tallGrassPatch,
+                NoiseThresholdCountPlacementModifier.of(-0.8, 0, 7), RarityFilterPlacementModifier.of(20),
+                SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
+
+        SublunaryPlacedFeatures.register(context, TALL_FERNS_PATCH, tallFernsPatch,
                 NoiseThresholdCountPlacementModifier.of(-0.8, 0, 7), RarityFilterPlacementModifier.of(20),
                 SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
 
