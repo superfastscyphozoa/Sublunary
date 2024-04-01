@@ -118,7 +118,7 @@ public class SubTreeConfiguredFeatures {
                 BlockStateProvider.of(RegisterBlocks.HICKORY_LOG),
                 new LargeOakTrunkPlacer(6, 12, 0),
                 BlockStateProvider.of(RegisterBlocks.HICKORY_LEAVES),
-                new CherryFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(0), ConstantIntProvider.create(5),
+                new CherryFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(1), ConstantIntProvider.create(5),
                         0.25F, 0.5F, 0.16666667F, 0.33333334F),
                 new TwoLayersFeatureSize(1, 0, 2)))
                 .ignoreVines().dirtProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT)).forceDirt();
