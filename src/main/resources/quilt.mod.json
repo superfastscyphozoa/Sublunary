@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "quilt_loader": {
+    "group": "${group}",
+    "id": "sublunary",
+    "version": "${version}",
+    "metadata": {
+      "name": "Sublunary",
+      "description": "A mod that adds a lot of random things",
+      "contributors": {
+        "superfastscyphozoa": "Owner"
+      },
+      "icon": "assets/sublunary/icon.png"
+    },
+    "intermediate_mappings": "net.fabricmc:intermediary",
+    "entrypoints": {
+      "init": "net.superfastscyphozoa.sublunary.Sublunary",
+      "client": [
+        "net.superfastscyphozoa.sublunary.client.SublunaryClient"
+      ],
+      "fabric-datagen": [
+        "net.superfastscyphozoa.sublunary.data.SublunaryDataGenerator"
+      ]
+    },
+    "depends": [
+      {
+        "id": "quilt_loader",
+        "versions": ">=0.19.1"
+      },
+      {
+        "id": "quilted_fabric_api",
+        "versions": ">=7.0.2"
+      },
+      {
+        "id": "minecraft",
+        "versions": ">=1.20"
+      }
+    ]
+  },
+  "mixin": "sublunary.mixins.json"
+}

@@ -1,6 +1,5 @@
 package net.superfastscyphozoa.sublunary.registry;
 
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
@@ -11,30 +10,31 @@ import net.superfastscyphozoa.sublunary.Sublunary;
 import net.superfastscyphozoa.sublunary.items.FlourItem;
 import net.superfastscyphozoa.sublunary.items.SublunaryFoods;
 import net.superfastscyphozoa.sublunary.items.SublunaryToolMaterials;
+import org.quiltmc.qsl.item.setting.api.QuiltItemSettings;
 
 public class RegisterItems {
 
     //registry
 
     public static final Item FOUR_LEAF_CLOVER = registerItem("four_leaf_clover",
-            new Item(new FabricItemSettings()));
+            new Item(new QuiltItemSettings()));
 
     // equipment
 
     public static final Item RUSTED_SWORD = registerItem("rusted_sword",
-            new SwordItem(SublunaryToolMaterials.RUSTED, 3,-2.4f,new FabricItemSettings()));
+            new SwordItem(SublunaryToolMaterials.RUSTED, 3,-2.4f,new QuiltItemSettings()));
 
     // flour and dough
 
     public static final Item FLOUR = registerItem("flour",
-            new FlourItem(new FabricItemSettings()));
+            new FlourItem(new QuiltItemSettings()));
 
     public static final Item DOUGH = registerItem("dough",
-            new Item(new FabricItemSettings().food(SublunaryFoods.DOUGH)));
+            new Item(new QuiltItemSettings().food(SublunaryFoods.DOUGH)));
 
     //spawn eggs
     public static final Item PASSERINE_SPAWN_EGG = registerItem("passerine_spawn_egg",
-            new SpawnEggItem(RegisterEntities.PASSERINE, 1051950, 5715335, new FabricItemSettings()));
+            new SpawnEggItem(RegisterEntities.PASSERINE, 1051950, 5715335, new QuiltItemSettings()));
 
     //registry end
 
@@ -47,13 +47,13 @@ public class RegisterItems {
         addToItemGroup(ItemGroups.COMBAT, RUSTED_SWORD);
 
         addToItemGroup(ItemGroups.INGREDIENTS, FLOUR);
-        addToItemGroup(ItemGroups.FOOD_AND_DRINK, FLOUR);
+        addToItemGroup(ItemGroups.FOOD_AND_DRINKS, FLOUR);
         addToItemGroup(ItemGroups.INGREDIENTS, DOUGH);
-        addToItemGroup(ItemGroups.FOOD_AND_DRINK, DOUGH);
+        addToItemGroup(ItemGroups.FOOD_AND_DRINKS, DOUGH);
     }
 
     public static void addToItemGroup(RegistryKey<ItemGroup> group, Item item){
-        ItemGroupEvents.modifyEntriesEvent(group).register(entries -> entries.add(item));
+        ItemGroupEvents.modifyEntriesEvent(group).register(entries -> entries.addItem(item));
     }
 
     public static void registerSublunaryItems() {

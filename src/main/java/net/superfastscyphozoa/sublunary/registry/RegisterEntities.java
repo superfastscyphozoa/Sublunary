@@ -9,10 +9,11 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.superfastscyphozoa.sublunary.Sublunary;
 import net.superfastscyphozoa.sublunary.entity.PasserineEntity;
+import org.quiltmc.qsl.entity.extensions.api.QuiltEntityTypeBuilder;
 
 public class RegisterEntities {
     public static final EntityType<PasserineEntity> PASSERINE = Registry.register(Registries.ENTITY_TYPE,
             new Identifier(Sublunary.MOD_ID, "passerine"),
-            FabricEntityTypeBuilder.create(SpawnGroup.AMBIENT, PasserineEntity::new)
-                    .dimensions(EntityDimensions.fixed(0.3f,0.6f)).build());
+            QuiltEntityTypeBuilder.create(SpawnGroup.AMBIENT, PasserineEntity::new)
+					.setDimensions(EntityDimensions.fixed(0.3f,0.6f)).build());
 }

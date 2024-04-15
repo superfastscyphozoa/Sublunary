@@ -1,21 +1,16 @@
 package net.superfastscyphozoa.sublunary.world.gen;
 
-import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
-import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
-import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.SpawnGroup;
-import net.minecraft.entity.passive.CowEntity;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
-import net.minecraft.world.biome.BiomeKeys;
-import net.minecraft.world.biome.SpawnSettings;
+import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.PlacedFeature;
 import net.minecraft.world.gen.feature.VegetationPlacedFeatures;
 import net.superfastscyphozoa.sublunary.Sublunary;
-import net.superfastscyphozoa.sublunary.registry.RegisterEntities;
 import net.superfastscyphozoa.sublunary.world.feature.placed.SubVegetationPlacedFeatures;
+import org.quiltmc.qsl.worldgen.biome.api.BiomeModifications;
+import org.quiltmc.qsl.worldgen.biome.api.BiomeSelectors;
+import org.quiltmc.qsl.worldgen.biome.api.ModificationPhase;
 
 public class SublunaryTreeGeneration {
 
@@ -31,8 +26,8 @@ public class SublunaryTreeGeneration {
         RegistryKey<PlacedFeature> VANILLA_TAIGA_TREES = VegetationPlacedFeatures.TREES_TAIGA;
         RegistryKey<PlacedFeature> VANILLA_SNOWY_PLAINS_TREES = VegetationPlacedFeatures.TREES_SNOWY;
 
-        BiomeModifications.create(new Identifier(Sublunary.MOD_ID, "replace_forest_trees"))
-                .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.includeByKey(BiomeKeys.FOREST),
+		BiomeModifications.create(new Identifier(Sublunary.MOD_ID, "replace_forest_trees"))
+                .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.includeByKey(Biomes.FOREST),
                         biomeModificationContext -> {
                             biomeModificationContext.getGenerationSettings()
                                     .removeFeature(GenerationStep.Feature.VEGETAL_DECORATION, VANILLA_FOREST_TREES);
@@ -40,8 +35,8 @@ public class SublunaryTreeGeneration {
                                     .addFeature(GenerationStep.Feature.VEGETAL_DECORATION, SubVegetationPlacedFeatures.FOREST_TREES);}
                 );
 
-        BiomeModifications.create(new Identifier(Sublunary.MOD_ID, "replace_flower_forest_trees"))
-                .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.includeByKey(BiomeKeys.FLOWER_FOREST),
+		BiomeModifications.create(new Identifier(Sublunary.MOD_ID, "replace_flower_forest_trees"))
+                .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.includeByKey(Biomes.FLOWER_FOREST),
                         biomeModificationContext -> {
                             biomeModificationContext.getGenerationSettings()
                                     .removeFeature(GenerationStep.Feature.VEGETAL_DECORATION, VANILLA_FLOWER_FOREST_TREES);
@@ -49,8 +44,8 @@ public class SublunaryTreeGeneration {
                                     .addFeature(GenerationStep.Feature.VEGETAL_DECORATION, SubVegetationPlacedFeatures.FLOWER_FOREST_TREES);}
                 );
 
-        BiomeModifications.create(new Identifier(Sublunary.MOD_ID, "replace_birch_forest_trees"))
-                .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.includeByKey(BiomeKeys.BIRCH_FOREST),
+		BiomeModifications.create(new Identifier(Sublunary.MOD_ID, "replace_birch_forest_trees"))
+                .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.includeByKey(Biomes.BIRCH_FOREST),
                         biomeModificationContext -> {
                             biomeModificationContext.getGenerationSettings()
                                     .removeFeature(GenerationStep.Feature.VEGETAL_DECORATION, VANILLA_BIRCH_FOREST_TREES);
@@ -58,8 +53,8 @@ public class SublunaryTreeGeneration {
                                     .addFeature(GenerationStep.Feature.VEGETAL_DECORATION, SubVegetationPlacedFeatures.BIRCH_FOREST_TREES);}
                 );
 
-        BiomeModifications.create(new Identifier(Sublunary.MOD_ID, "replace_old_growth_birch_trees"))
-                .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.includeByKey(BiomeKeys.OLD_GROWTH_BIRCH_FOREST),
+		BiomeModifications.create(new Identifier(Sublunary.MOD_ID, "replace_old_growth_birch_trees"))
+                .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.includeByKey(Biomes.OLD_GROWTH_BIRCH_FOREST),
                         biomeModificationContext -> {
                             biomeModificationContext.getGenerationSettings()
                                     .removeFeature(GenerationStep.Feature.VEGETAL_DECORATION, VANILLA_OLD_GROWTH_BIRCH_TREES);
@@ -67,8 +62,8 @@ public class SublunaryTreeGeneration {
                                     .addFeature(GenerationStep.Feature.VEGETAL_DECORATION, SubVegetationPlacedFeatures.OLD_GROWTH_BIRCH_TREES);}
                 );
 
-        BiomeModifications.create(new Identifier(Sublunary.MOD_ID, "replace_plains_trees"))
-                .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.includeByKey(BiomeKeys.PLAINS, BiomeKeys.SUNFLOWER_PLAINS),
+		BiomeModifications.create(new Identifier(Sublunary.MOD_ID, "replace_plains_trees"))
+                .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.includeByKey(Biomes.PLAINS, Biomes.SUNFLOWER_PLAINS),
                         biomeModificationContext -> {
                             biomeModificationContext.getGenerationSettings()
                                     .removeFeature(GenerationStep.Feature.VEGETAL_DECORATION, VANILLA_PLAINS_TREES);
@@ -76,8 +71,8 @@ public class SublunaryTreeGeneration {
                                     .addFeature(GenerationStep.Feature.VEGETAL_DECORATION, SubVegetationPlacedFeatures.PLAINS_TREES);}
                 );
 
-        BiomeModifications.create(new Identifier(Sublunary.MOD_ID, "replace_meadow_trees"))
-                .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.includeByKey(BiomeKeys.MEADOW),
+		BiomeModifications.create(new Identifier(Sublunary.MOD_ID, "replace_meadow_trees"))
+                .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.includeByKey(Biomes.MEADOW),
                         biomeModificationContext -> {
                             biomeModificationContext.getGenerationSettings()
                                     .removeFeature(GenerationStep.Feature.VEGETAL_DECORATION, VANILLA_MEADOW_TREES);
@@ -85,8 +80,8 @@ public class SublunaryTreeGeneration {
                                     .addFeature(GenerationStep.Feature.VEGETAL_DECORATION, SubVegetationPlacedFeatures.MEADOW_TREES);}
                 );
 
-        BiomeModifications.create(new Identifier(Sublunary.MOD_ID, "replace_dark_forest_trees"))
-                .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.includeByKey(BiomeKeys.DARK_FOREST),
+		BiomeModifications.create(new Identifier(Sublunary.MOD_ID, "replace_dark_forest_trees"))
+                .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.includeByKey(Biomes.DARK_FOREST),
                         biomeModificationContext -> {
                             biomeModificationContext.getGenerationSettings()
                                     .removeFeature(GenerationStep.Feature.VEGETAL_DECORATION, VANILLA_DARK_FOREST_TREES);
@@ -94,8 +89,8 @@ public class SublunaryTreeGeneration {
                                     .addFeature(GenerationStep.Feature.VEGETAL_DECORATION, SubVegetationPlacedFeatures.DARK_FOREST_TREES);}
                 );
 
-        BiomeModifications.create(new Identifier(Sublunary.MOD_ID, "replace_taiga_trees"))
-                .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.includeByKey(BiomeKeys.TAIGA, BiomeKeys.SNOWY_TAIGA),
+		BiomeModifications.create(new Identifier(Sublunary.MOD_ID, "replace_taiga_trees"))
+                .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.includeByKey(Biomes.TAIGA, Biomes.SNOWY_TAIGA),
                         biomeModificationContext -> {
                             biomeModificationContext.getGenerationSettings()
                                     .removeFeature(GenerationStep.Feature.VEGETAL_DECORATION, VANILLA_TAIGA_TREES);
@@ -104,7 +99,7 @@ public class SublunaryTreeGeneration {
                 );
 
         BiomeModifications.create(new Identifier(Sublunary.MOD_ID, "replace_snowy_plains_trees"))
-                .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.includeByKey(BiomeKeys.SNOWY_PLAINS),
+                .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.includeByKey(Biomes.SNOWY_PLAINS),
                         biomeModificationContext -> {
                             biomeModificationContext.getGenerationSettings()
                                     .removeFeature(GenerationStep.Feature.VEGETAL_DECORATION, VANILLA_SNOWY_PLAINS_TREES);

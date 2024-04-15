@@ -5,7 +5,7 @@ import net.superfastscyphozoa.sublunary.registry.RegisterBlocks;
 
 public class SublunaryFlammableBlocks {
     public static void registerFlammableBlocks() {
-        FlammableBlockRegistry registry = FlammableBlockRegistry.getDefaultInstance();
+		FlammableBlockRegistry registry = FlammableBlockRegistry.getDefaultInstance();
 
         registry.add(RegisterBlocks.HICKORY_LOG, 5, 5);
         registry.add(RegisterBlocks.HICKORY_WOOD, 5, 5);
