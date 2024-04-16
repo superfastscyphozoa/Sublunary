@@ -6,7 +6,7 @@ import net.minecraft.entity.mob.AbstractSkeletonEntity;
 import net.minecraft.entity.mob.SkeletonEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.util.math.random.Random;
+import net.minecraft.util.random.RandomGenerator;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.World;
 import net.superfastscyphozoa.sublunary.registry.RegisterItems;
@@ -20,7 +20,7 @@ public abstract class SkeletonMixin extends AbstractSkeletonEntity {
     }
 
     @Override
-    protected void initEquipment(Random random, LocalDifficulty localDifficulty) {
+    protected void initEquipment(RandomGenerator random, LocalDifficulty localDifficulty) {
         if (random.nextFloat() > 0.75f){
             this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(RegisterItems.RUSTED_SWORD));
         } else this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(Items.BOW));

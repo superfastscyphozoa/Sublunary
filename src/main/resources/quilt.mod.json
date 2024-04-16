@@ -15,9 +15,7 @@
     "intermediate_mappings": "net.fabricmc:intermediary",
     "entrypoints": {
       "init": "net.superfastscyphozoa.sublunary.Sublunary",
-      "client": [
-        "net.superfastscyphozoa.sublunary.client.SublunaryClient"
-      ],
+      "client": "net.superfastscyphozoa.sublunary.client.SublunaryClient",
       "fabric-datagen": [
         "net.superfastscyphozoa.sublunary.data.SublunaryDataGenerator"
       ]

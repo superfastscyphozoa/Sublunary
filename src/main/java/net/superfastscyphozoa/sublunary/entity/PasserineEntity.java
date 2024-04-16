@@ -60,30 +60,30 @@ public class PasserineEntity extends AnimalEntity{
         if (this.getY() == this.prevY) {
             if(this.getX() == this.prevX && this.getZ() == this.prevZ) {
 
-                if (!idle.isRunning()) {
+                if (!idle.isAnimating()) {
                     idle.start(this.age);
                 }
-                if (fly.isRunning() || hop.isRunning()) {
+                if (fly.isAnimating() || hop.isAnimating()) {
                     fly.stop();
                     hop.stop();
                 }
 
             } else {
 
-                if (!hop.isRunning()) {
+                if (!hop.isAnimating()) {
                     hop.start(this.age);
                 }
-                if (fly.isRunning() || idle.isRunning()) {
+                if (fly.isAnimating() || idle.isAnimating()) {
                     fly.stop();
                     idle.stop();
                 }
             }
         } else {
 
-            if (!fly.isRunning()) {
+            if (!fly.isAnimating()) {
                 fly.start(this.age);
             }
-            if (idle.isRunning() || hop.isRunning()) {
+            if (idle.isAnimating() || hop.isAnimating()) {
                 idle.stop();
                 hop.stop();
             }
@@ -95,7 +95,7 @@ public class PasserineEntity extends AnimalEntity{
 
         float f = this.getPose() == EntityPose.STANDING ? Math.min(posDelta * 6.0f, 1.0f) : 0.0f;
 
-        this.limbAnimator.updateLimbs(f, 0.3f);
+        this.limbData.updateLimbs(f, 0.3f);
     }
 
     @Override
@@ -123,13 +123,12 @@ public class PasserineEntity extends AnimalEntity{
         this.goalSelector.add(2, new AnimalMateGoal(this, 1.0));
         this.goalSelector.add(3, new TemptGoal(this, 1.2, TEMPT_INGREDIENT, false));
         this.goalSelector.add(4, new FollowParentGoal(this, 1.1));
-        this.goalSelector.add(5, new FlyOntoTreeGoal(this, 1.0));
         this.goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, 6.0f));
         this.goalSelector.add(7, new LookAroundGoal(this));
     }
 
     public static DefaultAttributeContainer.Builder createPasserineAttributes(){
-        return MobEntity.createMobAttributes()
+        return MobEntity.createAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 10)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.1)
                 .add(EntityAttributes.GENERIC_FLYING_SPEED, 0.4);
@@ -162,47 +161,6 @@ public class PasserineEntity extends AnimalEntity{
         assert baby != null;
         baby.setVariant(variant);
         return baby;
-    }
-
-    static class FlyOntoTreeGoal extends FlyGoal {
-        public FlyOntoTreeGoal(PathAwareEntity pathAwareEntity, double d) {
-            super(pathAwareEntity, d);
-        }
-
-        @Override
-        @Nullable
-        protected Vec3d getWanderTarget() {
-            Vec3d vec3d = null;
-            if (this.mob.isTouchingWater()) {
-                vec3d = FuzzyTargeting.find(this.mob, 15, 15);
-            }
-            if (this.mob.getRandom().nextFloat() >= this.probability) {
-                vec3d = this.locateTree();
-            }
-            return vec3d == null ? super.getWanderTarget() : vec3d;
-        }
-
-        @Nullable
-        private Vec3d locateTree() {
-            BlockPos blockPos = this.mob.getBlockPos();
-            BlockPos.Mutable mutable = new BlockPos.Mutable();
-            BlockPos.Mutable mutable2 = new BlockPos.Mutable();
-            Iterable<BlockPos> iterable = BlockPos.iterate(MathHelper.floor(this.mob.getX() - 3.0),
-                    MathHelper.floor(this.mob.getY() - 6.0),
-                    MathHelper.floor(this.mob.getZ() - 3.0),
-                    MathHelper.floor(this.mob.getX() + 3.0),
-                    MathHelper.floor(this.mob.getY() + 6.0),
-                    MathHelper.floor(this.mob.getZ() + 3.0));
-            for (BlockPos blockPos2 : iterable) {
-                BlockState blockState;
-                if (blockPos.equals(blockPos2) || !((blockState = this.mob.getWorld()
-                        .getBlockState(mutable2.set(blockPos2, Direction.DOWN))).getBlock() instanceof LeavesBlock ||
-                        blockState.isIn(BlockTags.LOGS)) || !this.mob.getWorld().isAir(blockPos2) || !this.mob.getWorld()
-                        .isAir(mutable.set(blockPos2, Direction.UP))) continue;
-                return Vec3d.ofBottomCenter(blockPos2);
-            }
-            return null;
-        }
     }
 
     @Override

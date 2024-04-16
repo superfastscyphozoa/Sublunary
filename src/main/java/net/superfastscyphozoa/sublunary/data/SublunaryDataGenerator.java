@@ -2,8 +2,8 @@ package net.superfastscyphozoa.sublunary.data;
 
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
-import net.minecraft.registry.RegistryBuilder;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.RegistrySetBuilder;
 import net.superfastscyphozoa.sublunary.data.tags.SublunaryBlockTagProvider;
 import net.superfastscyphozoa.sublunary.data.tags.SublunaryItemTagProvider;
 import net.superfastscyphozoa.sublunary.world.feature.configured.SublunaryConfiguredFeatures;
@@ -23,8 +23,8 @@ public class SublunaryDataGenerator implements DataGeneratorEntrypoint {
 	}
 
 	@Override
-	public void buildRegistry(RegistryBuilder registryBuilder) {
-		registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, SublunaryConfiguredFeatures::bootstrap);
-		registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, SublunaryPlacedFeatures::bootstrap);
+	public void buildRegistry(RegistrySetBuilder registryBuilder) {
+		registryBuilder.add(RegistryKeys.CONFIGURED_FEATURE, SublunaryConfiguredFeatures::bootstrap);
+		registryBuilder.add(RegistryKeys.PLACED_FEATURE, SublunaryPlacedFeatures::bootstrap);
 	}
 }

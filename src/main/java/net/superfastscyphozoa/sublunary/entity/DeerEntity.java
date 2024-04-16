@@ -37,7 +37,7 @@ public class DeerEntity extends AnimalEntity{
     protected void updateLimbs(float posDelta) {
         float f = this.getPose() == EntityPose.STANDING ? Math.min(posDelta * 6.0f, 1.0f) : 0.0f;
 
-        this.limbAnimator.updateLimbs(f, 0.8f);
+        this.limbData.updateLimbs(f, 0.8f);
     }
 
     @Override
@@ -60,7 +60,7 @@ public class DeerEntity extends AnimalEntity{
     }
 
     public static DefaultAttributeContainer.Builder createDeerAttributes(){
-        return MobEntity.createMobAttributes()
+        return MobEntity.createAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 15)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.4);
     }

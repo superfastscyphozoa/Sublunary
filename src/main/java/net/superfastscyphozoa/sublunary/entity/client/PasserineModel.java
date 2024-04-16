@@ -1,12 +1,11 @@
 package net.superfastscyphozoa.sublunary.entity.client;
 
+import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.*;
-import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.MathHelper;
 import net.superfastscyphozoa.sublunary.entity.PasserineEntity;
-import net.superfastscyphozoa.sublunary.entity.animation.PasserineAnimations;
 
 // Made with Blockbench 4.9.4
 // Exported for Minecraft version 1.17+ for Yarn
@@ -61,9 +60,9 @@ public class PasserineModel<T extends PasserineEntity> extends SinglePartEntityM
 		this.setHeadAngles(netHeadYaw, headPitch);
 
 		//this.animateMovement(PasserineAnimations.PASSERINEFLY, limbSwing, limbSwingAmount, 2f, 2.5f);
-		this.updateAnimation(entity.idleAnimationState, PasserineAnimations.PASSERINEIDLE, ageInTicks, 1f);
-		this.updateAnimation(entity.flyAnimationState, PasserineAnimations.PASSERINEFLY, ageInTicks, 1f);
-		this.updateAnimation(entity.hopAnimationState, PasserineAnimations.PASSERINEHOP, ageInTicks, 1f);
+		//this.animate(entity.idleAnimationState, PasserineAnimations.PASSERINEIDLE, ageInTicks, 1f);
+		//this.animate(entity.flyAnimationState, PasserineAnimations.PASSERINEFLY, ageInTicks, 1f);
+		//this.animate(entity.hopAnimationState, PasserineAnimations.PASSERINEHOP, ageInTicks, 1f);
 	}
 
 	private void setHeadAngles(float headYaw, float headPitch){

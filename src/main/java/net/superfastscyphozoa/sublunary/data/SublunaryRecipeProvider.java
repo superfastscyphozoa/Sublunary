@@ -9,8 +9,8 @@ public class SublunaryRecipeProvider extends FabricRecipeProvider {
         super(output);
     }
 
-    @Override
-    public void generate(RecipeExporter exporter) {
+	@Override
+	public void generateRecipes(RecipeExporter exporter) {
 
-    }
+	}
 }

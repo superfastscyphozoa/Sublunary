@@ -2,11 +2,16 @@ package net.superfastscyphozoa.sublunary.world.feature.configured;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.registry.Holder;
+import net.minecraft.registry.HolderProvider;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.collection.DataPool;
 import net.minecraft.util.math.noise.DoublePerlinNoiseSampler;
+import net.minecraft.world.gen.BootstrapContext;
 import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.feature.util.ConfiguredFeatureUtil;
+import net.minecraft.world.gen.feature.util.PlacedFeatureUtil;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.stateprovider.NoiseBlockStateProvider;
 import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
@@ -36,105 +41,105 @@ public class SubVegetationConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?,?>> PLAINS_FLOWER_PATCH_CONFIGURED = registerKey("plains_flower_patch_configured");
 
     private static RandomPatchFeatureConfig createRandomPatchFeatureConfig(BlockStateProvider block, int tries) {
-        return ConfiguredFeatures.createRandomPatchFeatureConfig(tries, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(block)));
+        return ConfiguredFeatureUtil.createRandomPatchFeatureConfig(tries, PlacedFeatureUtil.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(block)));
     }
 
-    public static void bootstrap(Registerable<ConfiguredFeature<?,?>> context) {
-        var placedFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.PLACED_FEATURE);
+    public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
+		HolderProvider<PlacedFeature> holderProvider = context.lookup(RegistryKeys.PLACED_FEATURE);
 
-        RegistryEntry<PlacedFeature> oakierOak = placedFeatureRegistryEntryLookup.getOrThrow(SubTreePlacedFeatures.OAKIER_OAK_PLACED);
-        RegistryEntry<PlacedFeature> largeOakierOak = placedFeatureRegistryEntryLookup.getOrThrow(SubTreePlacedFeatures.LARGE_OAKIER_OAK_PLACED);
-        RegistryEntry<PlacedFeature> birchierBirch = placedFeatureRegistryEntryLookup.getOrThrow(SubTreePlacedFeatures.BIRCHIER_BIRCH_PLACED);
+		Holder<PlacedFeature> oakierOak = holderProvider.getHolderOrThrow(SubTreePlacedFeatures.OAKIER_OAK_PLACED);
+		Holder<PlacedFeature> largeOakierOak = holderProvider.getHolderOrThrow(SubTreePlacedFeatures.LARGE_OAKIER_OAK_PLACED);
+		Holder<PlacedFeature> birchierBirch = holderProvider.getHolderOrThrow(SubTreePlacedFeatures.BIRCHIER_BIRCH_PLACED);
 
-        RegistryEntry<PlacedFeature> smallOak = placedFeatureRegistryEntryLookup.getOrThrow(SubTreePlacedFeatures.SMALL_OAK_PLACED);
-        RegistryEntry<PlacedFeature> smallBirch = placedFeatureRegistryEntryLookup.getOrThrow(SubTreePlacedFeatures.SMALL_BIRCH_PLACED);
+		Holder<PlacedFeature> smallOak = holderProvider.getHolderOrThrow(SubTreePlacedFeatures.SMALL_OAK_PLACED);
+		Holder<PlacedFeature> smallBirch = holderProvider.getHolderOrThrow(SubTreePlacedFeatures.SMALL_BIRCH_PLACED);
 
-        RegistryEntry<PlacedFeature> forestOak = placedFeatureRegistryEntryLookup.getOrThrow(SubTreePlacedFeatures.FOREST_OAK_PLACED);
-        RegistryEntry<PlacedFeature> largeForestOak = placedFeatureRegistryEntryLookup.getOrThrow(SubTreePlacedFeatures.LARGE_FOREST_OAK_PLACED);
-        RegistryEntry<PlacedFeature> forestBirch = placedFeatureRegistryEntryLookup.getOrThrow(SubTreePlacedFeatures.FOREST_BIRCH_PLACED);
+		Holder<PlacedFeature> forestOak = holderProvider.getHolderOrThrow(SubTreePlacedFeatures.FOREST_OAK_PLACED);
+		Holder<PlacedFeature> largeForestOak = holderProvider.getHolderOrThrow(SubTreePlacedFeatures.LARGE_FOREST_OAK_PLACED);
+		Holder<PlacedFeature> forestBirch = holderProvider.getHolderOrThrow(SubTreePlacedFeatures.FOREST_BIRCH_PLACED);
 
-        RegistryEntry<PlacedFeature> flowerForestOak = placedFeatureRegistryEntryLookup.getOrThrow(SubTreePlacedFeatures.FLOWER_FOREST_OAK_PLACED);
-        RegistryEntry<PlacedFeature> largeFlowerForestOak = placedFeatureRegistryEntryLookup.getOrThrow(SubTreePlacedFeatures.LARGE_FLOWER_FOREST_OAK_PLACED);
-        RegistryEntry<PlacedFeature> flowerForestBirch = placedFeatureRegistryEntryLookup.getOrThrow(SubTreePlacedFeatures.FLOWER_FOREST_BIRCH_PLACED);
+		Holder<PlacedFeature> flowerForestOak = holderProvider.getHolderOrThrow(SubTreePlacedFeatures.FLOWER_FOREST_OAK_PLACED);
+		Holder<PlacedFeature> largeFlowerForestOak = holderProvider.getHolderOrThrow(SubTreePlacedFeatures.LARGE_FLOWER_FOREST_OAK_PLACED);
+		Holder<PlacedFeature> flowerForestBirch = holderProvider.getHolderOrThrow(SubTreePlacedFeatures.FLOWER_FOREST_BIRCH_PLACED);
 
-        RegistryEntry<PlacedFeature> plainsOak = placedFeatureRegistryEntryLookup.getOrThrow(SubTreePlacedFeatures.PLAINS_OAK_PLACED);
-        RegistryEntry<PlacedFeature> largePlainsOak = placedFeatureRegistryEntryLookup.getOrThrow(SubTreePlacedFeatures.LARGE_PLAINS_OAK_PLACED);
+		Holder<PlacedFeature> plainsOak = holderProvider.getHolderOrThrow(SubTreePlacedFeatures.PLAINS_OAK_PLACED);
+		Holder<PlacedFeature> largePlainsOak = holderProvider.getHolderOrThrow(SubTreePlacedFeatures.LARGE_PLAINS_OAK_PLACED);
 
-        RegistryEntry<PlacedFeature> oldGrowthBirch = placedFeatureRegistryEntryLookup.getOrThrow(SubTreePlacedFeatures.OLD_GROWTH_BIRCH_PLACED);
+		Holder<PlacedFeature> oldGrowthBirch = holderProvider.getHolderOrThrow(SubTreePlacedFeatures.OLD_GROWTH_BIRCH_PLACED);
 
-        RegistryEntry<PlacedFeature> meadowOak = placedFeatureRegistryEntryLookup.getOrThrow(SubTreePlacedFeatures.MEADOW_OAK_PLACED);
-        RegistryEntry<PlacedFeature> meadowBirch = placedFeatureRegistryEntryLookup.getOrThrow(SubTreePlacedFeatures.MEADOW_BIRCH_PLACED);
+		Holder<PlacedFeature> meadowOak = holderProvider.getHolderOrThrow(SubTreePlacedFeatures.MEADOW_OAK_PLACED);
+		Holder<PlacedFeature> meadowBirch = holderProvider.getHolderOrThrow(SubTreePlacedFeatures.MEADOW_BIRCH_PLACED);
 
-        RegistryEntry<PlacedFeature> darkOak = placedFeatureRegistryEntryLookup.getOrThrow(SubTreePlacedFeatures.DARK_OAK_PLACED);
+		Holder<PlacedFeature> darkOak = holderProvider.getHolderOrThrow(SubTreePlacedFeatures.DARK_OAK_PLACED);
 
-        RegistryEntry<PlacedFeature> spruceFull = placedFeatureRegistryEntryLookup.getOrThrow(SubTreePlacedFeatures.SPRUCE_FULL_PLACED);
-        RegistryEntry<PlacedFeature> spruceSparse = placedFeatureRegistryEntryLookup.getOrThrow(SubTreePlacedFeatures.SPRUCE_SPARSE_PLACED);
-        RegistryEntry<PlacedFeature> dyingSpruce = placedFeatureRegistryEntryLookup.getOrThrow(SubTreePlacedFeatures.DYING_SPRUCE_PLACED);
+		Holder<PlacedFeature> spruceFull = holderProvider.getHolderOrThrow(SubTreePlacedFeatures.SPRUCE_FULL_PLACED);
+		Holder<PlacedFeature> spruceSparse = holderProvider.getHolderOrThrow(SubTreePlacedFeatures.SPRUCE_SPARSE_PLACED);
+		Holder<PlacedFeature> dyingSpruce = holderProvider.getHolderOrThrow(SubTreePlacedFeatures.DYING_SPRUCE_PLACED);
 
-        RegistryEntry<PlacedFeature> vinyOak = placedFeatureRegistryEntryLookup.getOrThrow(SubTreePlacedFeatures.VINY_OAK_PLACED);
-        RegistryEntry<PlacedFeature> largeVinyOak = placedFeatureRegistryEntryLookup.getOrThrow(SubTreePlacedFeatures.LARGE_VINY_OAK_PLACED);
+		Holder<PlacedFeature> vinyOak = holderProvider.getHolderOrThrow(SubTreePlacedFeatures.VINY_OAK_PLACED);
+		Holder<PlacedFeature> largeVinyOak = holderProvider.getHolderOrThrow(SubTreePlacedFeatures.LARGE_VINY_OAK_PLACED);
 
-        RegistryEntry<PlacedFeature> vinyBirch = placedFeatureRegistryEntryLookup.getOrThrow(SubTreePlacedFeatures.VINY_BIRCH_PLACED);
-        RegistryEntry<PlacedFeature> vinyOldGrowthBirch = placedFeatureRegistryEntryLookup.getOrThrow(SubTreePlacedFeatures.VINY_OLD_GROWTH_BIRCH_PLACED);
+		Holder<PlacedFeature> vinyBirch = holderProvider.getHolderOrThrow(SubTreePlacedFeatures.VINY_BIRCH_PLACED);
+		Holder<PlacedFeature> vinyOldGrowthBirch = holderProvider.getHolderOrThrow(SubTreePlacedFeatures.VINY_OLD_GROWTH_BIRCH_PLACED);
 
-        RegistryEntry<PlacedFeature> vinyDarkOak = placedFeatureRegistryEntryLookup.getOrThrow(SubTreePlacedFeatures.VINY_DARK_OAK_PLACED);
+		Holder<PlacedFeature> vinyDarkOak = holderProvider.getHolderOrThrow(SubTreePlacedFeatures.VINY_DARK_OAK_PLACED);
 
         SublunaryConfiguredFeatures.register(context, FOREST_TREES_CONFIGURED, Feature.RANDOM_SELECTOR, new RandomFeatureConfig(List.of(
-                new RandomFeatureEntry(vinyOak, 0.03F),
-                new RandomFeatureEntry(largeVinyOak, 0.02F),
+                new WeightedPlacedFeature(vinyOak, 0.03F),
+                new WeightedPlacedFeature(largeVinyOak, 0.02F),
 
-                new RandomFeatureEntry(smallOak, 0.15F),
-                new RandomFeatureEntry(smallBirch, 0.15F),
+                new WeightedPlacedFeature(smallOak, 0.15F),
+                new WeightedPlacedFeature(smallBirch, 0.15F),
 
-                new RandomFeatureEntry(forestBirch, 0.15F),
+                new WeightedPlacedFeature(forestBirch, 0.15F),
 
-                new RandomFeatureEntry(largeForestOak, 0.9F)),
+                new WeightedPlacedFeature(largeForestOak, 0.9F)),
                 forestOak));
 
         SublunaryConfiguredFeatures.register(context, FLOWER_FOREST_TREES_CONFIGURED, Feature.RANDOM_SELECTOR, new RandomFeatureConfig(List.of(
-                new RandomFeatureEntry(vinyOak, 0.02F),
-                new RandomFeatureEntry(vinyBirch, 0.02F),
-                new RandomFeatureEntry(largeVinyOak, 0.02F),
+                new WeightedPlacedFeature(vinyOak, 0.02F),
+                new WeightedPlacedFeature(vinyBirch, 0.02F),
+                new WeightedPlacedFeature(largeVinyOak, 0.02F),
 
-                new RandomFeatureEntry(flowerForestOak, 0.15F),
-                new RandomFeatureEntry(largeFlowerForestOak, 0.7F)),
+                new WeightedPlacedFeature(flowerForestOak, 0.15F),
+                new WeightedPlacedFeature(largeFlowerForestOak, 0.7F)),
                 flowerForestBirch));
 
         SublunaryConfiguredFeatures.register(context, BIRCH_FOREST_TREES_CONFIGURED, Feature.RANDOM_SELECTOR, new RandomFeatureConfig(List.of(
-                new RandomFeatureEntry(vinyBirch, 0.015F),
+                new WeightedPlacedFeature(vinyBirch, 0.015F),
 
-                new RandomFeatureEntry(smallBirch, 0.1F)),
+                new WeightedPlacedFeature(smallBirch, 0.1F)),
                 forestBirch));
 
         SublunaryConfiguredFeatures.register(context, OLD_GROWTH_BIRCH_TREES_CONFIGURED, Feature.RANDOM_SELECTOR, new RandomFeatureConfig(List.of(
-                new RandomFeatureEntry(vinyOldGrowthBirch, 0.01F),
-                new RandomFeatureEntry(vinyBirch, 0.01F),
+                new WeightedPlacedFeature(vinyOldGrowthBirch, 0.01F),
+                new WeightedPlacedFeature(vinyBirch, 0.01F),
 
-                new RandomFeatureEntry(forestBirch, 0.1F)),
+                new WeightedPlacedFeature(forestBirch, 0.1F)),
                 oldGrowthBirch));
 
         SublunaryConfiguredFeatures.register(context, PLAINS_TREES_CONFIGURED, Feature.RANDOM_SELECTOR, new RandomFeatureConfig(List.of(
-                new RandomFeatureEntry(largePlainsOak, 0.5F)),
+                new WeightedPlacedFeature(largePlainsOak, 0.5F)),
                 plainsOak));
 
         SublunaryConfiguredFeatures.register(context, MEADOW_TREES_CONFIGURED, Feature.RANDOM_SELECTOR, new RandomFeatureConfig(List.of(
-                new RandomFeatureEntry(meadowOak, 0.5F)),
+                new WeightedPlacedFeature(meadowOak, 0.5F)),
                 meadowBirch));
 
         SublunaryConfiguredFeatures.register(context, DARK_FOREST_TREES_CONFIGURED, Feature.RANDOM_SELECTOR, new RandomFeatureConfig(List.of(
-                new RandomFeatureEntry(darkOak, 0.7F),
-                new RandomFeatureEntry(birchierBirch, 0.2F),
-                new RandomFeatureEntry(largeOakierOak, 0.2F),
-                new RandomFeatureEntry(vinyDarkOak, 0.2F)),
+                new WeightedPlacedFeature(darkOak, 0.7F),
+                new WeightedPlacedFeature(birchierBirch, 0.2F),
+                new WeightedPlacedFeature(largeOakierOak, 0.2F),
+                new WeightedPlacedFeature(vinyDarkOak, 0.2F)),
                 oakierOak));
 
         SublunaryConfiguredFeatures.register(context, TAIGA_TREES_CONFIGURED, Feature.RANDOM_SELECTOR, new RandomFeatureConfig(List.of(
-                new RandomFeatureEntry(dyingSpruce, 0.002F),
-                new RandomFeatureEntry(spruceSparse, 0.34F)),
+                new WeightedPlacedFeature(dyingSpruce, 0.002F),
+                new WeightedPlacedFeature(spruceSparse, 0.34F)),
                 spruceFull));
 
         SublunaryConfiguredFeatures.register(context, SNOWY_PLAINS_TREES_CONFIGURED, Feature.RANDOM_SELECTOR, new RandomFeatureConfig(List.of(
-                new RandomFeatureEntry(spruceSparse, 0.05F)),
+                new WeightedPlacedFeature(spruceSparse, 0.05F)),
                 spruceFull));
 
         SublunaryConfiguredFeatures.register(context, GRASS_PATCH_CONFIGURED, Feature.RANDOM_PATCH,
@@ -142,18 +147,18 @@ public class SubVegetationConfiguredFeatures {
 
         SublunaryConfiguredFeatures.register(context, GRASS_FERNS_PATCH_CONFIGURED, Feature.RANDOM_PATCH,
                 createRandomPatchFeatureConfig(new WeightedBlockStateProvider(new DataPool.Builder<BlockState>()
-                        .add(Blocks.SHORT_GRASS.getDefaultState(), 4).add(Blocks.FERN.getDefaultState(), 1)), 32));
+						.method_34975(Blocks.SHORT_GRASS.getDefaultState(), 4).method_34975(Blocks.FERN.getDefaultState(), 1)), 32));
 
         SublunaryConfiguredFeatures.register(context, TALL_GRASS_PATCH_CONFIGURED, Feature.RANDOM_PATCH,
-                ConfiguredFeatures.createRandomPatchFeatureConfig
+				ConfiguredFeatureUtil.createRandomPatchFeatureConfig
                         (Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(Blocks.TALL_GRASS))));
 
         SublunaryConfiguredFeatures.register(context, TALL_FERNS_PATCH_CONFIGURED, Feature.RANDOM_PATCH,
-                ConfiguredFeatures.createRandomPatchFeatureConfig
+				ConfiguredFeatureUtil.createRandomPatchFeatureConfig
                         (Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(Blocks.LARGE_FERN))));
 
         SublunaryConfiguredFeatures.register(context, PLAINS_FLOWER_PATCH_CONFIGURED, Feature.FLOWER,
-                new RandomPatchFeatureConfig(96, 6, 2, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig
+                new RandomPatchFeatureConfig(96, 6, 2, PlacedFeatureUtil.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig
                         (new NoiseBlockStateProvider(2345L, new DoublePerlinNoiseSampler.NoiseParameters(0, 1.0), 0.020833334f,
                                 List.of(Blocks.DANDELION.getDefaultState(), Blocks.ALLIUM.getDefaultState(), Blocks.POPPY.getDefaultState(),
                                         Blocks.AZURE_BLUET.getDefaultState(), Blocks.OXEYE_DAISY.getDefaultState(), Blocks.CORNFLOWER.getDefaultState()))))));

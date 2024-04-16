@@ -1,9 +1,9 @@
 package net.superfastscyphozoa.sublunary.items;
 
-import net.fabricmc.yarn.constants.MiningLevels;
 import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
+import org.quiltmc.quiltmappings.constants.MiningLevels;
 
 import java.util.function.Supplier;
 

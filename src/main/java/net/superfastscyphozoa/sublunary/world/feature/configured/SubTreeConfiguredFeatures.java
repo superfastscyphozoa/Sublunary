@@ -1,13 +1,13 @@
 package net.superfastscyphozoa.sublunary.world.feature.configured;
 
 import net.minecraft.block.Blocks;
-import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.collection.DataPool;
-import net.minecraft.util.math.intprovider.ConstantIntProvider;
-import net.minecraft.util.math.intprovider.IntProvider;
-import net.minecraft.util.math.intprovider.UniformIntProvider;
-import net.minecraft.util.math.intprovider.WeightedListIntProvider;
+import net.minecraft.util.math.int_provider.ConstantIntProvider;
+import net.minecraft.util.math.int_provider.IntProvider;
+import net.minecraft.util.math.int_provider.UniformIntProvider;
+import net.minecraft.util.math.int_provider.WeightedListIntProvider;
+import net.minecraft.world.gen.BootstrapContext;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.TreeFeatureConfig;
@@ -148,8 +148,8 @@ public class SubTreeConfiguredFeatures {
         return (new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(Blocks.CHERRY_LOG),
                 new CherryTrunkPlacer(7, 1, 0,
-                        new WeightedListIntProvider(new DataPool.Builder<IntProvider>().add(ConstantIntProvider.create(2), 1)
-                                .add(ConstantIntProvider.create(3), 1).build()),
+                        new WeightedListIntProvider(new DataPool.Builder<IntProvider>().method_34975(ConstantIntProvider.create(2), 1)
+                                .method_34975(ConstantIntProvider.create(3), 1).build()),
                         UniformIntProvider.create(2, 4), UniformIntProvider.create(-4, -3), UniformIntProvider.create(-1, 0)),
                 BlockStateProvider.of(Blocks.CHERRY_LEAVES),
                 new CherryFoliagePlacer(ConstantIntProvider.create(4), ConstantIntProvider.create(0), ConstantIntProvider.create(5),
@@ -158,7 +158,7 @@ public class SubTreeConfiguredFeatures {
                 .ignoreVines().dirtProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT)).forceDirt();
     }
 
-    public static void bootstrap(Registerable<ConfiguredFeature<?,?>> context) {
+    public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
 
         //beehives
         BeehiveTreeDecorator ForestBeehive = new BeehiveTreeDecorator(0.004F);

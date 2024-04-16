@@ -33,18 +33,19 @@ loom {
 			// configuration("exampleShadedConfigurationName")
 		}
 	}
-    runs {
-		// This adds a new gradle task that runs the datagen API: "gradlew runDatagen"
-		datagen {
-			inherit server
-			name "Data Generation"
-			vmArg "-Dfabric-api.datagen"
-			vmArg "-Dfabric-api.datagen.output-dir=${file("src/main/generated")}"
-			vmArg "-Dfabric-api.datagen.modid=sublunary"
- 
-			runDir "build/datagen"
-		}
-	}
+   runs {
+
+	   datagen {
+		   inherit server
+		   name "Data Generation"
+		   vmArg "-Dfabric-api.datagen"
+		   vmArg "-Dfabric-api.datagen.output-dir=${file("src/main/generated")}"
+		   vmArg "-Dfabric-api.datagen.modid=sublunary"
+
+		   runDir "build/datagen"
+	   }
+
+   }
 }
 
 // Add the generated resources to the main source set
