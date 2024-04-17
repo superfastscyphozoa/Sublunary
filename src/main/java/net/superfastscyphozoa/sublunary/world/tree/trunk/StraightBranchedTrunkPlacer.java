@@ -40,7 +40,10 @@ public class StraightBranchedTrunkPlacer extends TrunkPlacer {
 		for(int i = 0; i < height_; i++) {
 			this.placeTrunkBlock(world, replacer, random, startPos.up(i), config);
 
-			if (i % 2 == 0 && random.nextBoolean()){
+			int t = (height_ - 3);
+			int l = (t % 2);
+
+			if (l == 0 && random.nextBoolean()){
 
 				if (random.nextFloat() > 0.75f){
 

@@ -79,24 +79,22 @@ public class SubTreeConfiguredFeatures {
                 new StraightTrunkPlacer(6, 2, 0),
                 BlockStateProvider.of(Blocks.OAK_LEAVES),
                 new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
-                new TwoLayersFeatureSize(0, 0, 0))
-                .dirtProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT)).forceDirt());
+                new TwoLayersFeatureSize(0, 0, 0)).forceDirt());
     }
 
     private static TreeFeatureConfig.Builder birch() {
         return (new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(Blocks.BIRCH_LOG),
-                new StraightBranchedTrunkPlacer(6, 3, 1),
+                new StraightTrunkPlacer(6, 5, 3),
                 BlockStateProvider.of(Blocks.BIRCH_LEAVES),
                 new HangingBlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
-                new TwoLayersFeatureSize(0, 0, 0))
-                .dirtProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT)).forceDirt());
+                new TwoLayersFeatureSize(0, 0, 0)).forceDirt());
     }
 
     private static TreeFeatureConfig.Builder superBirch() {
         return (new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(Blocks.BIRCH_LOG),
-                new StraightBranchedTrunkPlacer(7, 3, 5),
+                new StraightTrunkPlacer(9, 6, 2),
                 BlockStateProvider.of(Blocks.BIRCH_LEAVES),
                 new HangingBlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
                 new TwoLayersFeatureSize(0, 0, 0))
@@ -104,14 +102,25 @@ public class SubTreeConfiguredFeatures {
     }
 
     private static TreeFeatureConfig.Builder fancyOak() {
-        return (new TreeFeatureConfig.Builder(
-                BlockStateProvider.of(Blocks.OAK_LOG),
-                new LargeOakTrunkPlacer(4, 11, 0),
-                BlockStateProvider.of(Blocks.OAK_LEAVES),
-                new LargeOakFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(4), 4),
-                new TwoLayersFeatureSize(0, 0, 0, OptionalInt.of(4))))
-                .ignoreVines().dirtProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT)).forceDirt();
+		return (new TreeFeatureConfig.Builder(
+				BlockStateProvider.of(Blocks.OAK_LOG),
+				new LargeOakTrunkPlacer(6, 12, 0),
+				BlockStateProvider.of(Blocks.OAK_LEAVES),
+				new CherryFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(1), ConstantIntProvider.create(5),
+						0.25F, 0.5F, 0.16666667F, 0.33333334F),
+				new TwoLayersFeatureSize(1, 0, 2)))
+				.ignoreVines().dirtProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT)).forceDirt();
     }
+
+	private static TreeFeatureConfig.Builder fancyOak2() {
+		return (new TreeFeatureConfig.Builder(
+				BlockStateProvider.of(Blocks.OAK_LOG),
+				new LargeOakTrunkPlacer(4, 11, 0),
+				BlockStateProvider.of(Blocks.OAK_LEAVES),
+				new LargeOakFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(4), 4),
+				new TwoLayersFeatureSize(0, 0, 0, OptionalInt.of(4))))
+				.ignoreVines().dirtProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT)).forceDirt();
+	}
 
     private static TreeFeatureConfig.Builder hickory() {
         return (new TreeFeatureConfig.Builder(
@@ -141,7 +150,7 @@ public class SubTreeConfiguredFeatures {
                 BlockStateProvider.of(Blocks.SPRUCE_LEAVES),
             new PineFoliagePlacer(ConstantIntProvider.create(1), ConstantIntProvider.create(1), UniformIntProvider.create(3, 4)),
             new TwoLayersFeatureSize(2, 0, 2)))
-            .ignoreVines().dirtProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT)).forceDirt();
+            .ignoreVines();
     }
 
     private static TreeFeatureConfig.Builder cherry() {
@@ -155,7 +164,7 @@ public class SubTreeConfiguredFeatures {
                 new CherryFoliagePlacer(ConstantIntProvider.create(4), ConstantIntProvider.create(0), ConstantIntProvider.create(5),
                         0.25F, 0.5F, 0.16666667F, 0.33333334F),
                 new TwoLayersFeatureSize(1, 0, 2)))
-                .ignoreVines().dirtProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT)).forceDirt();
+                .ignoreVines();
     }
 
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
@@ -176,16 +185,14 @@ public class SubTreeConfiguredFeatures {
                 new StraightTrunkPlacer(4, 2, 0),
                 BlockStateProvider.of(Blocks.OAK_LEAVES),
                 new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
-                new TwoLayersFeatureSize(0, 0, 0))
-                .dirtProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT)).forceDirt()).build());
+                new TwoLayersFeatureSize(0, 0, 0))).build());
 
         SublunaryConfiguredFeatures.register(context, SMALL_BIRCH, Feature.TREE, (new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(Blocks.BIRCH_LOG),
                 new StraightTrunkPlacer(6, 0, 0),
                 BlockStateProvider.of(Blocks.BIRCH_LEAVES),
                 new HangingBlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
-                new TwoLayersFeatureSize(0, 0, 0))
-                .dirtProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT)).forceDirt()).build());
+                new TwoLayersFeatureSize(0, 0, 0))).build());
 
         SublunaryConfiguredFeatures.register(context, FOREST_OAK, Feature.TREE, oak().decorators(List.of(ForestBeehive)).build());
         SublunaryConfiguredFeatures.register(context, LARGE_FOREST_OAK, Feature.TREE, fancyOak().decorators(List.of(ForestBeehive)).build());
@@ -213,7 +220,7 @@ public class SubTreeConfiguredFeatures {
                 BlockStateProvider.of(Blocks.SPRUCE_LEAVES),
                 new SpruceFoliagePlacer(UniformIntProvider.create(2, 3), UniformIntProvider.create(0, 2), UniformIntProvider.create(1, 2)),
                 new TwoLayersFeatureSize(2, 0, 2)))
-                .ignoreVines().dirtProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT)).forceDirt().build());
+                .ignoreVines().build());
 
         SublunaryConfiguredFeatures.register(context, SPRUCE_SPARSE, Feature.TREE, spruce_sparse().build());
 
@@ -223,7 +230,7 @@ public class SubTreeConfiguredFeatures {
                 BlockStateProvider.of(RegisterBlocks.DEAD_SPRUCE_LEAVES),
                 new SpruceFoliagePlacer(UniformIntProvider.create(2, 3), UniformIntProvider.create(0, 2), UniformIntProvider.create(1, 2)),
                 new TwoLayersFeatureSize(2, 0, 2)))
-                .ignoreVines().dirtProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT)).forceDirt().build());
+                .ignoreVines().build());
 
         //tree variants
         SublunaryConfiguredFeatures.register(context, VINY_OAK, Feature.TREE, oak().decorators(List.of(TrunkVineTreeDecorator.INSTANCE)).build());

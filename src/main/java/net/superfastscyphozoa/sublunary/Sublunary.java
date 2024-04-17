@@ -1,8 +1,11 @@
 package net.superfastscyphozoa.sublunary;
 
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.superfastscyphozoa.sublunary.blocks.SublunaryFlammableBlocks;
 import net.superfastscyphozoa.sublunary.blocks.SublunaryStrippableBlocks;
+import net.superfastscyphozoa.sublunary.entity.PasserineEntity;
 import net.superfastscyphozoa.sublunary.registry.RegisterBlocks;
+import net.superfastscyphozoa.sublunary.registry.RegisterEntities;
 import net.superfastscyphozoa.sublunary.registry.RegisterItems;
 import net.superfastscyphozoa.sublunary.world.gen.SublunaryWorldGeneration;
 import net.superfastscyphozoa.sublunary.world.tree.SublunaryFoliagePlacerTypes;
@@ -30,5 +33,7 @@ public class Sublunary implements ModInitializer {
 
 		SublunaryTrunkPlacerTypes.register();
 		SublunaryFoliagePlacerTypes.register();
+
+		FabricDefaultAttributeRegistry.register(RegisterEntities.PASSERINE, PasserineEntity.createPasserineAttributes());
 	}
 }

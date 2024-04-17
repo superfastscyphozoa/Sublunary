@@ -59,10 +59,11 @@ public class SubVegetationPlacedFeatures {
 
 
         SublunaryPlacedFeatures.register(context, FOREST_TREES, forestTrees,
-				treePlacementModifiers(PlacedFeatureUtil.createCountExtraModifier(9, 0.1F, 4), Blocks.OAK_SAPLING));
+				CountPlacementModifier.create(16), InSquarePlacementModifier.getInstance(),
+				SurfaceWaterDepthFilterPlacementModifier.create(0), PlacedFeatureUtil.OCEAN_FLOOR_HEIGHTMAP, BiomePlacementModifier.getInstance());
 
         SublunaryPlacedFeatures.register(context, FLOWER_FOREST_TREES, flowerForestTrees,
-				treePlacementModifiers(PlacedFeatureUtil.createCountExtraModifier(8, 0.1F, 4), Blocks.OAK_SAPLING));
+				treePlacementModifiers(PlacedFeatureUtil.createCountExtraModifier(10, 0.1F, 4), Blocks.OAK_SAPLING));
 
         SublunaryPlacedFeatures.register(context, BIRCH_FOREST_TREES, birchForestTrees,
 				treePlacementModifiers(PlacedFeatureUtil.createCountExtraModifier(9, 0.1F, 2), Blocks.BIRCH_SAPLING));
