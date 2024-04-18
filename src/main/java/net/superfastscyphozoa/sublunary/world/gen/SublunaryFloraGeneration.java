@@ -54,9 +54,15 @@ public class SublunaryFloraGeneration {
                             biomeModificationContext.getGenerationSettings().removeFeature(GenerationStep.Feature.VEGETAL_DECORATION, VANILLA_NORMAL_GRASS);
 
                             biomeModificationContext.getGenerationSettings()
-                                    .addFeature(GenerationStep.Feature.VEGETAL_DECORATION, SubVegetationPlacedFeatures.GRASS_FERNS_PATCH);
+                                    .addFeature(GenerationStep.Feature.VEGETAL_DECORATION, SubVegetationPlacedFeatures.GRASS_PATCH);
+
                             biomeModificationContext.getGenerationSettings()
                                     .addFeature(GenerationStep.Feature.VEGETAL_DECORATION, SubVegetationPlacedFeatures.TALL_GRASS_PATCH);
+							biomeModificationContext.getGenerationSettings()
+									.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, SubVegetationPlacedFeatures.TALL_FERNS_PATCH);
+
+							biomeModificationContext.getGenerationSettings()
+									.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, SubVegetationPlacedFeatures.FERN_PATCH);
                         });
 
 		BiomeModifications.create(new Identifier(Sublunary.MOD_ID, "replace_forest_grass"))
@@ -68,6 +74,7 @@ public class SublunaryFloraGeneration {
 
                             biomeModificationContext.getGenerationSettings()
                                     .addFeature(GenerationStep.Feature.VEGETAL_DECORATION, SubVegetationPlacedFeatures.GRASS_PATCH);
+
                             biomeModificationContext.getGenerationSettings()
                                     .addFeature(GenerationStep.Feature.VEGETAL_DECORATION, SubVegetationPlacedFeatures.TALL_GRASS_PATCH);
                         });
@@ -82,6 +89,9 @@ public class SublunaryFloraGeneration {
 
                             biomeModificationContext.getGenerationSettings()
                                     .addFeature(GenerationStep.Feature.VEGETAL_DECORATION, SubVegetationPlacedFeatures.GRASS_FERNS_PATCH);
+
+							biomeModificationContext.getGenerationSettings()
+									.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, SubVegetationPlacedFeatures.TALL_GRASS_PATCH);
                             biomeModificationContext.getGenerationSettings()
                                     .addFeature(GenerationStep.Feature.VEGETAL_DECORATION, SubVegetationPlacedFeatures.TALL_FERNS_PATCH);
                         });

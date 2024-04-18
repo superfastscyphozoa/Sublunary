@@ -16,12 +16,9 @@ import static net.superfastscyphozoa.sublunary.world.feature.placed.SublunaryPla
 
 public class SubTreePlacedFeatures {
 
-    public static final RegistryKey<PlacedFeature> OAKIER_OAK_PLACED = registerKey("oakier_oak_placed");
-    public static final RegistryKey<PlacedFeature> LARGE_OAKIER_OAK_PLACED = registerKey("large_oakier_oak_placed");
-    public static final RegistryKey<PlacedFeature> BIRCHIER_BIRCH_PLACED = registerKey("birchier_birch_placed");
-
-    public static final RegistryKey<PlacedFeature> SMALL_OAK_PLACED = registerKey("small_oak_placed");
-    public static final RegistryKey<PlacedFeature> SMALL_BIRCH_PLACED = registerKey("small_birch_placed");
+    public static final RegistryKey<PlacedFeature> OAK_PLACED = registerKey("oak_placed");
+    public static final RegistryKey<PlacedFeature> LARGE_OAK_PLACED = registerKey("large_oak_placed");
+    public static final RegistryKey<PlacedFeature> BIRCH_PLACED = registerKey("birch_placed");
 
     public static final RegistryKey<PlacedFeature> FOREST_OAK_PLACED = registerKey("forest_oak_placed");
     public static final RegistryKey<PlacedFeature> LARGE_FOREST_OAK_PLACED = registerKey("large_forest_oak_placed");
@@ -60,12 +57,9 @@ public class SubTreePlacedFeatures {
     public static void bootstrap(BootstrapContext<PlacedFeature> context) {
 		HolderProvider<ConfiguredFeature<?, ?>> holderProvider = context.lookup(RegistryKeys.CONFIGURED_FEATURE);
 
-		Holder<ConfiguredFeature<?, ?>> oakierOak = holderProvider.getHolderOrThrow(SubTreeConfiguredFeatures.OAKIER_OAK);
-		Holder<ConfiguredFeature<?, ?>> largeOakierOak = holderProvider.getHolderOrThrow(SubTreeConfiguredFeatures.LARGE_OAKIER_OAK);
-		Holder<ConfiguredFeature<?, ?>> birchierBirch = holderProvider.getHolderOrThrow(SubTreeConfiguredFeatures.BIRCHIER_BIRCH);
-
-		Holder<ConfiguredFeature<?, ?>> smallOak = holderProvider.getHolderOrThrow(SubTreeConfiguredFeatures.SMALL_OAK);
-		Holder<ConfiguredFeature<?, ?>> smallBirch = holderProvider.getHolderOrThrow(SubTreeConfiguredFeatures.SMALL_BIRCH);
+		Holder<ConfiguredFeature<?, ?>> oak = holderProvider.getHolderOrThrow(SubTreeConfiguredFeatures.OAK);
+		Holder<ConfiguredFeature<?, ?>> largeOak = holderProvider.getHolderOrThrow(SubTreeConfiguredFeatures.LARGE_OAK);
+		Holder<ConfiguredFeature<?, ?>> birch = holderProvider.getHolderOrThrow(SubTreeConfiguredFeatures.BIRCH);
 
 		Holder<ConfiguredFeature<?, ?>> forestOak = holderProvider.getHolderOrThrow(SubTreeConfiguredFeatures.FOREST_OAK);
 		Holder<ConfiguredFeature<?, ?>> largeForestOak = holderProvider.getHolderOrThrow(SubTreeConfiguredFeatures.LARGE_FOREST_OAK);
@@ -101,12 +95,9 @@ public class SubTreePlacedFeatures {
 
 		Holder<ConfiguredFeature<?, ?>> vinySpruce = holderProvider.getHolderOrThrow(SubTreeConfiguredFeatures.VINY_SPRUCE);
 
-        SublunaryPlacedFeatures.register(context, OAKIER_OAK_PLACED, oakierOak, PlacedFeatureUtil.createWouldSurvivePlacementModifier(Blocks.OAK_SAPLING));
-        SublunaryPlacedFeatures.register(context, LARGE_OAKIER_OAK_PLACED, largeOakierOak, PlacedFeatureUtil.createWouldSurvivePlacementModifier(Blocks.OAK_SAPLING));
-        SublunaryPlacedFeatures.register(context, BIRCHIER_BIRCH_PLACED, birchierBirch, PlacedFeatureUtil.createWouldSurvivePlacementModifier(Blocks.BIRCH_SAPLING));
-
-        SublunaryPlacedFeatures.register(context, SMALL_OAK_PLACED, smallOak, PlacedFeatureUtil.createWouldSurvivePlacementModifier(Blocks.OAK_SAPLING));
-        SublunaryPlacedFeatures.register(context, SMALL_BIRCH_PLACED, smallBirch, PlacedFeatureUtil.createWouldSurvivePlacementModifier(Blocks.BIRCH_SAPLING));
+        SublunaryPlacedFeatures.register(context, OAK_PLACED, oak, PlacedFeatureUtil.createWouldSurvivePlacementModifier(Blocks.OAK_SAPLING));
+        SublunaryPlacedFeatures.register(context, LARGE_OAK_PLACED, largeOak, PlacedFeatureUtil.createWouldSurvivePlacementModifier(Blocks.OAK_SAPLING));
+        SublunaryPlacedFeatures.register(context, BIRCH_PLACED, birch, PlacedFeatureUtil.createWouldSurvivePlacementModifier(Blocks.BIRCH_SAPLING));
 
         SublunaryPlacedFeatures.register(context, FOREST_OAK_PLACED, forestOak, PlacedFeatureUtil.createWouldSurvivePlacementModifier(Blocks.OAK_SAPLING));
         SublunaryPlacedFeatures.register(context, LARGE_FOREST_OAK_PLACED, largeForestOak, PlacedFeatureUtil.createWouldSurvivePlacementModifier(Blocks.OAK_SAPLING));

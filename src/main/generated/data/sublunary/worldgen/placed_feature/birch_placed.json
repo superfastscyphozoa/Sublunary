@@ -1,5 +1,5 @@
 {
-  "feature": "sublunary:small_birch",
+  "feature": "sublunary:birch",
   "placement": [
     {
       "type": "minecraft:block_predicate_filter",

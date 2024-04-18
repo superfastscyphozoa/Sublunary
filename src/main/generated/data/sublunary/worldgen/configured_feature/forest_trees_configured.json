@@ -13,14 +13,6 @@
       },
       {
         "chance": 0.15,
-        "feature": "sublunary:small_oak_placed"
-      },
-      {
-        "chance": 0.15,
-        "feature": "sublunary:small_birch_placed"
-      },
-      {
-        "chance": 0.15,
         "feature": "sublunary:forest_birch_placed"
       },
       {
