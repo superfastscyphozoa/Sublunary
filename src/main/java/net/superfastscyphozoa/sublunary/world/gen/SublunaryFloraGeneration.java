@@ -36,13 +36,13 @@ public class SublunaryFloraGeneration {
 		BiomeModifications.create(new Identifier(Sublunary.MOD_ID, "remove_default_flowers"))
                 .add(ModificationPhase.REMOVALS, BiomeSelectors.foundInOverworld(),
                         biomeModificationContext -> {
-                            biomeModificationContext.getGenerationSettings().removeFeature(GenerationStep.Feature.VEGETAL_DECORATION, VANILLA_DEFAULT_FLOWERS);
+                            //biomeModificationContext.getGenerationSettings().removeFeature(GenerationStep.Feature.VEGETAL_DECORATION, VANILLA_DEFAULT_FLOWERS);
                         });
 
 		BiomeModifications.create(new Identifier(Sublunary.MOD_ID, "remove_warm_flowers"))
                 .add(ModificationPhase.REMOVALS, BiomeSelectors.foundInOverworld(),
                         biomeModificationContext -> {
-                            biomeModificationContext.getGenerationSettings().removeFeature(GenerationStep.Feature.VEGETAL_DECORATION, VANILLA_WARM_FLOWERS);
+                            //biomeModificationContext.getGenerationSettings().removeFeature(GenerationStep.Feature.VEGETAL_DECORATION, VANILLA_WARM_FLOWERS);
                         });
 
 
