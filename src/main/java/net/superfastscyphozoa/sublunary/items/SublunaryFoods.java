@@ -6,10 +6,10 @@ import net.minecraft.item.FoodComponent;
 
 public class SublunaryFoods {
 
-    public static final FoodComponent DOUGH;
+    public static final FoodComponent FOODONE;
 
     static {
-        DOUGH = (new FoodComponent.Builder())
+        FOODONE = (new FoodComponent.Builder())
                 .hunger(2).saturationModifier(0.1F).statusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 250, 2), 0.5F).build();
     }
 }

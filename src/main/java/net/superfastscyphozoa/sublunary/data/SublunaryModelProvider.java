@@ -20,8 +20,6 @@ public class SublunaryModelProvider extends FabricModelProvider {
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
 
-        blockStateModelGenerator.registerSimpleCubeAll(RegisterBlocks.DEAD_SPRUCE_LEAVES);
-
         blockStateModelGenerator.registerLog(RegisterBlocks.HICKORY_LOG).log(RegisterBlocks.HICKORY_LOG).wood(RegisterBlocks.HICKORY_WOOD);
         blockStateModelGenerator.registerLog(RegisterBlocks.STRIPPED_HICKORY_LOG).log(RegisterBlocks.STRIPPED_HICKORY_LOG).wood(RegisterBlocks.STRIPPED_HICKORY_WOOD);
 
@@ -34,11 +32,5 @@ public class SublunaryModelProvider extends FabricModelProvider {
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
         itemModelGenerator.register(RegisterItems.RUSTED_SWORD, Models.HANDHELD);
-
-        itemModelGenerator.register(RegisterItems.FLOUR, Models.SINGLE_LAYER_ITEM);
-        itemModelGenerator.register(RegisterItems.DOUGH, Models.SINGLE_LAYER_ITEM);
-
-        itemModelGenerator.register(RegisterItems.PASSERINE_SPAWN_EGG,
-                new Model(Optional.of(new Identifier("item/template_spawn_egg")), Optional.empty()));
     }
 }

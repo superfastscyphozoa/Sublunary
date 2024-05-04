@@ -28,7 +28,7 @@
         }
       }
     },
-    "force_dirt": true,
+    "force_dirt": false,
     "ignore_vines": true,
     "minimum_size": {
       "type": "minecraft:three_layers_feature_size",

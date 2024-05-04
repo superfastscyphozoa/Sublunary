@@ -25,6 +25,8 @@ public class SublunaryTreeGeneration {
         RegistryKey<PlacedFeature> VANILLA_DARK_FOREST_TREES = VegetationPlacedFeatures.DARK_FOREST_VEGETATION;
         RegistryKey<PlacedFeature> VANILLA_TAIGA_TREES = VegetationPlacedFeatures.TREES_TAIGA;
         RegistryKey<PlacedFeature> VANILLA_SNOWY_PLAINS_TREES = VegetationPlacedFeatures.TREES_SNOWY;
+		RegistryKey<PlacedFeature> VANILLA_WINDSWEPT_FOREST_TREES = VegetationPlacedFeatures.TREES_WINDSWEPT_FOREST;
+		RegistryKey<PlacedFeature> VANILLA_WINDSWEPT_HILLS_TREES = VegetationPlacedFeatures.TREES_WINDSWEPT_HILLS;
 
 		BiomeModifications.create(new Identifier(Sublunary.MOD_ID, "replace_forest_trees"))
                 .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.includeByKey(Biomes.FOREST),
@@ -106,5 +108,23 @@ public class SublunaryTreeGeneration {
                             biomeModificationContext.getGenerationSettings()
                                     .addFeature(GenerationStep.Feature.VEGETAL_DECORATION, SubVegetationPlacedFeatures.SNOWY_PLAINS_TREES);}
                 );
+
+		BiomeModifications.create(new Identifier(Sublunary.MOD_ID, "replace_windswept_forest_trees"))
+				.add(ModificationPhase.REPLACEMENTS, BiomeSelectors.includeByKey(Biomes.WINDSWEPT_FOREST),
+						biomeModificationContext -> {
+							biomeModificationContext.getGenerationSettings()
+									.removeFeature(GenerationStep.Feature.VEGETAL_DECORATION, VANILLA_WINDSWEPT_FOREST_TREES);
+							biomeModificationContext.getGenerationSettings()
+									.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, SubVegetationPlacedFeatures.WINDSWEPT_FOREST_TREES);}
+				);
+
+		BiomeModifications.create(new Identifier(Sublunary.MOD_ID, "replace_windswept_hills_trees"))
+				.add(ModificationPhase.REPLACEMENTS, BiomeSelectors.includeByKey(Biomes.WINDSWEPT_HILLS, Biomes.WINDSWEPT_GRAVELLY_HILLS),
+						biomeModificationContext -> {
+							biomeModificationContext.getGenerationSettings()
+									.removeFeature(GenerationStep.Feature.VEGETAL_DECORATION, VANILLA_WINDSWEPT_HILLS_TREES);
+							biomeModificationContext.getGenerationSettings()
+									.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, SubVegetationPlacedFeatures.WINDSWEPT_FOREST_TREES);}
+				);
     }
 }

@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "sublunary:block/dead_spruce_leaves"
-  }
-}

@@ -61,10 +61,6 @@ public class RegisterBlocks {
             new SaplingBlock(SublunarySaplings.HICKORY, QuiltBlockSettings.copyOf(Blocks.OAK_SAPLING)),
             ItemGroups.NATURAL_BLOCKS);
 
-    public static final Block DEAD_SPRUCE_LEAVES = registerBlock("dead_spruce_leaves",
-            new LeavesBlock(QuiltBlockSettings.create().mapColor(MapColor.ORANGE).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning(Blocks::allowOcelotsAndParrots).suffocates(Blocks::nonSolid).blockVision(Blocks::nonSolid).lavaIgnitable().pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::nonSolid)),
-            ItemGroups.NATURAL_BLOCKS);
-
     //registry end
 
     private static Block registerBlock(String name, Block block, RegistryKey<ItemGroup> group){

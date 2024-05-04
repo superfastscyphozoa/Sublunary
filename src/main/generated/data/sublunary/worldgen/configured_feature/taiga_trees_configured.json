@@ -4,10 +4,6 @@
     "default": "sublunary:spruce_full_placed",
     "features": [
       {
-        "chance": 0.002,
-        "feature": "sublunary:dying_spruce_placed"
-      },
-      {
         "chance": 0.34,
         "feature": "sublunary:spruce_sparse_placed"
       }

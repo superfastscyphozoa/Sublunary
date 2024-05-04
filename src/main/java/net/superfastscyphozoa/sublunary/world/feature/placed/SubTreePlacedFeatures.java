@@ -42,7 +42,6 @@ public class SubTreePlacedFeatures {
 
     public static final RegistryKey<PlacedFeature> SPRUCE_FULL_PLACED = registerKey("spruce_full_placed");
     public static final RegistryKey<PlacedFeature> SPRUCE_SPARSE_PLACED = registerKey("spruce_sparse_placed");
-    public static final RegistryKey<PlacedFeature> DYING_SPRUCE_PLACED = registerKey("dying_spruce_placed");
 
     public static final RegistryKey<PlacedFeature> VINY_OAK_PLACED = registerKey("viny_oak_placed");
     public static final RegistryKey<PlacedFeature> LARGE_VINY_OAK_PLACED = registerKey("large_viny_oak_placed");
@@ -83,7 +82,6 @@ public class SubTreePlacedFeatures {
 
 		Holder<ConfiguredFeature<?, ?>> spruceFull = holderProvider.getHolderOrThrow(SubTreeConfiguredFeatures.SPRUCE_FULL);
 		Holder<ConfiguredFeature<?, ?>> spruceSparse = holderProvider.getHolderOrThrow(SubTreeConfiguredFeatures.SPRUCE_SPARSE);
-		Holder<ConfiguredFeature<?, ?>> dyingSpruce = holderProvider.getHolderOrThrow(SubTreeConfiguredFeatures.DYING_SPRUCE);
 
 		Holder<ConfiguredFeature<?, ?>> vinyOak = holderProvider.getHolderOrThrow(SubTreeConfiguredFeatures.VINY_OAK);
 		Holder<ConfiguredFeature<?, ?>> largeVinyOak = holderProvider.getHolderOrThrow(SubTreeConfiguredFeatures.LARGE_VINY_OAK);
@@ -121,7 +119,6 @@ public class SubTreePlacedFeatures {
 
         SublunaryPlacedFeatures.register(context, SPRUCE_FULL_PLACED, spruceFull, PlacedFeatureUtil.createWouldSurvivePlacementModifier(Blocks.SPRUCE_SAPLING));
         SublunaryPlacedFeatures.register(context, SPRUCE_SPARSE_PLACED, spruceSparse, PlacedFeatureUtil.createWouldSurvivePlacementModifier(Blocks.SPRUCE_SAPLING));
-        SublunaryPlacedFeatures.register(context, DYING_SPRUCE_PLACED, dyingSpruce, PlacedFeatureUtil.createWouldSurvivePlacementModifier(Blocks.SPRUCE_SAPLING));
 
         SublunaryPlacedFeatures.register(context, VINY_OAK_PLACED, vinyOak, PlacedFeatureUtil.createWouldSurvivePlacementModifier(Blocks.OAK_SAPLING));
         SublunaryPlacedFeatures.register(context, LARGE_VINY_OAK_PLACED, largeVinyOak, PlacedFeatureUtil.createWouldSurvivePlacementModifier(Blocks.OAK_SAPLING));

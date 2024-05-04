@@ -35,7 +35,7 @@ public class HangingBlobFoliagePlacer extends FoliagePlacer {
 			generateSquare(world, placer, random, treeFeatureConfig, treeNode.getCenter().up(0), j, i, treeNode.isGiantTrunk());
 		}
 		method_49247(world, placer, random, treeFeatureConfig, treeNode.getCenter().up(0), radius, offset - foliageHeight, treeNode.isGiantTrunk(),
-				0.5f, 0.5f);
+				0.5f, 0f);
 	}
 
 	@Override
