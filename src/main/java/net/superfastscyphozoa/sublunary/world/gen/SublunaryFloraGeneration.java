@@ -48,7 +48,7 @@ public class SublunaryFloraGeneration {
 
 		BiomeModifications.create(new Identifier(Sublunary.MOD_ID, "replace_forest_grass_ferns"))
                 .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.includeByKey(
-								Biomes.FOREST, Biomes.DARK_FOREST, Biomes.WINDSWEPT_FOREST),
+						Biomes.DARK_FOREST, Biomes.WINDSWEPT_FOREST),
                         biomeModificationContext -> {
                             biomeModificationContext.getGenerationSettings().removeFeature(GenerationStep.Feature.VEGETAL_DECORATION, VANILLA_FOREST_GRASS);
                             biomeModificationContext.getGenerationSettings().removeFeature(GenerationStep.Feature.VEGETAL_DECORATION, VANILLA_NORMAL_GRASS);
@@ -67,7 +67,7 @@ public class SublunaryFloraGeneration {
 
 		BiomeModifications.create(new Identifier(Sublunary.MOD_ID, "replace_forest_grass"))
                 .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.includeByKey(
-								Biomes.FLOWER_FOREST, Biomes.BIRCH_FOREST, Biomes.OLD_GROWTH_BIRCH_FOREST, Biomes.WINDSWEPT_HILLS, Biomes.WINDSWEPT_GRAVELLY_HILLS),
+								Biomes.FOREST, Biomes.FLOWER_FOREST, Biomes.BIRCH_FOREST, Biomes.OLD_GROWTH_BIRCH_FOREST, Biomes.WINDSWEPT_HILLS, Biomes.WINDSWEPT_GRAVELLY_HILLS),
                         biomeModificationContext -> {
                             biomeModificationContext.getGenerationSettings().removeFeature(GenerationStep.Feature.VEGETAL_DECORATION, VANILLA_FOREST_GRASS);
                             biomeModificationContext.getGenerationSettings().removeFeature(GenerationStep.Feature.VEGETAL_DECORATION, VANILLA_NORMAL_GRASS);
