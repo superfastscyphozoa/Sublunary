@@ -16,6 +16,7 @@ import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.*;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.treedecorator.BeehiveTreeDecorator;
+import net.minecraft.world.gen.treedecorator.LeavesVineTreeDecorator;
 import net.minecraft.world.gen.treedecorator.TrunkVineTreeDecorator;
 import net.minecraft.world.gen.trunk.CherryTrunkPlacer;
 import net.minecraft.world.gen.trunk.DarkOakTrunkPlacer;
@@ -34,7 +35,11 @@ public class SubTreeConfiguredFeatures {
 
     public static final RegistryKey<ConfiguredFeature<?,?>> OAK = registerKey("oak");
     public static final RegistryKey<ConfiguredFeature<?,?>> LARGE_OAK = registerKey("large_oak");
+	public static final RegistryKey<ConfiguredFeature<?,?>> VINY_OAK = registerKey("viny_oak");
+	public static final RegistryKey<ConfiguredFeature<?,?>> LARGE_VINY_OAK = registerKey("large_viny_oak");
+
     public static final RegistryKey<ConfiguredFeature<?,?>> BIRCH = registerKey("birch");
+	public static final RegistryKey<ConfiguredFeature<?,?>> VINY_BIRCH = registerKey("viny_birch");
 
     public static final RegistryKey<ConfiguredFeature<?,?>> FOREST_OAK = registerKey("forest_oak");
     public static final RegistryKey<ConfiguredFeature<?,?>> LARGE_FOREST_OAK = registerKey("large_forest_oak");
@@ -50,25 +55,19 @@ public class SubTreeConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?,?>> LARGE_PLAINS_OAK = registerKey("large_plains_oak");
 
     public static final RegistryKey<ConfiguredFeature<?,?>> OLD_GROWTH_BIRCH = registerKey("old_growth_birch");
+	public static final RegistryKey<ConfiguredFeature<?,?>> VINY_OLD_GROWTH_BIRCH = registerKey("viny_old_growth_birch");
 
     public static final RegistryKey<ConfiguredFeature<?,?>> MEADOW_OAK = registerKey("meadow_oak");
     public static final RegistryKey<ConfiguredFeature<?,?>> MEADOW_BIRCH = registerKey("meadow_birch");
 
     public static final RegistryKey<ConfiguredFeature<?,?>> DARK_OAK = registerKey("dark_oak");
+	public static final RegistryKey<ConfiguredFeature<?,?>> VINY_DARK_OAK = registerKey("viny_dark_oak");
 
     public static final RegistryKey<ConfiguredFeature<?,?>> SPRUCE_FULL = registerKey("spruce_full");
     public static final RegistryKey<ConfiguredFeature<?,?>> SPRUCE_SPARSE = registerKey("spruce_sparse");
     public static final RegistryKey<ConfiguredFeature<?,?>> DYING_SPRUCE = registerKey("dying_spruce");
-
-    public static final RegistryKey<ConfiguredFeature<?,?>> VINY_OAK = registerKey("viny_oak");
-    public static final RegistryKey<ConfiguredFeature<?,?>> LARGE_VINY_OAK = registerKey("large_viny_oak");
-
-    public static final RegistryKey<ConfiguredFeature<?,?>> VINY_BIRCH = registerKey("viny_birch");
-    public static final RegistryKey<ConfiguredFeature<?,?>> VINY_OLD_GROWTH_BIRCH = registerKey("viny_old_growth_birch");
-
-    public static final RegistryKey<ConfiguredFeature<?,?>> VINY_DARK_OAK = registerKey("viny_dark_oak");
-
-    public static final RegistryKey<ConfiguredFeature<?,?>> VINY_SPRUCE = registerKey("viny_spruce");
+	public static final RegistryKey<ConfiguredFeature<?,?>> DEAD_SPRUCE = registerKey("dead_spruce");
+	public static final RegistryKey<ConfiguredFeature<?,?>> VINY_SPRUCE = registerKey("viny_spruce");
 
     private static TreeFeatureConfig.Builder oak() {
         return (new TreeFeatureConfig.Builder(
@@ -101,23 +100,26 @@ public class SubTreeConfiguredFeatures {
     private static TreeFeatureConfig.Builder fancyOak() {
 		return (new TreeFeatureConfig.Builder(
 				BlockStateProvider.of(Blocks.OAK_LOG),
-				new LargeOakTrunkPlacer(6, 12, 0),
+				new LargeOakTrunkPlacer(4, 13, 1),
 				BlockStateProvider.of(Blocks.OAK_LEAVES),
-				new CherryFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(1), ConstantIntProvider.create(5),
+				new CherryFoliagePlacer(ConstantIntProvider.create(4), ConstantIntProvider.create(1), ConstantIntProvider.create(5),
 						0.25F, 0.5F, 0.16666667F, 0.33333334F),
 				new TwoLayersFeatureSize(1, 0, 2)))
 				.ignoreVines().dirtProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT)).forceDirt();
     }
 
-	private static TreeFeatureConfig.Builder fancyOak2() {
+	private static TreeFeatureConfig.Builder dyingOak() {
 		return (new TreeFeatureConfig.Builder(
 				BlockStateProvider.of(Blocks.OAK_LOG),
-				new LargeOakTrunkPlacer(4, 11, 0),
+				new LargeOakTrunkPlacer(4, 13, 0),
 				BlockStateProvider.of(Blocks.OAK_LEAVES),
-				new LargeOakFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(4), 4),
-				new TwoLayersFeatureSize(0, 0, 0, OptionalInt.of(4))))
+				new CherryFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(1), ConstantIntProvider.create(5),
+						0.25F, 0.5F, 0.16666667F, 0.33333334F),
+				new TwoLayersFeatureSize(1, 0, 2)))
 				.ignoreVines().dirtProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT)).forceDirt();
 	}
+
+	//new LargeOakFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(4), 4),
 
     private static TreeFeatureConfig.Builder hickory() {
         return (new TreeFeatureConfig.Builder(
@@ -175,7 +177,11 @@ public class SubTreeConfiguredFeatures {
         //trees
         SublunaryConfiguredFeatures.register(context, OAK, Feature.TREE, oak().build());
         SublunaryConfiguredFeatures.register(context, LARGE_OAK, Feature.TREE, fancyOak().build());
+		SublunaryConfiguredFeatures.register(context, VINY_OAK, Feature.TREE, oak().decorators(List.of(TrunkVineTreeDecorator.INSTANCE)).build());
+		SublunaryConfiguredFeatures.register(context, LARGE_VINY_OAK, Feature.TREE, dyingOak().decorators(List.of(TrunkVineTreeDecorator.INSTANCE)).build());
+
         SublunaryConfiguredFeatures.register(context, BIRCH, Feature.TREE, birch().build());
+		SublunaryConfiguredFeatures.register(context, VINY_BIRCH, Feature.TREE, birch().decorators(List.of(TrunkVineTreeDecorator.INSTANCE)).build());
 
         SublunaryConfiguredFeatures.register(context, FOREST_OAK, Feature.TREE, oak().decorators(List.of(ForestBeehive)).build());
         SublunaryConfiguredFeatures.register(context, LARGE_FOREST_OAK, Feature.TREE, fancyOak().decorators(List.of(ForestBeehive)).build());
@@ -191,11 +197,13 @@ public class SubTreeConfiguredFeatures {
         SublunaryConfiguredFeatures.register(context, LARGE_PLAINS_OAK, Feature.TREE, fancyOak().decorators(List.of(PlainsBeehive)).build());
 
         SublunaryConfiguredFeatures.register(context, OLD_GROWTH_BIRCH, Feature.TREE, superBirch().decorators(List.of(FlowerForestBeehive)).build());
+		SublunaryConfiguredFeatures.register(context, VINY_OLD_GROWTH_BIRCH, Feature.TREE, superBirch().decorators(List.of(TrunkVineTreeDecorator.INSTANCE)).build());
 
         SublunaryConfiguredFeatures.register(context, MEADOW_OAK, Feature.TREE, fancyOak().decorators(List.of(MeadowBeehive)).build());
         SublunaryConfiguredFeatures.register(context, MEADOW_BIRCH, Feature.TREE, superBirch().decorators(List.of(MeadowBeehive)).build());
 
         SublunaryConfiguredFeatures.register(context, DARK_OAK, Feature.TREE, dark_oak().build());
+		SublunaryConfiguredFeatures.register(context, VINY_DARK_OAK, Feature.TREE, dark_oak().decorators(List.of(TrunkVineTreeDecorator.INSTANCE)).build());
 
         SublunaryConfiguredFeatures.register(context, SPRUCE_FULL, Feature.TREE, (new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(Blocks.SPRUCE_LOG),
@@ -204,17 +212,7 @@ public class SubTreeConfiguredFeatures {
                 new SpruceFoliagePlacer(UniformIntProvider.create(2, 3), UniformIntProvider.create(0, 2), UniformIntProvider.create(1, 2)),
                 new TwoLayersFeatureSize(2, 0, 2)))
                 .ignoreVines().build());
-
         SublunaryConfiguredFeatures.register(context, SPRUCE_SPARSE, Feature.TREE, spruce_sparse().build());
-
-        SublunaryConfiguredFeatures.register(context, VINY_OAK, Feature.TREE, oak().decorators(List.of(TrunkVineTreeDecorator.INSTANCE)).build());
-        SublunaryConfiguredFeatures.register(context, LARGE_VINY_OAK, Feature.TREE, fancyOak().decorators(List.of(TrunkVineTreeDecorator.INSTANCE)).build());
-
-        SublunaryConfiguredFeatures.register(context, VINY_BIRCH, Feature.TREE, birch().decorators(List.of(TrunkVineTreeDecorator.INSTANCE)).build());
-        SublunaryConfiguredFeatures.register(context, VINY_OLD_GROWTH_BIRCH, Feature.TREE, superBirch().decorators(List.of(TrunkVineTreeDecorator.INSTANCE)).build());
-
-        SublunaryConfiguredFeatures.register(context, VINY_DARK_OAK, Feature.TREE, dark_oak().decorators(List.of(TrunkVineTreeDecorator.INSTANCE)).build());
-
-        SublunaryConfiguredFeatures.register(context, VINY_SPRUCE, Feature.TREE, spruce_sparse().decorators(List.of(TrunkVineTreeDecorator.INSTANCE)).build());
+		SublunaryConfiguredFeatures.register(context, VINY_SPRUCE, Feature.TREE, spruce_sparse().decorators(List.of(TrunkVineTreeDecorator.INSTANCE)).build());
     }
 }

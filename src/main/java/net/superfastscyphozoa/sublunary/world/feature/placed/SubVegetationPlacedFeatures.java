@@ -64,7 +64,7 @@ public class SubVegetationPlacedFeatures {
 
 
         SublunaryPlacedFeatures.register(context, FOREST_TREES, forestTrees,
-				treePlacementModifiers(PlacedFeatureUtil.createCountExtraModifier(10, 0.5F, 10), Blocks.OAK_SAPLING));
+				treePlacementModifiers(PlacedFeatureUtil.createCountExtraModifier(10, 0.5F, 2), Blocks.OAK_SAPLING));
 
         SublunaryPlacedFeatures.register(context, FLOWER_FOREST_TREES, flowerForestTrees,
 				treePlacementModifiers(PlacedFeatureUtil.createCountExtraModifier(8, 0.1F, 4), Blocks.OAK_SAPLING));

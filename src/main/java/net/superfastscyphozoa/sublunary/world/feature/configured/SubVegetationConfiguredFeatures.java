@@ -91,7 +91,7 @@ public class SubVegetationConfiguredFeatures {
                 new WeightedPlacedFeature(largeVinyOak, 0.02F),
 
                 new WeightedPlacedFeature(forestBirch, 0.15F),
-                new WeightedPlacedFeature(largeForestOak, 0.9F)),
+                new WeightedPlacedFeature(largeForestOak, 0.8F)),
                 forestOak));
 
         SublunaryConfiguredFeatures.register(context, FLOWER_FOREST_TREES_CONFIGURED, Feature.RANDOM_SELECTOR, new RandomFeatureConfig(List.of(
@@ -110,9 +110,7 @@ public class SubVegetationConfiguredFeatures {
                 new WeightedPlacedFeature(vinyOldGrowthBirch, 0.01F),
                 new WeightedPlacedFeature(vinyBirch, 0.01F),
 
-				new WeightedPlacedFeature(hickory, 0.04F),
-
-                new WeightedPlacedFeature(forestBirch, 0.1F)),
+                new WeightedPlacedFeature(forestBirch, 0.3F)),
                 oldGrowthBirch));
 
         SublunaryConfiguredFeatures.register(context, PLAINS_TREES_CONFIGURED, Feature.RANDOM_SELECTOR, new RandomFeatureConfig(List.of(
