@@ -1,19 +1,18 @@
 package net.superfastscyphozoa.sublunary.blocks;
 
-import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.superfastscyphozoa.sublunary.registry.RegisterBlocks;
+import org.quiltmc.qsl.block.content.registry.api.BlockContentRegistries;
+import org.quiltmc.qsl.block.content.registry.api.FlammableBlockEntry;
 
 public class SublunaryFlammableBlocks {
     public static void registerFlammableBlocks() {
-		FlammableBlockRegistry registry = FlammableBlockRegistry.getDefaultInstance();
+		BlockContentRegistries.FLAMMABLE.put(RegisterBlocks.HICKORY_LOG, new FlammableBlockEntry(5, 5));
+		BlockContentRegistries.FLAMMABLE.put(RegisterBlocks.HICKORY_WOOD, new FlammableBlockEntry(5, 5));
+		BlockContentRegistries.FLAMMABLE.put(RegisterBlocks.STRIPPED_HICKORY_LOG, new FlammableBlockEntry(5, 5));
+		BlockContentRegistries.FLAMMABLE.put(RegisterBlocks.STRIPPED_HICKORY_WOOD, new FlammableBlockEntry(5, 5));
 
-        registry.add(RegisterBlocks.HICKORY_LOG, 5, 5);
-        registry.add(RegisterBlocks.HICKORY_WOOD, 5, 5);
-        registry.add(RegisterBlocks.STRIPPED_HICKORY_LOG, 5, 5);
-        registry.add(RegisterBlocks.STRIPPED_HICKORY_WOOD, 5, 5);
+		BlockContentRegistries.FLAMMABLE.put(RegisterBlocks.HICKORY_LEAVES, new FlammableBlockEntry(30, 60));
 
-        registry.add(RegisterBlocks.HICKORY_LEAVES, 30, 60);
-
-        registry.add(RegisterBlocks.HICKORY_PLANKS, 5, 20);
+		BlockContentRegistries.FLAMMABLE.put(RegisterBlocks.HICKORY_PLANKS, new FlammableBlockEntry(5, 20));
     }
 }

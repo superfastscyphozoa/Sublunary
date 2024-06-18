@@ -1,8 +1,6 @@
 package net.superfastscyphozoa.sublunary.registry;
 
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.block.sapling.SaplingBlock;
@@ -18,6 +16,7 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.superfastscyphozoa.sublunary.Sublunary;
 import net.superfastscyphozoa.sublunary.blocks.BushyFlowerBlock;
+import net.superfastscyphozoa.sublunary.blocks.CloverBlock;
 import net.superfastscyphozoa.sublunary.world.tree.SublunarySaplings;
 import org.quiltmc.qsl.block.extensions.api.QuiltBlockSettings;
 import org.quiltmc.qsl.item.setting.api.QuiltItemSettings;
@@ -27,14 +26,18 @@ public class RegisterBlocks {
     //registry
 
     public static final Block CLOVERS = registerBlock("clovers",
-            new PinkPetalsBlock(QuiltBlockSettings.create().noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS)),
-            null);
+            new CloverBlock(QuiltBlockSettings.create().noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS)),
+			ItemGroups.NATURAL_BLOCKS);
 
     //flowers
 
     public static final Block LAVENDER = registerBlock("lavender",
             new BushyFlowerBlock(StatusEffects.REGENERATION, 8, QuiltBlockSettings.create().noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ)),
             ItemGroups.NATURAL_BLOCKS);
+
+	public static final Block CALLA_LILY = registerBlock("calla_lily",
+			new BushyFlowerBlock(StatusEffects.POISON, 8, QuiltBlockSettings.create().noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ)),
+			ItemGroups.NATURAL_BLOCKS);
 
     //hickory
 
@@ -53,6 +56,7 @@ public class RegisterBlocks {
     public static final Block HICKORY_PLANKS = registerBlock("hickory_planks",
             new Block(QuiltBlockSettings.copyOf(Blocks.OAK_PLANKS).requiresTool()),
             ItemGroups.BUILDING_BLOCKS);
+
     public static final Block HICKORY_LEAVES = registerBlock("hickory_leaves",
             new LeavesBlock(QuiltBlockSettings.create().mapColor(MapColor.YELLOW).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning(Blocks::allowOcelotsAndParrots).suffocates(Blocks::nonSolid).blockVision(Blocks::nonSolid).lavaIgnitable().pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::nonSolid)),
             ItemGroups.NATURAL_BLOCKS);

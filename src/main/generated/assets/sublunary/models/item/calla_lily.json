@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "sublunary:item/pupa"
+    "layer0": "sublunary:block/calla_lily"
   }
 }

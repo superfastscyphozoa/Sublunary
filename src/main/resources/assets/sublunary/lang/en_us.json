@@ -1,17 +1,11 @@
 {
-  "item.sublunary.pupa": "Pupa",
-
   "block.sublunary.lavender": "Lavender",
+  "block.sublunary.calla_lily": "Calla Lily",
 
   "block.sublunary.clovers": "Clover",
   "item.sublunary.four_leaf_clover": "Four Leaf Clover",
 
-  "item.sublunary.flour": "Flour",
-  "item.sublunary.dough": "Dough",
-
   "item.sublunary.rusted_sword": "Rusted Sword",
-
-  "item.sublunary.passerine_spawn_egg": "Passerine Spawn Egg",
 
   "block.sublunary.hickory_log": "Hickory Log",
   "block.sublunary.hickory_wood": "Hickory Wood",

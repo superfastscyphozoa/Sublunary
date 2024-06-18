@@ -4,12 +4,16 @@
     "default": "sublunary:old_growth_birch_placed",
     "features": [
       {
-        "chance": 0.01,
+        "chance": 0.02,
         "feature": "sublunary:viny_old_growth_birch_placed"
       },
       {
-        "chance": 0.01,
+        "chance": 0.015,
         "feature": "sublunary:viny_birch_placed"
+      },
+      {
+        "chance": 0.02,
+        "feature": "sublunary:birch_stump_placed"
       },
       {
         "chance": 0.3,

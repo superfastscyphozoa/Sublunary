@@ -1,5 +1,9 @@
 package net.superfastscyphozoa.sublunary.client;
 
+import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
+import net.minecraft.client.color.world.BiomeColors;
+import net.minecraft.client.color.world.FoliageColors;
+import net.minecraft.client.color.world.GrassColors;
 import net.minecraft.client.render.RenderLayer;
 import net.superfastscyphozoa.sublunary.registry.RegisterBlocks;
 import org.quiltmc.loader.api.ModContainer;
@@ -13,11 +17,15 @@ public class SublunaryClient implements ClientModInitializer {
 
 		//render types
 		BlockRenderLayerMap.put(RenderLayer.getCutout(), RegisterBlocks.LAVENDER);
+		BlockRenderLayerMap.put(RenderLayer.getCutout(), RegisterBlocks.CALLA_LILY);
 		BlockRenderLayerMap.put(RenderLayer.getCutout(), RegisterBlocks.CLOVERS);
 		BlockRenderLayerMap.put(RenderLayer.getCutout(), RegisterBlocks.HICKORY_SAPLING);
 
-		//ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> 7979098, RegisterBlocks.CLOVERS);
-
-		//ColorProviderRegistry.ITEM.register((stack, tintIndex) -> 7979098, RegisterBlocks.SHORT_GRASS.asItem());
+		ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> {
+					if (world == null || pos == null) {
+						return GrassColors.getDefault();
+					}
+					return BiomeColors.getGrassColor(world, pos);
+				}, RegisterBlocks.CLOVERS);
 	}
 }

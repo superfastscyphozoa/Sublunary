@@ -1,15 +1,19 @@
 {
   "type": "minecraft:random_selector",
   "config": {
-    "default": "sublunary:oak_placed",
+    "default": "sublunary:large_oak_placed",
     "features": [
       {
         "chance": 0.666,
         "feature": "sublunary:spruce_full_placed"
       },
       {
+        "chance": 0.018,
+        "feature": "sublunary:oak_stump_placed"
+      },
+      {
         "chance": 0.1,
-        "feature": "sublunary:large_oak_placed"
+        "feature": "sublunary:oak_placed"
       }
     ]
   }
