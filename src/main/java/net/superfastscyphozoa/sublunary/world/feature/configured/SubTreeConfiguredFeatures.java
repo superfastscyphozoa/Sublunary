@@ -16,16 +16,13 @@ import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.*;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.treedecorator.BeehiveTreeDecorator;
-import net.minecraft.world.gen.treedecorator.LeavesVineTreeDecorator;
 import net.minecraft.world.gen.treedecorator.TrunkVineTreeDecorator;
 import net.minecraft.world.gen.trunk.CherryTrunkPlacer;
 import net.minecraft.world.gen.trunk.DarkOakTrunkPlacer;
 import net.minecraft.world.gen.trunk.LargeOakTrunkPlacer;
 import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 import net.superfastscyphozoa.sublunary.registry.RegisterBlocks;
-import net.superfastscyphozoa.sublunary.world.tree.foliage.HangingBlobFoliagePlacer;
-import net.superfastscyphozoa.sublunary.world.tree.foliage.HangingLargeBlobFoliagePlacer;
-import net.superfastscyphozoa.sublunary.world.tree.trunk.StraightBranchedTrunkPlacer;
+import net.superfastscyphozoa.sublunary.world.tree.decorator.BranchTreeDecorator;
 
 import java.util.List;
 import java.util.OptionalInt;
@@ -89,7 +86,8 @@ public class SubTreeConfiguredFeatures {
 	private static TreeFeatureConfig.Builder fancyOak() {
 		return (new TreeFeatureConfig.Builder(
 				BlockStateProvider.of(Blocks.OAK_LOG),
-				new LargeOakTrunkPlacer(4, 11, 1),
+				//new LargeOakTrunkPlacer(4, 11, 1),
+				new LargeOakTrunkPlacer(6, 11, 1),
 				BlockStateProvider.of(Blocks.OAK_LEAVES),
 				new LargeOakFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(4), 4),
 				new TwoLayersFeatureSize(0, 0, 0, OptionalInt.of(4)))
@@ -109,7 +107,7 @@ public class SubTreeConfiguredFeatures {
 	private static TreeFeatureConfig.Builder oakStump() {
 		return (new TreeFeatureConfig.Builder(
 				BlockStateProvider.of(Blocks.OAK_LOG),
-				new StraightTrunkPlacer(2, 1, 1),
+				new StraightTrunkPlacer(2, 1, 0),
 				BlockStateProvider.of(Blocks.OAK_LEAVES),
 				new BlobFoliagePlacer(ConstantIntProvider.create(0), ConstantIntProvider.create(0), 0),
 				new TwoLayersFeatureSize(0, 0, 0))
@@ -121,20 +119,22 @@ public class SubTreeConfiguredFeatures {
     private static TreeFeatureConfig.Builder birch() {
         return (new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(Blocks.BIRCH_LOG),
-                new StraightTrunkPlacer(6, 5, 3),
+                new StraightTrunkPlacer(6, 4, 2),
                 BlockStateProvider.of(Blocks.BIRCH_LEAVES),
                 new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
-                new TwoLayersFeatureSize(0, 0, 0)).forceDirt());
+                new TwoLayersFeatureSize(0, 0, 0))
+				.forceDirt());
     }
 
     private static TreeFeatureConfig.Builder superBirch() {
         return (new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(Blocks.BIRCH_LOG),
-                new StraightTrunkPlacer(9, 6, 2),
+                new StraightTrunkPlacer(9, 5, 2),
                 BlockStateProvider.of(Blocks.BIRCH_LEAVES),
                 new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
                 new TwoLayersFeatureSize(0, 0, 0))
-                .dirtProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT)).forceDirt());
+                .dirtProvider(BlockStateProvider.of(Blocks.ROOTED_DIRT))
+				.forceDirt());
     }
 
 	private static TreeFeatureConfig.Builder birchStump() {
@@ -246,16 +246,23 @@ public class SubTreeConfiguredFeatures {
         BeehiveTreeDecorator PlainsBeehive = new BeehiveTreeDecorator(0.05F);
         BeehiveTreeDecorator MeadowBeehive = new BeehiveTreeDecorator(1.0F);
 
+		BranchTreeDecorator OakBranch = new BranchTreeDecorator(1.0F, BlockStateProvider.of(Blocks.OAK_LOG));
+		BranchTreeDecorator BirchBranch = new BranchTreeDecorator(1.0F, BlockStateProvider.of(Blocks.BIRCH_LOG));
+
         //trees
-        SublunaryConfiguredFeatures.register(context, OAK, Feature.TREE, oak().build());
+        SublunaryConfiguredFeatures.register(context, OAK, Feature.TREE, oak()
+				.decorators(List.of(OakBranch)).build());
         SublunaryConfiguredFeatures.register(context, LARGE_OAK, Feature.TREE, fancyOak().build());
-		SublunaryConfiguredFeatures.register(context, VINY_OAK, Feature.TREE, oak().decorators(List.of(TrunkVineTreeDecorator.INSTANCE)).build());
+		SublunaryConfiguredFeatures.register(context, VINY_OAK, Feature.TREE, oak()
+				.decorators(List.of(TrunkVineTreeDecorator.INSTANCE, OakBranch)).build());
 		SublunaryConfiguredFeatures.register(context, LARGE_VINY_OAK, Feature.TREE, fancyOak().decorators(List.of(TrunkVineTreeDecorator.INSTANCE)).build());
 		SublunaryConfiguredFeatures.register(context, DEAD_OAK, Feature.TREE, deadOak().decorators(List.of(TrunkVineTreeDecorator.INSTANCE)).build());
 		SublunaryConfiguredFeatures.register(context, OAK_STUMP, Feature.TREE, oakStump().decorators(List.of(TrunkVineTreeDecorator.INSTANCE)).build());
 
-        SublunaryConfiguredFeatures.register(context, BIRCH, Feature.TREE, birch().build());
-		SublunaryConfiguredFeatures.register(context, VINY_BIRCH, Feature.TREE, birch().decorators(List.of(TrunkVineTreeDecorator.INSTANCE)).build());
+        SublunaryConfiguredFeatures.register(context, BIRCH, Feature.TREE, birch()
+				.decorators(List.of(BirchBranch)).build());
+		SublunaryConfiguredFeatures.register(context, VINY_BIRCH, Feature.TREE, birch()
+				.decorators(List.of(TrunkVineTreeDecorator.INSTANCE, BirchBranch)).build());
 		SublunaryConfiguredFeatures.register(context, BIRCH_STUMP, Feature.TREE, birchStump().decorators(List.of(TrunkVineTreeDecorator.INSTANCE)).build());
 
 		SublunaryConfiguredFeatures.register(context, SPRUCE_FULL, Feature.TREE, spruceFull().build());
@@ -268,23 +275,32 @@ public class SubTreeConfiguredFeatures {
 		SublunaryConfiguredFeatures.register(context, DARK_OAK, Feature.TREE, dark_oak().build());
 		SublunaryConfiguredFeatures.register(context, VINY_DARK_OAK, Feature.TREE, dark_oak().decorators(List.of(TrunkVineTreeDecorator.INSTANCE)).build());
 
-        SublunaryConfiguredFeatures.register(context, FOREST_OAK, Feature.TREE, oak().decorators(List.of(ForestBeehive)).build());
+        SublunaryConfiguredFeatures.register(context, FOREST_OAK, Feature.TREE, oak()
+				.decorators(List.of(ForestBeehive, OakBranch)).build());
         SublunaryConfiguredFeatures.register(context, LARGE_FOREST_OAK, Feature.TREE, fancyOak().decorators(List.of(ForestBeehive)).build());
-        SublunaryConfiguredFeatures.register(context, FOREST_BIRCH, Feature.TREE, birch().decorators(List.of(ForestBeehive)).build());
+        SublunaryConfiguredFeatures.register(context, FOREST_BIRCH, Feature.TREE, birch()
+				.decorators(List.of(ForestBeehive, BirchBranch)).build());
 
         SublunaryConfiguredFeatures.register(context, HICKORY, Feature.TREE, hickory().build());
 
-        SublunaryConfiguredFeatures.register(context, FLOWER_FOREST_OAK, Feature.TREE, oak().decorators(List.of(FlowerForestBeehive)).build());
+        SublunaryConfiguredFeatures.register(context, FLOWER_FOREST_OAK, Feature.TREE, oak()
+				.decorators(List.of(FlowerForestBeehive, OakBranch)).build());
         SublunaryConfiguredFeatures.register(context, LARGE_FLOWER_FOREST_OAK, Feature.TREE, fancyOak().decorators(List.of(FlowerForestBeehive)).build());
-        SublunaryConfiguredFeatures.register(context, FLOWER_FOREST_BIRCH, Feature.TREE, birch().decorators(List.of(FlowerForestBeehive)).build());
+        SublunaryConfiguredFeatures.register(context, FLOWER_FOREST_BIRCH, Feature.TREE, birch()
+				.decorators(List.of(FlowerForestBeehive, BirchBranch)).build());
 
-        SublunaryConfiguredFeatures.register(context, PLAINS_OAK, Feature.TREE, oak().decorators(List.of(PlainsBeehive)).build());
+        SublunaryConfiguredFeatures.register(context, PLAINS_OAK, Feature.TREE, oak()
+				.decorators(List.of(PlainsBeehive, OakBranch)).build());
         SublunaryConfiguredFeatures.register(context, LARGE_PLAINS_OAK, Feature.TREE, fancyOak().decorators(List.of(PlainsBeehive)).build());
 
-        SublunaryConfiguredFeatures.register(context, OLD_GROWTH_BIRCH, Feature.TREE, superBirch().decorators(List.of(FlowerForestBeehive)).build());
-		SublunaryConfiguredFeatures.register(context, VINY_OLD_GROWTH_BIRCH, Feature.TREE, superBirch().decorators(List.of(TrunkVineTreeDecorator.INSTANCE)).build());
+        SublunaryConfiguredFeatures.register(context, OLD_GROWTH_BIRCH, Feature.TREE, superBirch()
+				.decorators(List.of(FlowerForestBeehive, BirchBranch)).build());
+		SublunaryConfiguredFeatures.register(context, VINY_OLD_GROWTH_BIRCH, Feature.TREE, superBirch()
+				.decorators(List.of(TrunkVineTreeDecorator.INSTANCE, BirchBranch)).build());
 
-        SublunaryConfiguredFeatures.register(context, MEADOW_OAK, Feature.TREE, fancyOak().decorators(List.of(MeadowBeehive)).build());
-        SublunaryConfiguredFeatures.register(context, MEADOW_BIRCH, Feature.TREE, superBirch().decorators(List.of(MeadowBeehive)).build());
+        SublunaryConfiguredFeatures.register(context, MEADOW_OAK, Feature.TREE, fancyOak()
+				.decorators(List.of(MeadowBeehive, OakBranch)).build());
+        SublunaryConfiguredFeatures.register(context, MEADOW_BIRCH, Feature.TREE, superBirch()
+				.decorators(List.of(MeadowBeehive, BirchBranch)).build());
     }
 }

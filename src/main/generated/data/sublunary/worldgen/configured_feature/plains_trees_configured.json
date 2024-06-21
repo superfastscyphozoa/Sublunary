@@ -8,7 +8,7 @@
         "feature": "sublunary:large_plains_oak_placed"
       },
       {
-        "chance": 0.06,
+        "chance": 0.005,
         "feature": "sublunary:dead_oak_placed"
       }
     ]

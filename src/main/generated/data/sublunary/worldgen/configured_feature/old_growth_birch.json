@@ -5,6 +5,19 @@
       {
         "type": "minecraft:beehive",
         "probability": 0.02
+      },
+      {
+        "type": "minecraft:branch_tree_decorator",
+        "blockstate": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "minecraft:birch_log",
+            "Properties": {
+              "axis": "y"
+            }
+          }
+        },
+        "chance": 1.0
       }
     ],
     "dirt_provider": {
@@ -41,7 +54,7 @@
     "trunk_placer": {
       "type": "minecraft:straight_trunk_placer",
       "base_height": 9,
-      "height_rand_a": 6,
+      "height_rand_a": 5,
       "height_rand_b": 2
     },
     "trunk_provider": {

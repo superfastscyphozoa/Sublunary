@@ -4,6 +4,19 @@
     "decorators": [
       {
         "type": "minecraft:trunk_vine"
+      },
+      {
+        "type": "minecraft:branch_tree_decorator",
+        "blockstate": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "minecraft:oak_log",
+            "Properties": {
+              "axis": "y"
+            }
+          }
+        },
+        "chance": 1.0
       }
     ],
     "dirt_provider": {

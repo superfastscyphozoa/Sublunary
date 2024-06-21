@@ -12,7 +12,7 @@
         "feature": "sublunary:large_viny_oak_placed"
       },
       {
-        "chance": 0.01,
+        "chance": 0.005,
         "feature": "sublunary:dead_oak_placed"
       },
       {

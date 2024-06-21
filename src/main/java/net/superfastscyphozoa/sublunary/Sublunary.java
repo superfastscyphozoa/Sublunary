@@ -6,6 +6,7 @@ import net.superfastscyphozoa.sublunary.registry.RegisterBlocks;
 import net.superfastscyphozoa.sublunary.registry.RegisterItems;
 import net.superfastscyphozoa.sublunary.world.gen.SublunaryWorldGeneration;
 import net.superfastscyphozoa.sublunary.world.tree.SublunaryFoliagePlacerTypes;
+import net.superfastscyphozoa.sublunary.world.tree.SublunaryTreeDecoratorTypes;
 import net.superfastscyphozoa.sublunary.world.tree.SublunaryTrunkPlacerTypes;
 import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
@@ -30,5 +31,6 @@ public class Sublunary implements ModInitializer {
 
 		SublunaryTrunkPlacerTypes.register();
 		SublunaryFoliagePlacerTypes.register();
+		SublunaryTreeDecoratorTypes.register();
 	}
 }
