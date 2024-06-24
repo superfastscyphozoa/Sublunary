@@ -4,7 +4,7 @@
 	"texture_size": [64, 48],
 	"textures": {
 		"0": "sublunary:block/clovers",
-		"particle": "sublunary:item/clover"
+        "particle": "sublunary:item/clovers"
 	},
 	"elements": [
 		{

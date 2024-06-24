@@ -26,6 +26,13 @@ public class SublunaryFloraGeneration {
 
         RegistryKey<PlacedFeature> VANILLA_LARGE_FERNS = VegetationPlacedFeatures.PATCH_LARGE_FERN;
 
+		//additions
+
+		BiomeModifications.addFeature(BiomeSelectors.includeByKey(Biomes.FOREST, Biomes.PLAINS),
+				GenerationStep.Feature.VEGETAL_DECORATION, SubVegetationPlacedFeatures.CLOVER_PATCH);
+
+		//replacements
+
 		BiomeModifications.create(new Identifier(Sublunary.MOD_ID, "replace_plains_flowers"))
                 .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.includeByKey(Biomes.PLAINS, Biomes.SUNFLOWER_PLAINS),
                         biomeModificationContext -> {

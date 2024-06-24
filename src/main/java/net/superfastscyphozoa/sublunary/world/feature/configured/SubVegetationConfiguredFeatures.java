@@ -2,11 +2,13 @@ package net.superfastscyphozoa.sublunary.world.feature.configured;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.PinkPetalsBlock;
 import net.minecraft.registry.Holder;
 import net.minecraft.registry.HolderProvider;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.collection.DataPool;
+import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Range;
 import net.minecraft.util.math.noise.DoublePerlinNoiseSampler;
 import net.minecraft.world.gen.BootstrapContext;
@@ -17,8 +19,11 @@ import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.stateprovider.DualNoiseBlockStateProvider;
 import net.minecraft.world.gen.stateprovider.NoiseBlockStateProvider;
 import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
+import net.superfastscyphozoa.sublunary.blocks.CloverBlock;
+import net.superfastscyphozoa.sublunary.registry.RegisterBlocks;
 import net.superfastscyphozoa.sublunary.world.feature.placed.SubTreePlacedFeatures;
 
+import java.util.Iterator;
 import java.util.List;
 
 import static net.superfastscyphozoa.sublunary.world.feature.configured.SublunaryConfiguredFeatures.registerKey;
@@ -41,6 +46,8 @@ public class SubVegetationConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?,?>> TALL_GRASS_PATCH_CONFIGURED = registerKey("tall_grass_patch_configured");
     public static final RegistryKey<ConfiguredFeature<?,?>> TALL_FERNS_PATCH_CONFIGURED = registerKey("tall_ferns_patch_configured");
 	public static final RegistryKey<ConfiguredFeature<?,?>> FERN_PATCH_CONFIGURED = registerKey("fern_patch_configured");
+
+	public static final RegistryKey<ConfiguredFeature<?,?>> CLOVER_PATCH_CONFIGURED = registerKey("clover_patch_configured");
 
     public static final RegistryKey<ConfiguredFeature<?,?>> PLAINS_FLOWER_PATCH_CONFIGURED = registerKey("plains_flower_patch_configured");
 
@@ -168,6 +175,19 @@ public class SubVegetationConfiguredFeatures {
 		SublunaryConfiguredFeatures.register(context, FERN_PATCH_CONFIGURED, Feature.RANDOM_PATCH,
 				ConfiguredFeatureUtil.createRandomPatchFeatureConfig
 						(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(Blocks.FERN))));
+
+		DataPool.Builder<BlockState> cloverBuilder = DataPool.builder();
+
+		for(int c = 1; c <= 4; ++c) {
+			for (Direction direction : Direction.Type.HORIZONTAL) {
+				cloverBuilder.method_34975(RegisterBlocks.CLOVERS.getDefaultState()
+						.with(CloverBlock.AMOUNT, c).with(CloverBlock.FACING, direction), 1);
+			}
+		}
+
+		SublunaryConfiguredFeatures.register(context, CLOVER_PATCH_CONFIGURED, Feature.FLOWER,
+				new RandomPatchFeatureConfig(96, 6, 2, PlacedFeatureUtil.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig
+						(new WeightedBlockStateProvider(cloverBuilder)))));
 
         SublunaryConfiguredFeatures.register(context, PLAINS_FLOWER_PATCH_CONFIGURED, Feature.FLOWER,
                 new RandomPatchFeatureConfig(96, 6, 2, PlacedFeatureUtil.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig

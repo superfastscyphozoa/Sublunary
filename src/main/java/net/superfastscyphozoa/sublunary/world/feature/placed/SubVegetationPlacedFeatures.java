@@ -9,6 +9,7 @@ import net.minecraft.world.gen.BootstrapContext;
 import net.minecraft.world.gen.decorator.*;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.PlacedFeature;
+import net.minecraft.world.gen.feature.PlacementModifier;
 import net.minecraft.world.gen.feature.util.PlacedFeatureUtil;
 import net.superfastscyphozoa.sublunary.world.feature.configured.SubVegetationConfiguredFeatures;
 
@@ -36,6 +37,8 @@ public class SubVegetationPlacedFeatures {
     public static final RegistryKey<PlacedFeature> TALL_FERNS_PATCH = registerKey("tall_ferns_patch");
 	public static final RegistryKey<PlacedFeature> FERN_PATCH = registerKey("fern_patch");
 
+	public static final RegistryKey<PlacedFeature> CLOVER_PATCH = registerKey("clover_patch");
+
     public static final RegistryKey<PlacedFeature> PLAINS_FLOWER_PATCH = registerKey("plains_flower_patch");
 
 
@@ -59,6 +62,8 @@ public class SubVegetationPlacedFeatures {
 		Holder<ConfiguredFeature<?, ?>> tallGrassPatch = holderProvider.getHolderOrThrow(SubVegetationConfiguredFeatures.TALL_GRASS_PATCH_CONFIGURED);
 		Holder<ConfiguredFeature<?, ?>> tallFernsPatch = holderProvider.getHolderOrThrow(SubVegetationConfiguredFeatures.TALL_FERNS_PATCH_CONFIGURED);
 		Holder<ConfiguredFeature<?, ?>> fernPatch = holderProvider.getHolderOrThrow(SubVegetationConfiguredFeatures.FERN_PATCH_CONFIGURED);
+
+		Holder<ConfiguredFeature<?, ?>> cloverPatch = holderProvider.getHolderOrThrow(SubVegetationConfiguredFeatures.CLOVER_PATCH_CONFIGURED);
 
 		Holder<ConfiguredFeature<?, ?>> plainsFlowerPatch = holderProvider.getHolderOrThrow(SubVegetationConfiguredFeatures.PLAINS_FLOWER_PATCH_CONFIGURED);
 
@@ -111,6 +116,11 @@ public class SubVegetationPlacedFeatures {
 
 		SublunaryPlacedFeatures.register(context, FERN_PATCH, fernPatch,
 				NoiseThresholdCountPlacementModifier.create(-0.8, 0, 7), RarityFilterPlacementModifier.create(12),
+				InSquarePlacementModifier.getInstance(), PlacedFeatureUtil.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.getInstance());
+
+
+		SublunaryPlacedFeatures.register(context, CLOVER_PATCH, cloverPatch,
+				NoiseThresholdCountPlacementModifier.create(-0.8, 0, 7), RarityFilterPlacementModifier.create(20),
 				InSquarePlacementModifier.getInstance(), PlacedFeatureUtil.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.getInstance());
 
 

@@ -235,9 +235,9 @@ public class SubTreeConfiguredFeatures {
         BeehiveTreeDecorator PlainsBeehive = new BeehiveTreeDecorator(0.05F);
         BeehiveTreeDecorator MeadowBeehive = new BeehiveTreeDecorator(1.0F);
 
-		BranchTreeDecorator OakBranch = new BranchTreeDecorator(0.3F, BlockStateProvider.of(Blocks.OAK_LOG),2, 6);
-		BranchTreeDecorator BirchBranch = new BranchTreeDecorator(0.3F, BlockStateProvider.of(Blocks.BIRCH_LOG), 2, 9);
-		BranchTreeDecorator OGBirchBranch = new BranchTreeDecorator(0.3F, BlockStateProvider.of(Blocks.BIRCH_LOG), 8, 15);
+		BranchTreeDecorator OakBranch = new BranchTreeDecorator(0.4F, BlockStateProvider.of(Blocks.OAK_LOG),2, 4);
+		BranchTreeDecorator BirchBranch = new BranchTreeDecorator(0.4F, BlockStateProvider.of(Blocks.BIRCH_LOG), 3, 5);
+		BranchTreeDecorator OGBirchBranch = new BranchTreeDecorator(0.4F, BlockStateProvider.of(Blocks.BIRCH_LOG), 6, 11);
 
         //trees
         SublunaryConfiguredFeatures.register(context, OAK, Feature.TREE, oak()

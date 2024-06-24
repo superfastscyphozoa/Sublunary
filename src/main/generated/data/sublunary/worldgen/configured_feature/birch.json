@@ -13,9 +13,9 @@
             }
           }
         },
-        "chance": 0.3,
-        "lowerpos": 2,
-        "upperpos": 9
+        "chance": 0.4,
+        "lowerpos": 3,
+        "upperpos": 5
       }
     ],
     "dirt_provider": {
