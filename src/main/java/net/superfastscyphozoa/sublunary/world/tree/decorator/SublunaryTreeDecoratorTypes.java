@@ -1,8 +1,8 @@
-package net.superfastscyphozoa.sublunary.world.tree;
+package net.superfastscyphozoa.sublunary.world.tree.decorator;
 
 import net.minecraft.world.gen.treedecorator.TreeDecoratorType;
 import net.superfastscyphozoa.sublunary.Sublunary;
-import net.superfastscyphozoa.sublunary.mixin.TreeDecoratorTypeInvoker;
+import net.superfastscyphozoa.sublunary.mixin.tree.TreeDecoratorTypeInvoker;
 import net.superfastscyphozoa.sublunary.world.tree.decorator.BranchTreeDecorator;
 
 public class SublunaryTreeDecoratorTypes {

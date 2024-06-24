@@ -22,7 +22,9 @@ public abstract class SkeletonMixin extends AbstractSkeletonEntity {
     @Override
     protected void initEquipment(RandomGenerator random, LocalDifficulty localDifficulty) {
         if (random.nextFloat() > 0.75f){
-            this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(RegisterItems.RUSTED_SWORD));
+			if (random.nextBoolean()){
+				this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(Items.STONE_SWORD));
+			} else this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(Items.STONE_AXE));
         } else this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(Items.BOW));
     }
 }

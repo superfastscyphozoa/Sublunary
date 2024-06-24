@@ -7,7 +7,6 @@ import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
 import net.superfastscyphozoa.sublunary.Sublunary;
-import net.superfastscyphozoa.sublunary.items.SublunaryToolMaterials;
 import org.quiltmc.qsl.item.setting.api.QuiltItemSettings;
 
 public class RegisterItems {
@@ -17,11 +16,6 @@ public class RegisterItems {
     public static final Item FOUR_LEAF_CLOVER = registerItem("four_leaf_clover",
             new Item(new QuiltItemSettings()));
 
-    // equipment
-
-    public static final Item RUSTED_SWORD = registerItem("rusted_sword",
-            new SwordItem(SublunaryToolMaterials.RUSTED, 3,-2.4f,new QuiltItemSettings()));
-
     //registry end
 
     private static Item registerItem(String name, Item item){
@@ -30,7 +24,7 @@ public class RegisterItems {
 
     public static void addItemsToItemGroup(){
         //add items to item groups
-        addToItemGroup(ItemGroups.COMBAT, RUSTED_SWORD);
+        addToItemGroup(ItemGroups.INGREDIENTS, FOUR_LEAF_CLOVER);
     }
 
     public static void addToItemGroup(RegistryKey<ItemGroup> group, Item item){

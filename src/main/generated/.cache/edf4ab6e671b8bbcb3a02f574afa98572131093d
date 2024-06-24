@@ -1,9 +1,11 @@
-// 1.20.4	2024-06-21T22:05:56.939921	Sublunary/Model Definitions
+// 1.20.4	2024-06-24T18:19:34.2520995	Sublunary/Model Definitions
 3b299707eb786a5513b8fab54eb04fb651b19588 assets\sublunary\blockstates\lavender.json
 f32d8f1715e037ddb422adae347b1a8c9bf0a068 assets\sublunary\blockstates\stripped_hickory_wood.json
 780802dc6e2096b87c4e1aa23205186eb425b5e2 assets\sublunary\models\block\hickory_wood.json
 07733ec9d0fdced4e23cb2362199f0b675573347 assets\sublunary\blockstates\calla_lily.json
+4fd45e2bcdfd85d9a6d7741e142c48acdfc5cac4 assets\sublunary\models\item\four_leaf_clover.json
 7dfe974eb492aa46168118bb8cfbb44e51fcd359 assets\sublunary\blockstates\hickory_planks.json
+3db3bc048446910f54847ad5014fc11d8ce3d34c assets\sublunary\models\item\clovers.json
 5934c5a0c6024f3b0d8dd772638da6dbcd377684 assets\sublunary\models\block\hickory_planks.json
 855c75e4f6132fdb03ed834d138c0f367a3b9bdd assets\sublunary\models\block\calla_lily.json
 075d7c18c9ae7606df57537a96197a141117b31e assets\sublunary\models\item\lavender.json
@@ -19,10 +21,9 @@ f4a90c177ef29b087202ac96e7495a441ae44c76 assets\sublunary\blockstates\hickory_sa
 551b58efc26a549f14e929a878085d26b13907c9 assets\sublunary\models\item\hickory_log.json
 8b5015366b89251b3b98a1783fe743d2841a7720 assets\sublunary\models\block\stripped_hickory_log_horizontal.json
 75097f550653c350e42210df4cc7cb7f3cbfb9be assets\sublunary\models\item\calla_lily.json
-8f18d56385ed4bcbf78a027157ec98b30cc3081d assets\sublunary\models\item\rusted_sword.json
 296e1a68faa8d3c5c63b3eb77e730d4ad357b97d assets\sublunary\models\item\hickory_wood.json
 15852db2fe7da37732b52ab7014b6bdd71dbe6b7 assets\sublunary\models\block\lavender.json
-cf21f2c876c0085ad271e25d715c74738ef4b6f8 assets\sublunary\models\block\stripped_hickory_wood.json
 71dc764499a6a79a2d047b5c186f1c1ff08e45f4 assets\sublunary\models\block\stripped_hickory_log.json
+cf21f2c876c0085ad271e25d715c74738ef4b6f8 assets\sublunary\models\block\stripped_hickory_wood.json
 aefd072706bfdaef70b8e31f5856b5e705c2d1ee assets\sublunary\models\item\stripped_hickory_wood.json
 e0023f5cdf1eae452da8136002aef6d8f726a89f assets\sublunary\models\item\hickory_planks.json

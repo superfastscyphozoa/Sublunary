@@ -9,7 +9,6 @@ import net.minecraft.world.TestableWorld;
 import net.minecraft.world.gen.feature.TreeFeatureConfig;
 import net.minecraft.world.gen.foliage.FoliagePlacer;
 import net.minecraft.world.gen.foliage.FoliagePlacerType;
-import net.superfastscyphozoa.sublunary.world.tree.SublunaryFoliagePlacerTypes;
 
 
 public class HangingBlobFoliagePlacer extends FoliagePlacer {

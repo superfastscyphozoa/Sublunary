@@ -4,11 +4,11 @@
   "package": "net.superfastscyphozoa.sublunary.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "FoliagePlacerTypeInvoker",
+    "tree.FoliagePlacerTypeInvoker",
     "SkeletonMixin",
     "SublunaryMixin",
-    "TrunkPlacerTypeInvoker",
-    "TreeDecoratorTypeInvoker"
+    "tree.TrunkPlacerTypeInvoker",
+    "tree.TreeDecoratorTypeInvoker"
   ],
   "client": [],
   "injectors": {

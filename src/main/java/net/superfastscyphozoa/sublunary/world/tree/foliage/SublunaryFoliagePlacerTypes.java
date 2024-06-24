@@ -1,8 +1,8 @@
-package net.superfastscyphozoa.sublunary.world.tree;
+package net.superfastscyphozoa.sublunary.world.tree.foliage;
 
 import net.minecraft.world.gen.foliage.FoliagePlacerType;
 import net.superfastscyphozoa.sublunary.Sublunary;
-import net.superfastscyphozoa.sublunary.mixin.FoliagePlacerTypeInvoker;
+import net.superfastscyphozoa.sublunary.mixin.tree.FoliagePlacerTypeInvoker;
 import net.superfastscyphozoa.sublunary.world.tree.foliage.HangingBlobFoliagePlacer;
 
 public class SublunaryFoliagePlacerTypes {

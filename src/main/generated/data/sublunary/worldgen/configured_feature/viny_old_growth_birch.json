@@ -16,7 +16,9 @@
             }
           }
         },
-        "chance": 1.0
+        "chance": 0.3,
+        "lowerpos": 8,
+        "upperpos": 15
       }
     ],
     "dirt_provider": {
@@ -53,7 +55,7 @@
     "trunk_placer": {
       "type": "minecraft:straight_trunk_placer",
       "base_height": 9,
-      "height_rand_a": 5,
+      "height_rand_a": 6,
       "height_rand_b": 2
     },
     "trunk_provider": {

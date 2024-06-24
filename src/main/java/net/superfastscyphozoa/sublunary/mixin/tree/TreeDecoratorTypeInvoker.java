@@ -1,4 +1,4 @@
-package net.superfastscyphozoa.sublunary.mixin;
+package net.superfastscyphozoa.sublunary.mixin.tree;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.world.gen.treedecorator.TreeDecorator;

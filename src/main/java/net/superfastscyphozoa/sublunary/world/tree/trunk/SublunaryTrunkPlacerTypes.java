@@ -1,8 +1,8 @@
-package net.superfastscyphozoa.sublunary.world.tree;
+package net.superfastscyphozoa.sublunary.world.tree.trunk;
 
 import net.minecraft.world.gen.trunk.TrunkPlacerType;
 import net.superfastscyphozoa.sublunary.Sublunary;
-import net.superfastscyphozoa.sublunary.mixin.TrunkPlacerTypeInvoker;
+import net.superfastscyphozoa.sublunary.mixin.tree.TrunkPlacerTypeInvoker;
 import net.superfastscyphozoa.sublunary.world.tree.trunk.StraightBranchedTrunkPlacer;
 
 public class SublunaryTrunkPlacerTypes {

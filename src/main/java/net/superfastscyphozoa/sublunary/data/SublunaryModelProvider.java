@@ -6,6 +6,7 @@ import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.model.BlockStateModelGenerator;
 import net.minecraft.data.client.model.Model;
 import net.minecraft.data.client.model.Models;
+import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.superfastscyphozoa.sublunary.registry.RegisterBlocks;
 import net.superfastscyphozoa.sublunary.registry.RegisterItems;
@@ -19,7 +20,6 @@ public class SublunaryModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
-
         blockStateModelGenerator.registerLog(RegisterBlocks.HICKORY_LOG).log(RegisterBlocks.HICKORY_LOG).wood(RegisterBlocks.HICKORY_WOOD);
         blockStateModelGenerator.registerLog(RegisterBlocks.STRIPPED_HICKORY_LOG).log(RegisterBlocks.STRIPPED_HICKORY_LOG).wood(RegisterBlocks.STRIPPED_HICKORY_WOOD);
 
@@ -33,6 +33,7 @@ public class SublunaryModelProvider extends FabricModelProvider {
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-        itemModelGenerator.register(RegisterItems.RUSTED_SWORD, Models.HANDHELD);
+		itemModelGenerator.register(RegisterBlocks.CLOVERS.asItem(), Models.SINGLE_LAYER_ITEM);
+		itemModelGenerator.register(RegisterItems.FOUR_LEAF_CLOVER, Models.SINGLE_LAYER_ITEM);
     }
 }
