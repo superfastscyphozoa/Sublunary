@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cross",
   "textures": {
-    "cross": "sublunary:block/lavender"
+    "cross": "sublunary:block/lavender0"
   }
 }

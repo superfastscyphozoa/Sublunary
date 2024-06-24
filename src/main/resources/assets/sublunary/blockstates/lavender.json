@@ -1,0 +1,15 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "sublunary:block/lavender0"
+      },
+      {
+        "model": "sublunary:block/lavender1"
+      },
+      {
+        "model": "sublunary:block/lavender2"
+      }
+    ]
+  }
+}

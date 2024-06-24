@@ -25,7 +25,6 @@ public class SublunaryModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.registerSimpleCubeAll(RegisterBlocks.HICKORY_PLANKS);
 
-        blockStateModelGenerator.registerTintableCross(RegisterBlocks.LAVENDER, BlockStateModelGenerator.TintType.NOT_TINTED);
 		blockStateModelGenerator.registerTintableCross(RegisterBlocks.CALLA_LILY, BlockStateModelGenerator.TintType.NOT_TINTED);
 
         blockStateModelGenerator.registerTintableCross(RegisterBlocks.HICKORY_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
