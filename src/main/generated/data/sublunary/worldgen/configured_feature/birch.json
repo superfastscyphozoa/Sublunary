@@ -14,8 +14,7 @@
           }
         },
         "chance": 0.4,
-        "lowerpos": 3,
-        "upperpos": 5
+        "lowestpos": 3
       }
     ],
     "dirt_provider": {
