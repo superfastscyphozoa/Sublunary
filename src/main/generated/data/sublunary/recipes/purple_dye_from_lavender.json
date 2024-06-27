@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "lavender",
+  "ingredients": [
+    {
+      "item": "sublunary:lavender"
+    }
+  ],
+  "result": {
+    "item": "minecraft:purple_dye"
+  }
+}

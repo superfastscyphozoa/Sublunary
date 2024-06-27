@@ -196,7 +196,7 @@ public class SubTreeConfiguredFeatures {
 
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
 
-        //beehives
+        //decorators
         BeehiveTreeDecorator ForestBeehive = new BeehiveTreeDecorator(0.004F);
         BeehiveTreeDecorator FlowerForestBeehive = new BeehiveTreeDecorator(0.02F);
         BeehiveTreeDecorator PlainsBeehive = new BeehiveTreeDecorator(0.05F);
@@ -252,8 +252,8 @@ public class SubTreeConfiguredFeatures {
 				.decorators(List.of(TrunkVineTreeDecorator.INSTANCE, OGBirchBranch)).build());
 
         SublunaryConfiguredFeatures.register(context, MEADOW_OAK, Feature.TREE, fancyOak()
-				.decorators(List.of(MeadowBeehive, OakBranch)).build());
-        SublunaryConfiguredFeatures.register(context, MEADOW_BIRCH, Feature.TREE, birch()
+				.decorators(List.of(MeadowBeehive)).build());
+        SublunaryConfiguredFeatures.register(context, MEADOW_BIRCH, Feature.TREE, superBirch()
 				.decorators(List.of(MeadowBeehive, BirchBranch)).build());
     }
 }

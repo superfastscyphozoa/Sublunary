@@ -1,4 +1,6 @@
-// 1.20.4	2024-06-27T19:49:18.6401024	Sublunary/Tags for minecraft:block
-9cdd925f731880ed01dde756ea245c20cc64baae data\minecraft\tags\blocks\flowers.json
+// 1.20.4	2024-06-28T01:17:59.8670646	Sublunary/Tags for minecraft:block
+22775719bde57b87b6a9b29f8fad84602098dffd data\minecraft\tags\blocks\planks.json
+17024b6c34c06cbd6ab8a165bd0f20f7560ba0a6 data\minecraft\tags\blocks\flowers.json
 456ac14d4038b57000149b7dc3251cbec484ec9c data\minecraft\tags\blocks\leaves.json
 8ab1e0bf630634116b91599c375afb6e765fcac7 data\minecraft\tags\blocks\logs.json
+8ab1e0bf630634116b91599c375afb6e765fcac7 data\sublunary\tags\blocks\hickory_logs.json

@@ -24,11 +24,11 @@ public class RegisterItems {
 
     public static void addItemsToItemGroup(){
         //add items to item groups
-        addToItemGroup(ItemGroups.INGREDIENTS, FOUR_LEAF_CLOVER);
+        addToItemGroup(ItemGroups.INGREDIENTS, FOUR_LEAF_CLOVER, Items.WHEAT);
     }
 
-    public static void addToItemGroup(RegistryKey<ItemGroup> group, Item item){
-        ItemGroupEvents.modifyEntriesEvent(group).register(entries -> entries.addItem(item));
+    public static void addToItemGroup(RegistryKey<ItemGroup> group, Item item, Item afterItem){
+        ItemGroupEvents.modifyEntriesEvent(group).register(entries -> entries.addAfter(afterItem, item));
     }
 
     public static void registerSublunaryItems() {

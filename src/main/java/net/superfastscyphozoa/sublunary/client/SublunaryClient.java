@@ -17,8 +17,13 @@ public class SublunaryClient implements ClientModInitializer {
 
 		//render types
 		BlockRenderLayerMap.put(RenderLayer.getCutout(), RegisterBlocks.LAVENDER);
+		BlockRenderLayerMap.put(RenderLayer.getCutout(), RegisterBlocks.POTTED_LAVENDER);
+
 		BlockRenderLayerMap.put(RenderLayer.getCutout(), RegisterBlocks.CALLA_LILY);
+		BlockRenderLayerMap.put(RenderLayer.getCutout(), RegisterBlocks.POTTED_CALLA_LILY);
+
 		BlockRenderLayerMap.put(RenderLayer.getCutout(), RegisterBlocks.CLOVERS);
+
 		BlockRenderLayerMap.put(RenderLayer.getCutout(), RegisterBlocks.HICKORY_SAPLING);
 
 		ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> {

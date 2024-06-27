@@ -13,5 +13,8 @@ public class SublunaryLootTableProvider extends FabricBlockLootTableProvider {
     public void generate() {
         addDrop(RegisterBlocks.LAVENDER);
 		addDrop(RegisterBlocks.CALLA_LILY);
+
+		addPottedPlantDrops(RegisterBlocks.POTTED_LAVENDER);
+		addPottedPlantDrops(RegisterBlocks.POTTED_CALLA_LILY);
     }
 }

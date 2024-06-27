@@ -4,14 +4,9 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.model.BlockStateModelGenerator;
-import net.minecraft.data.client.model.Model;
 import net.minecraft.data.client.model.Models;
-import net.minecraft.item.Item;
-import net.minecraft.util.Identifier;
 import net.superfastscyphozoa.sublunary.registry.RegisterBlocks;
 import net.superfastscyphozoa.sublunary.registry.RegisterItems;
-
-import java.util.Optional;
 
 public class SublunaryModelProvider extends FabricModelProvider {
     public SublunaryModelProvider(FabricDataOutput output) {
@@ -25,7 +20,7 @@ public class SublunaryModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.registerSimpleCubeAll(RegisterBlocks.HICKORY_PLANKS);
 
-		blockStateModelGenerator.registerTintableCross(RegisterBlocks.CALLA_LILY, BlockStateModelGenerator.TintType.NOT_TINTED);
+		blockStateModelGenerator.registerFlowerPotPlant(RegisterBlocks.CALLA_LILY, RegisterBlocks.POTTED_CALLA_LILY, BlockStateModelGenerator.TintType.NOT_TINTED);
 
         blockStateModelGenerator.registerTintableCross(RegisterBlocks.HICKORY_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
     }

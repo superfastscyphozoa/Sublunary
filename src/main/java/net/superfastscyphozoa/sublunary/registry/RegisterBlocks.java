@@ -5,10 +5,7 @@ import net.minecraft.block.*;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.block.sapling.SaplingBlock;
 import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemGroups;
+import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
@@ -26,64 +23,79 @@ public class RegisterBlocks {
     //registry
 
     public static final Block CLOVERS = registerBlock("clovers",
-            new CloverBlock(QuiltBlockSettings.create().noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS)),
-			ItemGroups.NATURAL_BLOCKS);
+            new CloverBlock(QuiltBlockSettings.create().nonOpaque().noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS)));
 
     //flowers
 
     public static final Block LAVENDER = registerBlock("lavender",
-            new BushyFlowerBlock(StatusEffects.REGENERATION, 8, QuiltBlockSettings.create().noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ)),
-            ItemGroups.NATURAL_BLOCKS);
+            new BushyFlowerBlock(StatusEffects.REGENERATION, 8, QuiltBlockSettings.create().nonOpaque().noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ)));
+
+	public static final Block POTTED_LAVENDER = Registry.register(Registries.BLOCK, new Identifier(Sublunary.MOD_ID, "potted_lavender"),
+			new FlowerPotBlock(LAVENDER, QuiltBlockSettings.copyOf(Blocks.POTTED_ALLIUM).nonOpaque()));
 
 	public static final Block CALLA_LILY = registerBlock("calla_lily",
-			new BushyFlowerBlock(StatusEffects.POISON, 8, QuiltBlockSettings.create().noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ)),
-			ItemGroups.NATURAL_BLOCKS);
+			new BushyFlowerBlock(StatusEffects.POISON, 8, QuiltBlockSettings.create().nonOpaque().noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ)));
+
+	public static final Block POTTED_CALLA_LILY = Registry.register(Registries.BLOCK, new Identifier(Sublunary.MOD_ID, "potted_calla_lily"),
+			new FlowerPotBlock(CALLA_LILY, QuiltBlockSettings.copyOf(Blocks.POTTED_ALLIUM).nonOpaque()));
 
     //hickory
 
     public static final Block HICKORY_LOG = registerBlock("hickory_log",
-            new PillarBlock(QuiltBlockSettings.copyOf(Blocks.OAK_LOG).requiresTool()),
-            ItemGroups.BUILDING_BLOCKS);
+            new PillarBlock(QuiltBlockSettings.copyOf(Blocks.OAK_LOG).requiresTool()));
     public static final Block HICKORY_WOOD = registerBlock("hickory_wood",
-            new PillarBlock(QuiltBlockSettings.copyOf(Blocks.OAK_WOOD).requiresTool()),
-            ItemGroups.BUILDING_BLOCKS);
+            new PillarBlock(QuiltBlockSettings.copyOf(Blocks.OAK_WOOD).requiresTool()));
     public static final Block STRIPPED_HICKORY_LOG = registerBlock("stripped_hickory_log",
-            new PillarBlock(QuiltBlockSettings.copyOf(Blocks.STRIPPED_OAK_LOG).requiresTool()),
-            ItemGroups.BUILDING_BLOCKS);
+            new PillarBlock(QuiltBlockSettings.copyOf(Blocks.STRIPPED_OAK_LOG).requiresTool()));
     public static final Block STRIPPED_HICKORY_WOOD = registerBlock("stripped_hickory_wood",
-            new PillarBlock(QuiltBlockSettings.copyOf(Blocks.STRIPPED_OAK_WOOD).requiresTool()),
-            ItemGroups.BUILDING_BLOCKS);
+            new PillarBlock(QuiltBlockSettings.copyOf(Blocks.STRIPPED_OAK_WOOD).requiresTool()));
     public static final Block HICKORY_PLANKS = registerBlock("hickory_planks",
-            new Block(QuiltBlockSettings.copyOf(Blocks.OAK_PLANKS).requiresTool()),
-            ItemGroups.BUILDING_BLOCKS);
+            new Block(QuiltBlockSettings.copyOf(Blocks.OAK_PLANKS).requiresTool()));
 
     public static final Block HICKORY_LEAVES = registerBlock("hickory_leaves",
-            new LeavesBlock(QuiltBlockSettings.create().mapColor(MapColor.YELLOW).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning(Blocks::allowOcelotsAndParrots).suffocates(Blocks::nonSolid).blockVision(Blocks::nonSolid).lavaIgnitable().pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::nonSolid)),
-            ItemGroups.NATURAL_BLOCKS);
+            new LeavesBlock(QuiltBlockSettings.create().mapColor(MapColor.YELLOW).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning(Blocks::allowOcelotsAndParrots).suffocates(Blocks::nonSolid).blockVision(Blocks::nonSolid).lavaIgnitable().pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::nonSolid)));
 
     public static final Block HICKORY_SAPLING = registerBlock("hickory_sapling",
-            new SaplingBlock(SublunarySaplings.HICKORY, QuiltBlockSettings.copyOf(Blocks.OAK_SAPLING)),
-            ItemGroups.NATURAL_BLOCKS);
+            new SaplingBlock(SublunarySaplings.HICKORY, QuiltBlockSettings.copyOf(Blocks.OAK_SAPLING)));
 
     //registry end
 
-    private static Block registerBlock(String name, Block block, RegistryKey<ItemGroup> group){
-        registerBlockItem(name, block, group);
+    private static Block registerBlock(String name, Block block){
+        registerBlockItem(name, block);
         return Registry.register(Registries.BLOCK, new Identifier(Sublunary.MOD_ID, name), block);
     }
 
-    private static Item registerBlockItem(String name, Block block, RegistryKey<ItemGroup> group){
-        Item item = Registry.register(Registries.ITEM, new Identifier(Sublunary.MOD_ID, name),
-                new BlockItem(block, new QuiltItemSettings()));
-        ItemGroupEvents.modifyEntriesEvent(group).register(entries -> entries.addItem(item));
-        return item;
+    private static Item registerBlockItem(String name, Block block){
+		return Registry.register(Registries.ITEM, new Identifier(Sublunary.MOD_ID, name),
+				new BlockItem(block, new QuiltItemSettings()));
     }
 
-    private static Block registerBlockWithoutItem(String name, Block block){
-        return Registry.register(Registries.BLOCK, new Identifier(Sublunary.MOD_ID, name), block);
-    }
+	//add items to item group
+
+	public static void addItemsToItemGroup(){
+		addToItemGroup(ItemGroups.NATURAL_BLOCKS, CLOVERS.asItem(), Items.FERN);
+
+		addToItemGroup(ItemGroups.NATURAL_BLOCKS, LAVENDER.asItem(), Items.LILY_OF_THE_VALLEY);
+		addToItemGroup(ItemGroups.NATURAL_BLOCKS, CALLA_LILY.asItem(), LAVENDER.asItem());
+
+		addToItemGroup(ItemGroups.NATURAL_BLOCKS, HICKORY_LOG.asItem(), Items.CHERRY_LOG);
+		addToItemGroup(ItemGroups.NATURAL_BLOCKS, HICKORY_LEAVES.asItem(), Items.CHERRY_LEAVES);
+		addToItemGroup(ItemGroups.NATURAL_BLOCKS, HICKORY_SAPLING.asItem(), Items.CHERRY_SAPLING);
+
+		addToItemGroup(ItemGroups.BUILDING_BLOCKS, HICKORY_LOG.asItem(), Items.CHERRY_BUTTON);
+		addToItemGroup(ItemGroups.BUILDING_BLOCKS, HICKORY_WOOD.asItem(), HICKORY_LOG.asItem());
+		addToItemGroup(ItemGroups.BUILDING_BLOCKS, STRIPPED_HICKORY_LOG.asItem(), HICKORY_WOOD.asItem());
+		addToItemGroup(ItemGroups.BUILDING_BLOCKS, STRIPPED_HICKORY_WOOD.asItem(), STRIPPED_HICKORY_LOG.asItem());
+		addToItemGroup(ItemGroups.BUILDING_BLOCKS, HICKORY_PLANKS.asItem(), STRIPPED_HICKORY_WOOD.asItem());
+	}
+
+	public static void addToItemGroup(RegistryKey<ItemGroup> group, Item item, Item afterItem){
+		ItemGroupEvents.modifyEntriesEvent(group).register(entries -> entries.addAfter(afterItem, item));
+	}
 
     public static void registerSublunaryBlocks() {
         Sublunary.LOGGER.info("Registering blocks for " + Sublunary.MOD_ID);
+
+		addItemsToItemGroup();
     }
 }
