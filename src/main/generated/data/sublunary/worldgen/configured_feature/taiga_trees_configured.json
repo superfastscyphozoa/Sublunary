@@ -6,10 +6,6 @@
       {
         "chance": 0.34,
         "feature": "sublunary:spruce_sparse_placed"
-      },
-      {
-        "chance": 0.02,
-        "feature": "sublunary:spruce_stump_placed"
       }
     ]
   }

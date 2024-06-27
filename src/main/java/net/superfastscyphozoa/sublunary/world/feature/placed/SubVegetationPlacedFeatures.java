@@ -120,7 +120,7 @@ public class SubVegetationPlacedFeatures {
 
 
 		SublunaryPlacedFeatures.register(context, CLOVER_PATCH, cloverPatch,
-				NoiseThresholdCountPlacementModifier.create(-0.8, 0, 7), RarityFilterPlacementModifier.create(20),
+				NoiseThresholdCountPlacementModifier.create(-0.8, 0, 7), RarityFilterPlacementModifier.create(25),
 				InSquarePlacementModifier.getInstance(), PlacedFeatureUtil.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.getInstance());
 
 

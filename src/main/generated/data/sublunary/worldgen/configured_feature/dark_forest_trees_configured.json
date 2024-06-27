@@ -16,10 +16,6 @@
         "feature": "sublunary:large_oak_placed"
       },
       {
-        "chance": 0.015,
-        "feature": "sublunary:oak_stump_placed"
-      },
-      {
         "chance": 0.2,
         "feature": "sublunary:viny_dark_oak_placed"
       }

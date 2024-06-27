@@ -8,10 +8,6 @@
         "feature": "sublunary:spruce_full_placed"
       },
       {
-        "chance": 0.015,
-        "feature": "sublunary:spruce_stump_placed"
-      },
-      {
         "chance": 0.1,
         "feature": "sublunary:oak_placed"
       }

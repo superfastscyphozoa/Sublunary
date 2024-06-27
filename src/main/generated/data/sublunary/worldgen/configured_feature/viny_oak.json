@@ -16,7 +16,7 @@
             }
           }
         },
-        "chance": 0.4,
+        "chance": 0.8,
         "lowestpos": 2
       }
     ],
@@ -54,7 +54,7 @@
     "trunk_placer": {
       "type": "minecraft:straight_trunk_placer",
       "base_height": 4,
-      "height_rand_a": 4,
+      "height_rand_a": 5,
       "height_rand_b": 0
     },
     "trunk_provider": {

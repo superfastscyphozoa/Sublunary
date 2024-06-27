@@ -61,8 +61,6 @@ public class SubVegetationConfiguredFeatures {
 		Holder<PlacedFeature> oak = holderProvider.getHolderOrThrow(SubTreePlacedFeatures.OAK_PLACED);
 		Holder<PlacedFeature> largeOak = holderProvider.getHolderOrThrow(SubTreePlacedFeatures.LARGE_OAK_PLACED);
 		Holder<PlacedFeature> birch = holderProvider.getHolderOrThrow(SubTreePlacedFeatures.BIRCH_PLACED);
-		Holder<PlacedFeature> oakStump = holderProvider.getHolderOrThrow(SubTreePlacedFeatures.OAK_STUMP_PLACED);
-		Holder<PlacedFeature> birchStump = holderProvider.getHolderOrThrow(SubTreePlacedFeatures.BIRCH_STUMP_PLACED);
 
 		Holder<PlacedFeature> hickory = holderProvider.getHolderOrThrow(SubTreePlacedFeatures.HICKORY_PLACED);
 
@@ -86,7 +84,6 @@ public class SubVegetationConfiguredFeatures {
 
 		Holder<PlacedFeature> spruceFull = holderProvider.getHolderOrThrow(SubTreePlacedFeatures.SPRUCE_FULL_PLACED);
 		Holder<PlacedFeature> spruceSparse = holderProvider.getHolderOrThrow(SubTreePlacedFeatures.SPRUCE_SPARSE_PLACED);
-		Holder<PlacedFeature> spruceStump = holderProvider.getHolderOrThrow(SubTreePlacedFeatures.SPRUCE_STUMP_PLACED);
 
 		Holder<PlacedFeature> vinyOak = holderProvider.getHolderOrThrow(SubTreePlacedFeatures.VINY_OAK_PLACED);
 		Holder<PlacedFeature> largeVinyOak = holderProvider.getHolderOrThrow(SubTreePlacedFeatures.LARGE_VINY_OAK_PLACED);
@@ -99,7 +96,7 @@ public class SubVegetationConfiguredFeatures {
         SublunaryConfiguredFeatures.register(context, FOREST_TREES_CONFIGURED, Feature.RANDOM_SELECTOR, new RandomFeatureConfig(List.of(
                 new WeightedPlacedFeature(vinyOak, 0.03F),
                 new WeightedPlacedFeature(largeVinyOak, 0.03F),
-				new WeightedPlacedFeature(oakStump, 0.015F),
+
                 new WeightedPlacedFeature(forestBirch, 0.15F),
                 new WeightedPlacedFeature(largeForestOak, 0.65F)),
                 forestOak));
@@ -107,22 +104,22 @@ public class SubVegetationConfiguredFeatures {
         SublunaryConfiguredFeatures.register(context, FLOWER_FOREST_TREES_CONFIGURED, Feature.RANDOM_SELECTOR, new RandomFeatureConfig(List.of(
                 new WeightedPlacedFeature(vinyOak, 0.03F),
                 new WeightedPlacedFeature(largeVinyOak, 0.03F),
-				new WeightedPlacedFeature(oakStump, 0.018F),
+
                 new WeightedPlacedFeature(flowerForestOak, 0.15F),
                 new WeightedPlacedFeature(largeFlowerForestOak, 0.5F)),
                 flowerForestBirch));
 
         SublunaryConfiguredFeatures.register(context, BIRCH_FOREST_TREES_CONFIGURED, Feature.RANDOM_SELECTOR, new RandomFeatureConfig(List.of(
                 new WeightedPlacedFeature(vinyBirch, 0.02F),
+
 				new WeightedPlacedFeature(largeForestOak, 0.02F),
-				new WeightedPlacedFeature(birchStump, 0.015F),
 				new WeightedPlacedFeature(forestOak, 0.08F)),
                 forestBirch));
 
         SublunaryConfiguredFeatures.register(context, OLD_GROWTH_BIRCH_TREES_CONFIGURED, Feature.RANDOM_SELECTOR, new RandomFeatureConfig(List.of(
                 new WeightedPlacedFeature(vinyOldGrowthBirch, 0.02F),
                 new WeightedPlacedFeature(vinyBirch, 0.015F),
-				new WeightedPlacedFeature(birchStump, 0.015F),
+
                 new WeightedPlacedFeature(forestBirch, 0.3F)),
                 oldGrowthBirch));
 
@@ -138,13 +135,12 @@ public class SubVegetationConfiguredFeatures {
                 new WeightedPlacedFeature(darkOak, 0.7F),
                 new WeightedPlacedFeature(birch, 0.2F),
                 new WeightedPlacedFeature(largeOak, 0.2F),
-				new WeightedPlacedFeature(oakStump, 0.015F),
+
                 new WeightedPlacedFeature(vinyDarkOak, 0.2F)),
                 oak));
 
         SublunaryConfiguredFeatures.register(context, TAIGA_TREES_CONFIGURED, Feature.RANDOM_SELECTOR, new RandomFeatureConfig(List.of(
-                new WeightedPlacedFeature(spruceSparse, 0.34F),
-				new WeightedPlacedFeature(spruceStump, 0.02F)),
+                new WeightedPlacedFeature(spruceSparse, 0.34F)),
                 spruceFull));
 
         SublunaryConfiguredFeatures.register(context, SNOWY_PLAINS_TREES_CONFIGURED, Feature.RANDOM_SELECTOR, new RandomFeatureConfig(List.of(
@@ -153,7 +149,6 @@ public class SubVegetationConfiguredFeatures {
 
 		SublunaryConfiguredFeatures.register(context, WINDSWEPT_FOREST_TREES_CONFIGURED, Feature.RANDOM_SELECTOR, new RandomFeatureConfig(List.of(
 				new WeightedPlacedFeature(spruceFull, 0.666F),
-				new WeightedPlacedFeature(spruceStump, 0.015F),
 				new WeightedPlacedFeature(oak, 0.1F)),
 				largeOak));
 
@@ -186,7 +181,7 @@ public class SubVegetationConfiguredFeatures {
 		}
 
 		SublunaryConfiguredFeatures.register(context, CLOVER_PATCH_CONFIGURED, Feature.FLOWER,
-				new RandomPatchFeatureConfig(96, 6, 2, PlacedFeatureUtil.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig
+				new RandomPatchFeatureConfig(128, 6, 2, PlacedFeatureUtil.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig
 						(new WeightedBlockStateProvider(cloverBuilder)))));
 
         SublunaryConfiguredFeatures.register(context, PLAINS_FLOWER_PATCH_CONFIGURED, Feature.FLOWER,
