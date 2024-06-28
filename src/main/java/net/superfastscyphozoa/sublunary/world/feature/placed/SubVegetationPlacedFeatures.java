@@ -31,11 +31,14 @@ public class SubVegetationPlacedFeatures {
 	public static final RegistryKey<PlacedFeature> WINDSWEPT_HILLS_TREES = registerKey("windswept_hills_trees");
 
     public static final RegistryKey<PlacedFeature> GRASS_PATCH = registerKey("grass_patch");
-    public static final RegistryKey<PlacedFeature> GRASS_FERNS_PATCH = registerKey("grass_ferns_patch");
+	public static final RegistryKey<PlacedFeature> TALL_GRASS_PATCH = registerKey("tall_grass_patch");
+	public static final RegistryKey<PlacedFeature> SPARSE_TALL_GRASS_PATCH = registerKey("sparse_tall_grass_patch");
 
-    public static final RegistryKey<PlacedFeature> TALL_GRASS_PATCH = registerKey("tall_grass_patch");
-    public static final RegistryKey<PlacedFeature> TALL_FERNS_PATCH = registerKey("tall_ferns_patch");
 	public static final RegistryKey<PlacedFeature> FERN_PATCH = registerKey("fern_patch");
+	public static final RegistryKey<PlacedFeature> TALL_FERN_PATCH = registerKey("tall_fern_patch");
+	public static final RegistryKey<PlacedFeature> SPARSE_TALL_FERN_PATCH = registerKey("sparse_tall_fern_patch");
+
+	public static final RegistryKey<PlacedFeature> GRASS_FERNS_PATCH = registerKey("grass_ferns_patch");
 
 	public static final RegistryKey<PlacedFeature> CLOVER_PATCH = registerKey("clover_patch");
 
@@ -56,17 +59,21 @@ public class SubVegetationPlacedFeatures {
 		Holder<ConfiguredFeature<?, ?>> snowyPlainsTrees = holderProvider.getHolderOrThrow(SubVegetationConfiguredFeatures.SNOWY_PLAINS_TREES_CONFIGURED);
 		Holder<ConfiguredFeature<?, ?>> windsweptForestTrees = holderProvider.getHolderOrThrow(SubVegetationConfiguredFeatures.WINDSWEPT_FOREST_TREES_CONFIGURED);
 
+
 		Holder<ConfiguredFeature<?, ?>> grassPatch = holderProvider.getHolderOrThrow(SubVegetationConfiguredFeatures.GRASS_PATCH_CONFIGURED);
+		Holder<ConfiguredFeature<?, ?>> tallGrassPatch = holderProvider.getHolderOrThrow(SubVegetationConfiguredFeatures.TALL_GRASS_PATCH_CONFIGURED);
+
+		Holder<ConfiguredFeature<?, ?>> fernPatch = holderProvider.getHolderOrThrow(SubVegetationConfiguredFeatures.FERN_PATCH_CONFIGURED);
+		Holder<ConfiguredFeature<?, ?>> tallFernPatch = holderProvider.getHolderOrThrow(SubVegetationConfiguredFeatures.TALL_FERN_PATCH_CONFIGURED);
+
 		Holder<ConfiguredFeature<?, ?>> grassFernsPatch = holderProvider.getHolderOrThrow(SubVegetationConfiguredFeatures.GRASS_FERNS_PATCH_CONFIGURED);
 
-		Holder<ConfiguredFeature<?, ?>> tallGrassPatch = holderProvider.getHolderOrThrow(SubVegetationConfiguredFeatures.TALL_GRASS_PATCH_CONFIGURED);
-		Holder<ConfiguredFeature<?, ?>> tallFernsPatch = holderProvider.getHolderOrThrow(SubVegetationConfiguredFeatures.TALL_FERNS_PATCH_CONFIGURED);
-		Holder<ConfiguredFeature<?, ?>> fernPatch = holderProvider.getHolderOrThrow(SubVegetationConfiguredFeatures.FERN_PATCH_CONFIGURED);
 
 		Holder<ConfiguredFeature<?, ?>> cloverPatch = holderProvider.getHolderOrThrow(SubVegetationConfiguredFeatures.CLOVER_PATCH_CONFIGURED);
 
 		Holder<ConfiguredFeature<?, ?>> plainsFlowerPatch = holderProvider.getHolderOrThrow(SubVegetationConfiguredFeatures.PLAINS_FLOWER_PATCH_CONFIGURED);
 
+		//trees
 
         SublunaryPlacedFeatures.register(context, FOREST_TREES, forestTrees,
 				treePlacementModifiers(PlacedFeatureUtil.createCountExtraModifier(10, 0.5F, 2), Blocks.OAK_SAPLING));
@@ -102,26 +109,43 @@ public class SubVegetationPlacedFeatures {
 		SublunaryPlacedFeatures.register(context, WINDSWEPT_HILLS_TREES, windsweptForestTrees,
 				treePlacementModifiers(PlacedFeatureUtil.createCountExtraModifier(0, 0.1F, 1), Blocks.OAK_SAPLING));
 
+		//vegetation
+
+		//grass
 
         SublunaryPlacedFeatures.register(context, GRASS_PATCH, grassPatch, worldSurfaceSquaredWithCountPlacementModifiers(15));
-        SublunaryPlacedFeatures.register(context, GRASS_FERNS_PATCH, grassFernsPatch, worldSurfaceSquaredWithCountPlacementModifiers(15));
 
-        SublunaryPlacedFeatures.register(context, TALL_GRASS_PATCH, tallGrassPatch,
-                NoiseThresholdCountPlacementModifier.create(-0.8, 0, 7), RarityFilterPlacementModifier.create(20),
+		SublunaryPlacedFeatures.register(context, TALL_GRASS_PATCH, tallGrassPatch,
+				NoiseThresholdCountPlacementModifier.create(-0.8, 0, 7), RarityFilterPlacementModifier.create(20),
 				InSquarePlacementModifier.getInstance(), PlacedFeatureUtil.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.getInstance());
 
-        SublunaryPlacedFeatures.register(context, TALL_FERNS_PATCH, tallFernsPatch,
-                NoiseThresholdCountPlacementModifier.create(-0.8, 0, 7), RarityFilterPlacementModifier.create(20),
+		SublunaryPlacedFeatures.register(context, SPARSE_TALL_GRASS_PATCH, tallGrassPatch,
+				NoiseThresholdCountPlacementModifier.create(-0.8, 0, 7), RarityFilterPlacementModifier.create(40),
 				InSquarePlacementModifier.getInstance(), PlacedFeatureUtil.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.getInstance());
+
+		//ferns
 
 		SublunaryPlacedFeatures.register(context, FERN_PATCH, fernPatch,
 				NoiseThresholdCountPlacementModifier.create(-0.8, 0, 7), RarityFilterPlacementModifier.create(12),
 				InSquarePlacementModifier.getInstance(), PlacedFeatureUtil.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.getInstance());
 
+		SublunaryPlacedFeatures.register(context, TALL_FERN_PATCH, tallFernPatch,
+				NoiseThresholdCountPlacementModifier.create(-0.8, 0, 7), RarityFilterPlacementModifier.create(20),
+				InSquarePlacementModifier.getInstance(), PlacedFeatureUtil.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.getInstance());
+
+		SublunaryPlacedFeatures.register(context, SPARSE_TALL_FERN_PATCH, tallFernPatch,
+				NoiseThresholdCountPlacementModifier.create(-0.8, 0, 7), RarityFilterPlacementModifier.create(40),
+				InSquarePlacementModifier.getInstance(), PlacedFeatureUtil.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.getInstance());
+
+		//ferns and grass
+
+		SublunaryPlacedFeatures.register(context, GRASS_FERNS_PATCH, grassFernsPatch, worldSurfaceSquaredWithCountPlacementModifiers(15));
+
+		//other plants
 
 		SublunaryPlacedFeatures.register(context, CLOVER_PATCH, cloverPatch,
-				NoiseThresholdCountPlacementModifier.create(-0.8, 0, 7), RarityFilterPlacementModifier.create(32),
-				InSquarePlacementModifier.getInstance(), PlacedFeatureUtil.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.getInstance());
+				RarityFilterPlacementModifier.create(38), InSquarePlacementModifier.getInstance(),
+				PlacedFeatureUtil.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.getInstance());
 
 
         SublunaryPlacedFeatures.register(context, PLAINS_FLOWER_PATCH, plainsFlowerPatch,

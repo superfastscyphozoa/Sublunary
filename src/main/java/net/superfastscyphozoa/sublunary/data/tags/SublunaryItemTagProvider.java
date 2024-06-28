@@ -18,14 +18,23 @@ public class SublunaryItemTagProvider extends FabricTagProvider.ItemTagProvider 
 	@Override
 	protected void configure(HolderLookup.Provider arg) {
 
+		//plants
+
 		getOrCreateTagBuilder(ItemTags.FLOWERS)
 				.add(RegisterBlocks.LAVENDER.asItem(), RegisterBlocks.CALLA_LILY.asItem());
 
 		getOrCreateTagBuilder(ItemTags.LEAVES)
 				.add(RegisterBlocks.HICKORY_LEAVES.asItem());
 
+		getOrCreateTagBuilder(ItemTags.SAPLINGS)
+				.add(RegisterBlocks.HICKORY_SAPLING.asItem());
+
+		//planks
+
 		getOrCreateTagBuilder(ItemTags.PLANKS)
 				.add(RegisterBlocks.HICKORY_PLANKS.asItem());
+
+		//logs
 
 		getOrCreateTagBuilder(ItemTags.LOGS)
 				.add(RegisterBlocks.HICKORY_LOG.asItem(), RegisterBlocks.HICKORY_WOOD.asItem(), RegisterBlocks.STRIPPED_HICKORY_LOG.asItem(),
@@ -34,5 +43,8 @@ public class SublunaryItemTagProvider extends FabricTagProvider.ItemTagProvider 
 		getOrCreateTagBuilder(SublunaryTags.Items.HICKORY_LOGS)
 				.add(RegisterBlocks.HICKORY_LOG.asItem(), RegisterBlocks.HICKORY_WOOD.asItem(), RegisterBlocks.STRIPPED_HICKORY_LOG.asItem(),
 						RegisterBlocks.STRIPPED_HICKORY_WOOD.asItem());
+
+		getOrCreateTagBuilder(ItemTags.LOGS_THAT_BURN)
+				.forceAddTag(SublunaryTags.Items.HICKORY_LOGS);
 	}
 }

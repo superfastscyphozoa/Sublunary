@@ -12,7 +12,7 @@
         "feature": "sublunary:viny_birch_placed"
       },
       {
-        "chance": 0.3,
+        "chance": 0.25,
         "feature": "sublunary:forest_birch_placed"
       }
     ]

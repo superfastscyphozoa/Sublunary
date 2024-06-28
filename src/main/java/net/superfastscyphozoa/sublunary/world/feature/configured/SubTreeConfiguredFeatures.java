@@ -95,7 +95,7 @@ public class SubTreeConfiguredFeatures {
     private static TreeFeatureConfig.Builder birch() {
         return (new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(Blocks.BIRCH_LOG),
-                new StraightTrunkPlacer(4, 6, 0),
+                new StraightTrunkPlacer(5, 5, 0),
                 BlockStateProvider.of(Blocks.BIRCH_LEAVES),
                 new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
                 new TwoLayersFeatureSize(0, 0, 0))
@@ -105,7 +105,7 @@ public class SubTreeConfiguredFeatures {
     private static TreeFeatureConfig.Builder superBirch() {
         return (new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(Blocks.BIRCH_LOG),
-                new StraightTrunkPlacer(9, 6, 2),
+                new StraightTrunkPlacer(9, 2, 6),
                 BlockStateProvider.of(Blocks.BIRCH_LEAVES),
                 new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
                 new TwoLayersFeatureSize(0, 0, 0))

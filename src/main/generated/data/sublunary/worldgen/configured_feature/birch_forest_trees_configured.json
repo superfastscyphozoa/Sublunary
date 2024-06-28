@@ -6,14 +6,6 @@
       {
         "chance": 0.02,
         "feature": "sublunary:viny_birch_placed"
-      },
-      {
-        "chance": 0.02,
-        "feature": "sublunary:large_forest_oak_placed"
-      },
-      {
-        "chance": 0.08,
-        "feature": "sublunary:forest_oak_placed"
       }
     ]
   }

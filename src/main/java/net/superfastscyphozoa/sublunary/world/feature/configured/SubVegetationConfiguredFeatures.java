@@ -2,28 +2,24 @@ package net.superfastscyphozoa.sublunary.world.feature.configured;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.PinkPetalsBlock;
 import net.minecraft.registry.Holder;
 import net.minecraft.registry.HolderProvider;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.collection.DataPool;
 import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.Range;
 import net.minecraft.util.math.noise.DoublePerlinNoiseSampler;
 import net.minecraft.world.gen.BootstrapContext;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.util.ConfiguredFeatureUtil;
 import net.minecraft.world.gen.feature.util.PlacedFeatureUtil;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
-import net.minecraft.world.gen.stateprovider.DualNoiseBlockStateProvider;
 import net.minecraft.world.gen.stateprovider.NoiseBlockStateProvider;
 import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
 import net.superfastscyphozoa.sublunary.blocks.CloverBlock;
 import net.superfastscyphozoa.sublunary.registry.RegisterBlocks;
 import net.superfastscyphozoa.sublunary.world.feature.placed.SubTreePlacedFeatures;
 
-import java.util.Iterator;
 import java.util.List;
 
 import static net.superfastscyphozoa.sublunary.world.feature.configured.SublunaryConfiguredFeatures.registerKey;
@@ -41,17 +37,18 @@ public class SubVegetationConfiguredFeatures {
 	public static final RegistryKey<ConfiguredFeature<?,?>> WINDSWEPT_FOREST_TREES_CONFIGURED = registerKey("windswept_forest_trees_configured");
 
     public static final RegistryKey<ConfiguredFeature<?,?>> GRASS_PATCH_CONFIGURED = registerKey("grass_patch_configured");
-    public static final RegistryKey<ConfiguredFeature<?,?>> GRASS_FERNS_PATCH_CONFIGURED = registerKey("grass_ferns_patch_configured");
+	public static final RegistryKey<ConfiguredFeature<?,?>> TALL_GRASS_PATCH_CONFIGURED = registerKey("tall_grass_patch_configured");
 
-    public static final RegistryKey<ConfiguredFeature<?,?>> TALL_GRASS_PATCH_CONFIGURED = registerKey("tall_grass_patch_configured");
-    public static final RegistryKey<ConfiguredFeature<?,?>> TALL_FERNS_PATCH_CONFIGURED = registerKey("tall_ferns_patch_configured");
 	public static final RegistryKey<ConfiguredFeature<?,?>> FERN_PATCH_CONFIGURED = registerKey("fern_patch_configured");
+	public static final RegistryKey<ConfiguredFeature<?,?>> TALL_FERN_PATCH_CONFIGURED = registerKey("tall_fern_patch_configured");
+
+	public static final RegistryKey<ConfiguredFeature<?,?>> GRASS_FERNS_PATCH_CONFIGURED = registerKey("grass_ferns_patch_configured");
 
 	public static final RegistryKey<ConfiguredFeature<?,?>> CLOVER_PATCH_CONFIGURED = registerKey("clover_patch_configured");
 
     public static final RegistryKey<ConfiguredFeature<?,?>> PLAINS_FLOWER_PATCH_CONFIGURED = registerKey("plains_flower_patch_configured");
 
-    private static RandomPatchFeatureConfig createRandomPatchFeatureConfig(BlockStateProvider block, int tries) {
+    private static RandomPatchFeatureConfig createSublunaryRandomPatchFeatureConfig(BlockStateProvider block, int tries) {
         return ConfiguredFeatureUtil.createRandomPatchFeatureConfig(tries, PlacedFeatureUtil.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(block)));
     }
 
@@ -93,6 +90,8 @@ public class SubVegetationConfiguredFeatures {
 
 		Holder<PlacedFeature> vinyDarkOak = holderProvider.getHolderOrThrow(SubTreePlacedFeatures.VINY_DARK_OAK_PLACED);
 
+		//trees
+
         SublunaryConfiguredFeatures.register(context, FOREST_TREES_CONFIGURED, Feature.RANDOM_SELECTOR, new RandomFeatureConfig(List.of(
                 new WeightedPlacedFeature(vinyOak, 0.03F),
                 new WeightedPlacedFeature(largeVinyOak, 0.03F),
@@ -110,17 +109,14 @@ public class SubVegetationConfiguredFeatures {
                 flowerForestBirch));
 
         SublunaryConfiguredFeatures.register(context, BIRCH_FOREST_TREES_CONFIGURED, Feature.RANDOM_SELECTOR, new RandomFeatureConfig(List.of(
-                new WeightedPlacedFeature(vinyBirch, 0.02F),
-
-				new WeightedPlacedFeature(largeForestOak, 0.02F),
-				new WeightedPlacedFeature(forestOak, 0.08F)),
+                new WeightedPlacedFeature(vinyBirch, 0.02F)),
                 forestBirch));
 
         SublunaryConfiguredFeatures.register(context, OLD_GROWTH_BIRCH_TREES_CONFIGURED, Feature.RANDOM_SELECTOR, new RandomFeatureConfig(List.of(
                 new WeightedPlacedFeature(vinyOldGrowthBirch, 0.02F),
                 new WeightedPlacedFeature(vinyBirch, 0.015F),
 
-                new WeightedPlacedFeature(forestBirch, 0.3F)),
+                new WeightedPlacedFeature(forestBirch, 0.25F)),
                 oldGrowthBirch));
 
         SublunaryConfiguredFeatures.register(context, PLAINS_TREES_CONFIGURED, Feature.RANDOM_SELECTOR, new RandomFeatureConfig(List.of(
@@ -152,24 +148,34 @@ public class SubVegetationConfiguredFeatures {
 				new WeightedPlacedFeature(oak, 0.1F)),
 				largeOak));
 
+		//vegetation
+
+		//grass
+
         SublunaryConfiguredFeatures.register(context, GRASS_PATCH_CONFIGURED, Feature.RANDOM_PATCH,
-                createRandomPatchFeatureConfig(BlockStateProvider.of(Blocks.SHORT_GRASS), 32));
+                createSublunaryRandomPatchFeatureConfig(BlockStateProvider.of(Blocks.SHORT_GRASS), 32));
 
-        SublunaryConfiguredFeatures.register(context, GRASS_FERNS_PATCH_CONFIGURED, Feature.RANDOM_PATCH,
-                createRandomPatchFeatureConfig(new WeightedBlockStateProvider(new DataPool.Builder<BlockState>()
-						.method_34975(Blocks.SHORT_GRASS.getDefaultState(), 4).method_34975(Blocks.FERN.getDefaultState(), 1)), 32));
-
-        SublunaryConfiguredFeatures.register(context, TALL_GRASS_PATCH_CONFIGURED, Feature.RANDOM_PATCH,
+		SublunaryConfiguredFeatures.register(context, TALL_GRASS_PATCH_CONFIGURED, Feature.RANDOM_PATCH,
 				ConfiguredFeatureUtil.createRandomPatchFeatureConfig
-                        (Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(Blocks.TALL_GRASS))));
+						(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(Blocks.TALL_GRASS))));
 
-        SublunaryConfiguredFeatures.register(context, TALL_FERNS_PATCH_CONFIGURED, Feature.RANDOM_PATCH,
-				ConfiguredFeatureUtil.createRandomPatchFeatureConfig
-                        (Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(Blocks.LARGE_FERN))));
+		//ferns
 
 		SublunaryConfiguredFeatures.register(context, FERN_PATCH_CONFIGURED, Feature.RANDOM_PATCH,
 				ConfiguredFeatureUtil.createRandomPatchFeatureConfig
 						(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(Blocks.FERN))));
+
+		SublunaryConfiguredFeatures.register(context, TALL_FERN_PATCH_CONFIGURED, Feature.RANDOM_PATCH,
+				createSublunaryRandomPatchFeatureConfig(new WeightedBlockStateProvider(new DataPool.Builder<BlockState>()
+						.method_34975(Blocks.LARGE_FERN.getDefaultState(), 3).method_34975(Blocks.FERN.getDefaultState(), 1)), 96));
+
+		//ferns and grass
+
+		SublunaryConfiguredFeatures.register(context, GRASS_FERNS_PATCH_CONFIGURED, Feature.RANDOM_PATCH,
+				createSublunaryRandomPatchFeatureConfig(new WeightedBlockStateProvider(new DataPool.Builder<BlockState>()
+						.method_34975(Blocks.SHORT_GRASS.getDefaultState(), 4).method_34975(Blocks.FERN.getDefaultState(), 1)), 32));
+
+		//other plants
 
 		DataPool.Builder<BlockState> cloverBuilder = DataPool.builder();
 
@@ -181,7 +187,7 @@ public class SubVegetationConfiguredFeatures {
 		}
 
 		SublunaryConfiguredFeatures.register(context, CLOVER_PATCH_CONFIGURED, Feature.FLOWER,
-				new RandomPatchFeatureConfig(128, 6, 2, PlacedFeatureUtil.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig
+				new RandomPatchFeatureConfig(256, 6, 3, PlacedFeatureUtil.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig
 						(new WeightedBlockStateProvider(cloverBuilder)))));
 
         SublunaryConfiguredFeatures.register(context, PLAINS_FLOWER_PATCH_CONFIGURED, Feature.FLOWER,
