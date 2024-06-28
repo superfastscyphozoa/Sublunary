@@ -26,6 +26,8 @@ public class SubVegetationPlacedFeatures {
     public static final RegistryKey<PlacedFeature> MEADOW_TREES = registerKey("meadow_trees");
     public static final RegistryKey<PlacedFeature> DARK_FOREST_TREES = registerKey("dark_forest_trees");
     public static final RegistryKey<PlacedFeature> TAIGA_TREES = registerKey("taiga_trees");
+	public static final RegistryKey<PlacedFeature> SNOWY_TAIGA_TREES = registerKey("snowy_taiga_trees");
+	public static final RegistryKey<PlacedFeature> GROVE_TREES = registerKey("grove_trees");
     public static final RegistryKey<PlacedFeature> SNOWY_PLAINS_TREES = registerKey("snowy_plains_trees");
 	public static final RegistryKey<PlacedFeature> WINDSWEPT_FOREST_TREES = registerKey("windswept_forest_trees");
 	public static final RegistryKey<PlacedFeature> WINDSWEPT_HILLS_TREES = registerKey("windswept_hills_trees");
@@ -56,6 +58,8 @@ public class SubVegetationPlacedFeatures {
 		Holder<ConfiguredFeature<?, ?>> meadowTrees = holderProvider.getHolderOrThrow(SubVegetationConfiguredFeatures.MEADOW_TREES_CONFIGURED);
 		Holder<ConfiguredFeature<?, ?>> darkForestTrees = holderProvider.getHolderOrThrow(SubVegetationConfiguredFeatures.DARK_FOREST_TREES_CONFIGURED);
 		Holder<ConfiguredFeature<?, ?>> taigaTrees = holderProvider.getHolderOrThrow(SubVegetationConfiguredFeatures.TAIGA_TREES_CONFIGURED);
+		Holder<ConfiguredFeature<?, ?>> snowyTaigaTrees = holderProvider.getHolderOrThrow(SubVegetationConfiguredFeatures.SNOWY_TAIGA_TREES_CONFIGURED);
+		Holder<ConfiguredFeature<?, ?>> groveTrees = holderProvider.getHolderOrThrow(SubVegetationConfiguredFeatures.GROVE_TREES_CONFIGURED);
 		Holder<ConfiguredFeature<?, ?>> snowyPlainsTrees = holderProvider.getHolderOrThrow(SubVegetationConfiguredFeatures.SNOWY_PLAINS_TREES_CONFIGURED);
 		Holder<ConfiguredFeature<?, ?>> windsweptForestTrees = holderProvider.getHolderOrThrow(SubVegetationConfiguredFeatures.WINDSWEPT_FOREST_TREES_CONFIGURED);
 
@@ -98,7 +102,13 @@ public class SubVegetationPlacedFeatures {
 				SurfaceWaterDepthFilterPlacementModifier.create(0), PlacedFeatureUtil.OCEAN_FLOOR_HEIGHTMAP, BiomePlacementModifier.getInstance());
 
         SublunaryPlacedFeatures.register(context, TAIGA_TREES, taigaTrees,
-				treePlacementModifiers(PlacedFeatureUtil.createCountExtraModifier(9, 0.1F, 1), Blocks.OAK_SAPLING));
+				treePlacementModifiers(PlacedFeatureUtil.createCountExtraModifier(9, 0.1F, 1), Blocks.SPRUCE_SAPLING));
+
+		SublunaryPlacedFeatures.register(context, SNOWY_TAIGA_TREES, snowyTaigaTrees,
+				treePlacementModifiers(PlacedFeatureUtil.createCountExtraModifier(9, 0.1F, 1), Blocks.SPRUCE_SAPLING));
+
+		SublunaryPlacedFeatures.register(context, GROVE_TREES, groveTrees,
+				treePlacementModifiers(PlacedFeatureUtil.createCountExtraModifier(9, 0.1F, 1)));
 
         SublunaryPlacedFeatures.register(context, SNOWY_PLAINS_TREES, snowyPlainsTrees,
 				treePlacementModifiers(PlacedFeatureUtil.createCountExtraModifier(0, 0.1F, 1), Blocks.SPRUCE_SAPLING));
@@ -144,7 +154,7 @@ public class SubVegetationPlacedFeatures {
 		//other plants
 
 		SublunaryPlacedFeatures.register(context, CLOVER_PATCH, cloverPatch,
-				RarityFilterPlacementModifier.create(38), InSquarePlacementModifier.getInstance(),
+				RarityFilterPlacementModifier.create(32), InSquarePlacementModifier.getInstance(),
 				PlacedFeatureUtil.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.getInstance());
 
 

@@ -1,5 +1,5 @@
 {
-  "feature": "sublunary:taiga_trees_configured",
+  "feature": "sublunary:grove_trees_configured",
   "placement": [
     {
       "type": "minecraft:count",
@@ -30,18 +30,6 @@
     },
     {
       "type": "minecraft:biome"
-    },
-    {
-      "type": "minecraft:block_predicate_filter",
-      "predicate": {
-        "type": "minecraft:would_survive",
-        "state": {
-          "Name": "minecraft:spruce_sapling",
-          "Properties": {
-            "stage": "0"
-          }
-        }
-      }
     }
   ]
 }

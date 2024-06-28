@@ -1,8 +1,8 @@
-// 1.20.4	2024-06-28T20:20:52.2375109	Sublunary/Tags for minecraft:item
+// 1.20.4	2024-06-29T01:39:16.5213627	Sublunary/Tags for minecraft:item
 8ab1e0bf630634116b91599c375afb6e765fcac7 data\sublunary\tags\items\hickory_logs.json
 ba003bdefe5876505ebfbb152fa453c451beb776 data\minecraft\tags\items\logs_that_burn.json
 8ab1e0bf630634116b91599c375afb6e765fcac7 data\minecraft\tags\items\logs.json
-456ac14d4038b57000149b7dc3251cbec484ec9c data\minecraft\tags\items\leaves.json
+098061645c6a89501edd6634bd2a94250f63ca52 data\minecraft\tags\items\leaves.json
 17024b6c34c06cbd6ab8a165bd0f20f7560ba0a6 data\minecraft\tags\items\flowers.json
 22775719bde57b87b6a9b29f8fad84602098dffd data\minecraft\tags\items\planks.json
 742eae933472bd42a2405ba165e64b074016eed8 data\minecraft\tags\items\saplings.json

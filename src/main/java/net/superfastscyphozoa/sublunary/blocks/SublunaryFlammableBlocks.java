@@ -11,7 +11,9 @@ public class SublunaryFlammableBlocks {
 		BlockContentRegistries.FLAMMABLE.put(RegisterBlocks.STRIPPED_HICKORY_LOG, new FlammableBlockEntry(5, 5));
 		BlockContentRegistries.FLAMMABLE.put(RegisterBlocks.STRIPPED_HICKORY_WOOD, new FlammableBlockEntry(5, 5));
 
-		BlockContentRegistries.FLAMMABLE.put(RegisterBlocks.HICKORY_LEAVES, new FlammableBlockEntry(30, 60));
+		BlockContentRegistries.FLAMMABLE.put(RegisterBlocks.AUTUMNAL_HICKORY_LEAVES, new FlammableBlockEntry(30, 60));
+		BlockContentRegistries.FLAMMABLE.put(RegisterBlocks.SUMMERY_HICKORY_LEAVES, new FlammableBlockEntry(30, 60));
+		BlockContentRegistries.FLAMMABLE.put(RegisterBlocks.VERNAL_HICKORY_LEAVES, new FlammableBlockEntry(30, 60));
 
 		BlockContentRegistries.FLAMMABLE.put(RegisterBlocks.HICKORY_PLANKS, new FlammableBlockEntry(5, 20));
     }

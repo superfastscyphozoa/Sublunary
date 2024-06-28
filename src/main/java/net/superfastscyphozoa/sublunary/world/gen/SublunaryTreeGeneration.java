@@ -24,6 +24,7 @@ public class SublunaryTreeGeneration {
         RegistryKey<PlacedFeature> VANILLA_MEADOW_TREES = VegetationPlacedFeatures.TREES_MEADOW;
         RegistryKey<PlacedFeature> VANILLA_DARK_FOREST_TREES = VegetationPlacedFeatures.DARK_FOREST_VEGETATION;
         RegistryKey<PlacedFeature> VANILLA_TAIGA_TREES = VegetationPlacedFeatures.TREES_TAIGA;
+		RegistryKey<PlacedFeature> VANILLA_GROVE_TREES = VegetationPlacedFeatures.TREES_GROVE;
         RegistryKey<PlacedFeature> VANILLA_SNOWY_PLAINS_TREES = VegetationPlacedFeatures.TREES_SNOWY;
 		RegistryKey<PlacedFeature> VANILLA_WINDSWEPT_FOREST_TREES = VegetationPlacedFeatures.TREES_WINDSWEPT_FOREST;
 		RegistryKey<PlacedFeature> VANILLA_WINDSWEPT_HILLS_TREES = VegetationPlacedFeatures.TREES_WINDSWEPT_HILLS;
@@ -92,13 +93,31 @@ public class SublunaryTreeGeneration {
                 );
 
 		BiomeModifications.create(new Identifier(Sublunary.MOD_ID, "replace_taiga_trees"))
-                .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.includeByKey(Biomes.TAIGA, Biomes.SNOWY_TAIGA),
+                .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.includeByKey(Biomes.TAIGA),
                         biomeModificationContext -> {
                             biomeModificationContext.getGenerationSettings()
                                     .removeFeature(GenerationStep.Feature.VEGETAL_DECORATION, VANILLA_TAIGA_TREES);
                             biomeModificationContext.getGenerationSettings()
                                     .addFeature(GenerationStep.Feature.VEGETAL_DECORATION, SubVegetationPlacedFeatures.TAIGA_TREES);}
                 );
+
+		BiomeModifications.create(new Identifier(Sublunary.MOD_ID, "replace_snowy_taiga_trees"))
+				.add(ModificationPhase.REPLACEMENTS, BiomeSelectors.includeByKey(Biomes.SNOWY_TAIGA),
+						biomeModificationContext -> {
+							biomeModificationContext.getGenerationSettings()
+									.removeFeature(GenerationStep.Feature.VEGETAL_DECORATION, VANILLA_TAIGA_TREES);
+							biomeModificationContext.getGenerationSettings()
+									.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, SubVegetationPlacedFeatures.SNOWY_TAIGA_TREES);}
+				);
+
+		BiomeModifications.create(new Identifier(Sublunary.MOD_ID, "replace_grove_trees"))
+				.add(ModificationPhase.REPLACEMENTS, BiomeSelectors.includeByKey(Biomes.GROVE),
+						biomeModificationContext -> {
+							biomeModificationContext.getGenerationSettings()
+									.removeFeature(GenerationStep.Feature.VEGETAL_DECORATION, VANILLA_GROVE_TREES);
+							biomeModificationContext.getGenerationSettings()
+									.addFeature(GenerationStep.Feature.VEGETAL_DECORATION, SubVegetationPlacedFeatures.GROVE_TREES);}
+				);
 
         BiomeModifications.create(new Identifier(Sublunary.MOD_ID, "replace_snowy_plains_trees"))
                 .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.includeByKey(Biomes.SNOWY_PLAINS),

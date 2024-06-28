@@ -28,7 +28,8 @@ public class SublunaryFloraGeneration {
 
 		//additions
 
-		BiomeModifications.addFeature(BiomeSelectors.includeByKey(Biomes.FOREST, Biomes.PLAINS),
+		BiomeModifications.addFeature(BiomeSelectors.includeByKey(
+				Biomes.FOREST, Biomes.PLAINS, Biomes.BIRCH_FOREST, Biomes.OLD_GROWTH_BIRCH_FOREST, Biomes.DARK_FOREST, Biomes.MEADOW),
 				GenerationStep.Feature.VEGETAL_DECORATION, SubVegetationPlacedFeatures.CLOVER_PATCH);
 
 		//replacements

@@ -5,14 +5,15 @@
   "block.sublunary.clovers": "Clover",
   "item.sublunary.four_leaf_clover": "Four Leaf Clover",
 
-  "item.sublunary.rusted_sword": "Rusted Sword",
-
   "block.sublunary.hickory_log": "Hickory Log",
   "block.sublunary.hickory_wood": "Hickory Wood",
   "block.sublunary.stripped_hickory_log": "Stripped Hickory Log",
   "block.sublunary.stripped_hickory_wood": "Stripped Hickory Wood",
   "block.sublunary.hickory_planks": "Hickory Planks",
-  "block.sublunary.hickory_leaves": "Hickory Leaves",
+
+  "block.sublunary.autumnal_hickory_leaves": "Autumnal Hickory Leaves",
+  "block.sublunary.summery_hickory_leaves": "Summery Hickory Leaves",
+  "block.sublunary.vernal_hickory_leaves": "Vernal Hickory Leaves",
 
   "block.sublunary.hickory_sapling": "Hickory Sapling"
 }

@@ -4,7 +4,6 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.registry.HolderLookup;
 import net.minecraft.registry.tag.BlockTags;
-import net.minecraft.registry.tag.TagKey;
 import net.superfastscyphozoa.sublunary.registry.RegisterBlocks;
 import net.superfastscyphozoa.sublunary.util.SublunaryTags;
 
@@ -27,7 +26,7 @@ public class SublunaryBlockTagProvider extends FabricTagProvider.BlockTagProvide
 				.add(RegisterBlocks.POTTED_LAVENDER, RegisterBlocks.POTTED_CALLA_LILY);
 
 		getOrCreateTagBuilder(BlockTags.LEAVES)
-				.add(RegisterBlocks.HICKORY_LEAVES);
+				.add(RegisterBlocks.AUTUMNAL_HICKORY_LEAVES, RegisterBlocks.SUMMERY_HICKORY_LEAVES, RegisterBlocks.VERNAL_HICKORY_LEAVES);
 
 		getOrCreateTagBuilder(BlockTags.SAPLINGS)
 				.add(RegisterBlocks.HICKORY_SAPLING);
@@ -35,7 +34,7 @@ public class SublunaryBlockTagProvider extends FabricTagProvider.BlockTagProvide
 		//mineable
 
 		getOrCreateTagBuilder(BlockTags.HOE_MINEABLE)
-				.add(RegisterBlocks.HICKORY_LEAVES);
+				.add(RegisterBlocks.AUTUMNAL_HICKORY_LEAVES, RegisterBlocks.SUMMERY_HICKORY_LEAVES, RegisterBlocks.VERNAL_HICKORY_LEAVES);
 
 		//planks
 

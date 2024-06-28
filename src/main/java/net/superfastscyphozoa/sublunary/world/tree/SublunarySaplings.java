@@ -7,9 +7,9 @@ import java.util.Optional;
 
 public class SublunarySaplings {
     public static final WoodTypes HICKORY =
-            new WoodTypes("hickory", 0f ,Optional.empty(), Optional.empty(),
+            new WoodTypes("hickory", 0.5f ,Optional.empty(), Optional.empty(),
                     Optional.of(SubTreeConfiguredFeatures.HICKORY),
-                    Optional.empty(),
-                    Optional.empty(),
+					Optional.of(SubTreeConfiguredFeatures.SUMMERY_HICKORY),
+					Optional.empty(),
                     Optional.empty());
 }

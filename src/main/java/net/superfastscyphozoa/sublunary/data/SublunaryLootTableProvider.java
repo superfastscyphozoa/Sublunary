@@ -30,7 +30,9 @@ public class SublunaryLootTableProvider extends FabricBlockLootTableProvider {
 
 		addDrop(RegisterBlocks.HICKORY_SAPLING);
 
-		add(RegisterBlocks.HICKORY_LEAVES, this::hickoryLeavesDrop);
+		add(RegisterBlocks.AUTUMNAL_HICKORY_LEAVES, this::hickoryLeavesDrop);
+		add(RegisterBlocks.SUMMERY_HICKORY_LEAVES, this::hickoryLeavesDrop);
+		add(RegisterBlocks.VERNAL_HICKORY_LEAVES, this::hickoryLeavesDrop);
 
         addDrop(RegisterBlocks.LAVENDER);
 		addDrop(RegisterBlocks.CALLA_LILY);
@@ -41,7 +43,7 @@ public class SublunaryLootTableProvider extends FabricBlockLootTableProvider {
 
 	public LootTable.Builder hickoryLeavesDrop(Block leaves) {
 		return dropsWithShearsOrSilkTouch(leaves, ((LeafEntry.Builder<?>)
-				this.applyExplosionDecay(RegisterBlocks.HICKORY_LEAVES, ItemEntry.builder(Items.STICK)
+				this.applyExplosionDecay(leaves, ItemEntry.builder(Items.STICK)
 						.apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 2.0F)))))
 				.conditionally(TableBonusLootCondition.builder(Enchantments.FORTUNE, LEAVES_STICK_DROP_CHANCES)));
 	}

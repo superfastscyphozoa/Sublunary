@@ -1,16 +1,24 @@
 package net.superfastscyphozoa.sublunary.world.feature.placed;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.registry.Holder;
 import net.minecraft.registry.HolderProvider;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.util.math.Direction;
 import net.minecraft.world.gen.BootstrapContext;
+import net.minecraft.world.gen.blockpredicate.BlockPredicate;
+import net.minecraft.world.gen.decorator.BlockPredicateFilterPlacementModifier;
+import net.minecraft.world.gen.decorator.EnvironmentScanPlacementModifier;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.PlacedFeature;
+import net.minecraft.world.gen.feature.PlacementModifier;
 import net.minecraft.world.gen.feature.util.PlacedFeatureUtil;
 import net.superfastscyphozoa.sublunary.registry.RegisterBlocks;
 import net.superfastscyphozoa.sublunary.world.feature.configured.SubTreeConfiguredFeatures;
+
+import java.util.List;
 
 import static net.superfastscyphozoa.sublunary.world.feature.placed.SublunaryPlacedFeatures.registerKey;
 
@@ -29,6 +37,9 @@ public class SubTreePlacedFeatures {
 	public static final RegistryKey<PlacedFeature> VINY_SPRUCE_PLACED = registerKey("viny_spruce_placed");
 	public static final RegistryKey<PlacedFeature> DYING_SPRUCE_PLACED = registerKey("dying_spruce_placed");
 	public static final RegistryKey<PlacedFeature> DEAD_SPRUCE_PLACED = registerKey("dead_spruce_placed");
+
+	public static final RegistryKey<PlacedFeature> SNOWY_SPRUCE_FULL_PLACED = registerKey("snowy_spruce_full_placed");
+	public static final RegistryKey<PlacedFeature> SNOWY_SPRUCE_SPARSE_PLACED = registerKey("snowy_spruce_sparse_placed");
 
 	public static final RegistryKey<PlacedFeature> DARK_OAK_PLACED = registerKey("dark_oak_placed");
 	public static final RegistryKey<PlacedFeature> VINY_DARK_OAK_PLACED = registerKey("viny_dark_oak_placed");
@@ -118,6 +129,11 @@ public class SubTreePlacedFeatures {
 
         SublunaryPlacedFeatures.register(context, SPRUCE_FULL_PLACED, spruceFull, PlacedFeatureUtil.createWouldSurvivePlacementModifier(Blocks.SPRUCE_SAPLING));
         SublunaryPlacedFeatures.register(context, SPRUCE_SPARSE_PLACED, spruceSparse, PlacedFeatureUtil.createWouldSurvivePlacementModifier(Blocks.SPRUCE_SAPLING));
+
+		BlockPredicate snowPredicate = BlockPredicate.matchingBlocks(Direction.DOWN.getVector(), Blocks.SNOW_BLOCK, Blocks.POWDER_SNOW);
+		List<PlacementModifier> snowList = List.of(EnvironmentScanPlacementModifier.create(Direction.UP, BlockPredicate.not(BlockPredicate.matchingBlocks(Blocks.POWDER_SNOW)), 8), BlockPredicateFilterPlacementModifier.create(snowPredicate));
+		SublunaryPlacedFeatures.register(context, SNOWY_SPRUCE_FULL_PLACED, spruceFull, snowList);
+		SublunaryPlacedFeatures.register(context, SNOWY_SPRUCE_SPARSE_PLACED, spruceSparse, snowList);
 
         SublunaryPlacedFeatures.register(context, VINY_OAK_PLACED, vinyOak, PlacedFeatureUtil.createWouldSurvivePlacementModifier(Blocks.OAK_SAPLING));
         SublunaryPlacedFeatures.register(context, LARGE_VINY_OAK_PLACED, largeVinyOak, PlacedFeatureUtil.createWouldSurvivePlacementModifier(Blocks.OAK_SAPLING));

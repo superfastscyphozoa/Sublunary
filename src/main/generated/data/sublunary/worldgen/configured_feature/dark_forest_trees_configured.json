@@ -4,6 +4,20 @@
     "default": "sublunary:oak_placed",
     "features": [
       {
+        "chance": 0.015,
+        "feature": {
+          "feature": "sublunary:red_mushy",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.015,
+        "feature": {
+          "feature": "sublunary:brown_mushy",
+          "placement": []
+        }
+      },
+      {
         "chance": 0.7,
         "feature": "sublunary:dark_oak_placed"
       },

@@ -22,6 +22,7 @@ import net.superfastscyphozoa.sublunary.world.feature.placed.SubTreePlacedFeatur
 
 import java.util.List;
 
+import static net.minecraft.world.gen.feature.util.PlacedFeatureUtil.placedInline;
 import static net.superfastscyphozoa.sublunary.world.feature.configured.SublunaryConfiguredFeatures.registerKey;
 
 public class SubVegetationConfiguredFeatures {
@@ -33,6 +34,8 @@ public class SubVegetationConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?,?>> MEADOW_TREES_CONFIGURED = registerKey("meadow_trees_configured");
     public static final RegistryKey<ConfiguredFeature<?,?>> DARK_FOREST_TREES_CONFIGURED = registerKey("dark_forest_trees_configured");
     public static final RegistryKey<ConfiguredFeature<?,?>> TAIGA_TREES_CONFIGURED = registerKey("taiga_trees_configured");
+	public static final RegistryKey<ConfiguredFeature<?,?>> SNOWY_TAIGA_TREES_CONFIGURED = registerKey("snowy_taiga_trees_configured");
+	public static final RegistryKey<ConfiguredFeature<?,?>> GROVE_TREES_CONFIGURED = registerKey("grove_trees_configured");
     public static final RegistryKey<ConfiguredFeature<?,?>> SNOWY_PLAINS_TREES_CONFIGURED = registerKey("snowy_plains_trees_configured");
 	public static final RegistryKey<ConfiguredFeature<?,?>> WINDSWEPT_FOREST_TREES_CONFIGURED = registerKey("windswept_forest_trees_configured");
 
@@ -54,6 +57,10 @@ public class SubVegetationConfiguredFeatures {
 
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
 		HolderProvider<PlacedFeature> holderProvider = context.lookup(RegistryKeys.PLACED_FEATURE);
+		HolderProvider<ConfiguredFeature<?, ?>> holderProvider2 = context.lookup(RegistryKeys.CONFIGURED_FEATURE);
+
+		Holder<ConfiguredFeature<?, ?>> redMushy = holderProvider2.getHolderOrThrow(SubTreeConfiguredFeatures.RED_MUSHY);
+		Holder<ConfiguredFeature<?, ?>> brownMushy = holderProvider2.getHolderOrThrow(SubTreeConfiguredFeatures.BROWN_MUSHY);
 
 		Holder<PlacedFeature> oak = holderProvider.getHolderOrThrow(SubTreePlacedFeatures.OAK_PLACED);
 		Holder<PlacedFeature> largeOak = holderProvider.getHolderOrThrow(SubTreePlacedFeatures.LARGE_OAK_PLACED);
@@ -81,6 +88,10 @@ public class SubVegetationConfiguredFeatures {
 
 		Holder<PlacedFeature> spruceFull = holderProvider.getHolderOrThrow(SubTreePlacedFeatures.SPRUCE_FULL_PLACED);
 		Holder<PlacedFeature> spruceSparse = holderProvider.getHolderOrThrow(SubTreePlacedFeatures.SPRUCE_SPARSE_PLACED);
+		Holder<PlacedFeature> vinySpruce = holderProvider.getHolderOrThrow(SubTreePlacedFeatures.VINY_SPRUCE_PLACED);
+
+		Holder<PlacedFeature> snowySpruceFull = holderProvider.getHolderOrThrow(SubTreePlacedFeatures.SNOWY_SPRUCE_FULL_PLACED);
+		Holder<PlacedFeature> snowySpruceSparse = holderProvider.getHolderOrThrow(SubTreePlacedFeatures.SNOWY_SPRUCE_SPARSE_PLACED);
 
 		Holder<PlacedFeature> vinyOak = holderProvider.getHolderOrThrow(SubTreePlacedFeatures.VINY_OAK_PLACED);
 		Holder<PlacedFeature> largeVinyOak = holderProvider.getHolderOrThrow(SubTreePlacedFeatures.LARGE_VINY_OAK_PLACED);
@@ -128,6 +139,9 @@ public class SubVegetationConfiguredFeatures {
                 meadowBirch));
 
         SublunaryConfiguredFeatures.register(context, DARK_FOREST_TREES_CONFIGURED, Feature.RANDOM_SELECTOR, new RandomFeatureConfig(List.of(
+				new WeightedPlacedFeature(placedInline(redMushy), 0.015F),
+				new WeightedPlacedFeature(placedInline(brownMushy), 0.015F),
+
                 new WeightedPlacedFeature(darkOak, 0.7F),
                 new WeightedPlacedFeature(birch, 0.2F),
                 new WeightedPlacedFeature(largeOak, 0.2F),
@@ -136,8 +150,17 @@ public class SubVegetationConfiguredFeatures {
                 oak));
 
         SublunaryConfiguredFeatures.register(context, TAIGA_TREES_CONFIGURED, Feature.RANDOM_SELECTOR, new RandomFeatureConfig(List.of(
-                new WeightedPlacedFeature(spruceSparse, 0.34F)),
+                new WeightedPlacedFeature(spruceSparse, 0.34F),
+				new WeightedPlacedFeature(vinySpruce, 0.04F)),
                 spruceFull));
+
+		SublunaryConfiguredFeatures.register(context, SNOWY_TAIGA_TREES_CONFIGURED, Feature.RANDOM_SELECTOR, new RandomFeatureConfig(List.of(
+				new WeightedPlacedFeature(spruceSparse, 0.34F)),
+				spruceFull));
+
+		SublunaryConfiguredFeatures.register(context, GROVE_TREES_CONFIGURED, Feature.RANDOM_SELECTOR, new RandomFeatureConfig(List.of(
+				new WeightedPlacedFeature(snowySpruceSparse, 0.34F)),
+				snowySpruceFull));
 
         SublunaryConfiguredFeatures.register(context, SNOWY_PLAINS_TREES_CONFIGURED, Feature.RANDOM_SELECTOR, new RandomFeatureConfig(List.of(
                 new WeightedPlacedFeature(spruceSparse, 0.05F)),

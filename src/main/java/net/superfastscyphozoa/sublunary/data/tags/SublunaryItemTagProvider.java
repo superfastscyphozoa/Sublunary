@@ -3,7 +3,6 @@ package net.superfastscyphozoa.sublunary.data.tags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.registry.HolderLookup;
-import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.registry.tag.ItemTags;
 import net.superfastscyphozoa.sublunary.registry.RegisterBlocks;
 import net.superfastscyphozoa.sublunary.util.SublunaryTags;
@@ -24,7 +23,8 @@ public class SublunaryItemTagProvider extends FabricTagProvider.ItemTagProvider 
 				.add(RegisterBlocks.LAVENDER.asItem(), RegisterBlocks.CALLA_LILY.asItem());
 
 		getOrCreateTagBuilder(ItemTags.LEAVES)
-				.add(RegisterBlocks.HICKORY_LEAVES.asItem());
+				.add(RegisterBlocks.AUTUMNAL_HICKORY_LEAVES.asItem(), RegisterBlocks.SUMMERY_HICKORY_LEAVES.asItem(),
+						RegisterBlocks.VERNAL_HICKORY_LEAVES.asItem());
 
 		getOrCreateTagBuilder(ItemTags.SAPLINGS)
 				.add(RegisterBlocks.HICKORY_SAPLING.asItem());
