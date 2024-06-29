@@ -1,4 +1,4 @@
-// 1.20.4	2024-06-29T19:21:49.9521111	Sublunary/Model Definitions
+// 1.20.4	2024-06-29T22:30:31.4587586	Sublunary/Model Definitions
 33646ec86aaf11878f7f7c4102448d30635efa0e assets\sublunary\models\block\potted_calla_lily.json
 f32d8f1715e037ddb422adae347b1a8c9bf0a068 assets\sublunary\blockstates\stripped_hickory_wood.json
 780802dc6e2096b87c4e1aa23205186eb425b5e2 assets\sublunary\models\block\hickory_wood.json
@@ -16,10 +16,10 @@ f32d8f1715e037ddb422adae347b1a8c9bf0a068 assets\sublunary\blockstates\stripped_h
 0c02df6379bc572e23acdd856da667911f22c580 assets\sublunary\blockstates\potted_calla_lily.json
 6a490c94a94ffccf6c158ee3d09a1d7e1dc79486 assets\sublunary\blockstates\hickory_log.json
 551b58efc26a549f14e929a878085d26b13907c9 assets\sublunary\models\item\hickory_log.json
-75097f550653c350e42210df4cc7cb7f3cbfb9be assets\sublunary\models\item\calla_lily.json
 8b5015366b89251b3b98a1783fe743d2841a7720 assets\sublunary\models\block\stripped_hickory_log_horizontal.json
+75097f550653c350e42210df4cc7cb7f3cbfb9be assets\sublunary\models\item\calla_lily.json
 296e1a68faa8d3c5c63b3eb77e730d4ad357b97d assets\sublunary\models\item\hickory_wood.json
-71dc764499a6a79a2d047b5c186f1c1ff08e45f4 assets\sublunary\models\block\stripped_hickory_log.json
 cf21f2c876c0085ad271e25d715c74738ef4b6f8 assets\sublunary\models\block\stripped_hickory_wood.json
+71dc764499a6a79a2d047b5c186f1c1ff08e45f4 assets\sublunary\models\block\stripped_hickory_log.json
 aefd072706bfdaef70b8e31f5856b5e705c2d1ee assets\sublunary\models\item\stripped_hickory_wood.json
 e0023f5cdf1eae452da8136002aef6d8f726a89f assets\sublunary\models\item\hickory_planks.json

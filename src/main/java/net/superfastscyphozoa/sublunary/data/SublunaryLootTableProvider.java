@@ -28,8 +28,6 @@ public class SublunaryLootTableProvider extends FabricBlockLootTableProvider {
 
 		addDrop(RegisterBlocks.HICKORY_PLANKS);
 
-		addDrop(RegisterBlocks.HICKORY_NUT);
-
 		add(RegisterBlocks.AUTUMNAL_HICKORY_LEAVES, this::hickoryLeavesDrop);
 		add(RegisterBlocks.SUMMERY_HICKORY_LEAVES, this::hickoryLeavesDrop);
 		add(RegisterBlocks.VERNAL_HICKORY_LEAVES, this::hickoryLeavesDrop);

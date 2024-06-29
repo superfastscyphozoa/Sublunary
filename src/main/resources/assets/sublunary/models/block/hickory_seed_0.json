@@ -4,7 +4,7 @@
   "texture_size": [32, 32],
   "textures": {
     "0": "sublunary:block/hickory_nut",
-    "particle": "sublunary:block/hickory_nut"
+    "particle": "sublunary:item/hickory_nut"
   },
   "elements": [
     {

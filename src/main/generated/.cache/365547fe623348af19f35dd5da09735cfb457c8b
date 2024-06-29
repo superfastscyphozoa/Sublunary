@@ -1,14 +1,13 @@
-// 1.20.4	2024-06-29T19:21:49.9541046	Sublunary/Block Loot Tables
+// 1.20.4	2024-06-29T22:30:31.4627485	Sublunary/Block Loot Tables
 0700b6b3a30ff598b9e17ae87e016b32c704169a data\sublunary\loot_tables\blocks\lavender.json
 f4e7eeff726a15f3f7cf2ff52e2f01b8759b947b data\sublunary\loot_tables\blocks\hickory_wood.json
-e080847e3cdd47487b1d8b29d73f2696b837e626 data\sublunary\loot_tables\blocks\summery_hickory_leaves.json
-56699303b1077ce6492a75ef5f644f5de977cd7b data\sublunary\loot_tables\blocks\stripped_hickory_wood.json
 236255aac73c53752ec567ba314557ad98bde324 data\sublunary\loot_tables\blocks\hickory_planks.json
+56699303b1077ce6492a75ef5f644f5de977cd7b data\sublunary\loot_tables\blocks\stripped_hickory_wood.json
+e080847e3cdd47487b1d8b29d73f2696b837e626 data\sublunary\loot_tables\blocks\summery_hickory_leaves.json
 1058256b7b7b84ebc27e9ccc9e22a7cfea0cc640 data\sublunary\loot_tables\blocks\calla_lily.json
 9787d20567a2c4886c4257a55f63f7d4dd04797e data\sublunary\loot_tables\blocks\potted_calla_lily.json
 c2184c72dab67c73cdb4210c2d547880dc0f9b87 data\sublunary\loot_tables\blocks\autumnal_hickory_leaves.json
 c345d23041f29afe9b22e41b5a6521b5c9c51f82 data\sublunary\loot_tables\blocks\potted_lavender.json
 ac6385f38db00c1d2a848867039983e0d689e0d1 data\sublunary\loot_tables\blocks\hickory_log.json
-f0fa46057819f44b146e1b1f824b15a5372171ef data\sublunary\loot_tables\blocks\stripped_hickory_log.json
 13002fb11c03fbd4f18e4ffa6417e668ba2ed382 data\sublunary\loot_tables\blocks\vernal_hickory_leaves.json
-03718e2d608b1358a3d4226b427f96826bb3b3b1 data\sublunary\loot_tables\blocks\hickory_nut.json
+f0fa46057819f44b146e1b1f824b15a5372171ef data\sublunary\loot_tables\blocks\stripped_hickory_log.json
