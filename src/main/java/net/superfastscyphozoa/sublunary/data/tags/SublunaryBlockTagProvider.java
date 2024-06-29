@@ -26,10 +26,13 @@ public class SublunaryBlockTagProvider extends FabricTagProvider.BlockTagProvide
 				.add(RegisterBlocks.POTTED_LAVENDER, RegisterBlocks.POTTED_CALLA_LILY);
 
 		getOrCreateTagBuilder(BlockTags.LEAVES)
+				.forceAddTag(SublunaryTags.Blocks.HICKORY_LEAVES);
+
+		getOrCreateTagBuilder(SublunaryTags.Blocks.HICKORY_LEAVES)
 				.add(RegisterBlocks.AUTUMNAL_HICKORY_LEAVES, RegisterBlocks.SUMMERY_HICKORY_LEAVES, RegisterBlocks.VERNAL_HICKORY_LEAVES);
 
 		getOrCreateTagBuilder(BlockTags.SAPLINGS)
-				.add(RegisterBlocks.HICKORY_SAPLING);
+				.add(RegisterBlocks.HICKORY_NUT);
 
 		//mineable
 

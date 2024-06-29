@@ -27,7 +27,7 @@ public class SublunaryItemTagProvider extends FabricTagProvider.ItemTagProvider 
 						RegisterBlocks.VERNAL_HICKORY_LEAVES.asItem());
 
 		getOrCreateTagBuilder(ItemTags.SAPLINGS)
-				.add(RegisterBlocks.HICKORY_SAPLING.asItem());
+				.add(RegisterBlocks.HICKORY_NUT.asItem());
 
 		//planks
 

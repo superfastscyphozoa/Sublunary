@@ -6,8 +6,10 @@
       "predicate": {
         "type": "minecraft:would_survive",
         "state": {
-          "Name": "sublunary:hickory_sapling",
+          "Name": "sublunary:hickory_nut",
           "Properties": {
+            "age": "0",
+            "hanging": "false",
             "stage": "0"
           }
         }

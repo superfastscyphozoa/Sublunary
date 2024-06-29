@@ -3,7 +3,6 @@ package net.superfastscyphozoa.sublunary.registry;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.*;
 import net.minecraft.block.piston.PistonBehavior;
-import net.minecraft.block.sapling.SaplingBlock;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
@@ -14,6 +13,8 @@ import net.minecraft.util.Identifier;
 import net.superfastscyphozoa.sublunary.Sublunary;
 import net.superfastscyphozoa.sublunary.blocks.BushyFlowerBlock;
 import net.superfastscyphozoa.sublunary.blocks.CloverBlock;
+import net.superfastscyphozoa.sublunary.blocks.HickoryNutBlock;
+import net.superfastscyphozoa.sublunary.blocks.HickoryLeavesBlock;
 import net.superfastscyphozoa.sublunary.world.tree.SublunarySaplings;
 import org.quiltmc.qsl.block.extensions.api.QuiltBlockSettings;
 import org.quiltmc.qsl.item.setting.api.QuiltItemSettings;
@@ -53,14 +54,14 @@ public class RegisterBlocks {
             new Block(QuiltBlockSettings.copyOf(Blocks.OAK_PLANKS).requiresTool()));
 
     public static final Block AUTUMNAL_HICKORY_LEAVES = registerBlock("autumnal_hickory_leaves",
-            new LeavesBlock(QuiltBlockSettings.create().mapColor(MapColor.YELLOW).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning(Blocks::allowOcelotsAndParrots).suffocates(Blocks::nonSolid).blockVision(Blocks::nonSolid).lavaIgnitable().pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::nonSolid)));
+            new HickoryLeavesBlock(QuiltBlockSettings.create().mapColor(MapColor.YELLOW).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning(Blocks::allowOcelotsAndParrots).suffocates(Blocks::nonSolid).blockVision(Blocks::nonSolid).lavaIgnitable().pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::nonSolid)));
 	public static final Block SUMMERY_HICKORY_LEAVES = registerBlock("summery_hickory_leaves",
-			new LeavesBlock(QuiltBlockSettings.create().mapColor(MapColor.LIME).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning(Blocks::allowOcelotsAndParrots).suffocates(Blocks::nonSolid).blockVision(Blocks::nonSolid).lavaIgnitable().pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::nonSolid)));
+			new HickoryLeavesBlock(QuiltBlockSettings.create().mapColor(MapColor.LIME).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning(Blocks::allowOcelotsAndParrots).suffocates(Blocks::nonSolid).blockVision(Blocks::nonSolid).lavaIgnitable().pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::nonSolid)));
 	public static final Block VERNAL_HICKORY_LEAVES = registerBlock("vernal_hickory_leaves",
-			new LeavesBlock(QuiltBlockSettings.create().mapColor(MapColor.GREEN).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning(Blocks::allowOcelotsAndParrots).suffocates(Blocks::nonSolid).blockVision(Blocks::nonSolid).lavaIgnitable().pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::nonSolid)));
+			new HickoryLeavesBlock(QuiltBlockSettings.create().mapColor(MapColor.GREEN).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning(Blocks::allowOcelotsAndParrots).suffocates(Blocks::nonSolid).blockVision(Blocks::nonSolid).lavaIgnitable().pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::nonSolid)));
 
-    public static final Block HICKORY_SAPLING = registerBlock("hickory_sapling",
-            new SaplingBlock(SublunarySaplings.HICKORY, QuiltBlockSettings.copyOf(Blocks.OAK_SAPLING)));
+    public static final Block HICKORY_NUT = registerBlock("hickory_nut",
+            new HickoryNutBlock(SublunarySaplings.HICKORY, QuiltBlockSettings.copyOf(Blocks.MANGROVE_PROPAGULE)));
 
     //registry end
 
@@ -86,7 +87,7 @@ public class RegisterBlocks {
 		addToItemGroup(ItemGroups.NATURAL_BLOCKS, VERNAL_HICKORY_LEAVES.asItem(), Items.CHERRY_LEAVES);
 		addToItemGroup(ItemGroups.NATURAL_BLOCKS, SUMMERY_HICKORY_LEAVES.asItem(), VERNAL_HICKORY_LEAVES.asItem());
 		addToItemGroup(ItemGroups.NATURAL_BLOCKS, AUTUMNAL_HICKORY_LEAVES.asItem(), SUMMERY_HICKORY_LEAVES.asItem());
-		addToItemGroup(ItemGroups.NATURAL_BLOCKS, HICKORY_SAPLING.asItem(), Items.CHERRY_SAPLING);
+		addToItemGroup(ItemGroups.NATURAL_BLOCKS, HICKORY_NUT.asItem(), Items.CHERRY_SAPLING);
 
 		addToItemGroup(ItemGroups.BUILDING_BLOCKS, HICKORY_LOG.asItem(), Items.CHERRY_BUTTON);
 		addToItemGroup(ItemGroups.BUILDING_BLOCKS, HICKORY_WOOD.asItem(), HICKORY_LOG.asItem());

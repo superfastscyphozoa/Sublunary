@@ -2,7 +2,6 @@ package net.superfastscyphozoa.sublunary.client;
 
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.minecraft.client.color.world.BiomeColors;
-import net.minecraft.client.color.world.FoliageColors;
 import net.minecraft.client.color.world.GrassColors;
 import net.minecraft.client.render.RenderLayer;
 import net.superfastscyphozoa.sublunary.registry.RegisterBlocks;
@@ -24,7 +23,7 @@ public class SublunaryClient implements ClientModInitializer {
 
 		BlockRenderLayerMap.put(RenderLayer.getCutout(), RegisterBlocks.CLOVERS);
 
-		BlockRenderLayerMap.put(RenderLayer.getCutout(), RegisterBlocks.HICKORY_SAPLING);
+		BlockRenderLayerMap.put(RenderLayer.getCutout(), RegisterBlocks.HICKORY_NUT);
 
 		ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> {
 					if (world == null || pos == null) {

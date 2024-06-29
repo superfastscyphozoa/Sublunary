@@ -13,6 +13,9 @@ public class SublunaryTags {
 		public static final TagKey<Block> HICKORY_LOGS =
 				createTag("hickory_logs");
 
+		public static final TagKey<Block> HICKORY_LEAVES =
+				createTag("hickory_leaves");
+
 		private static TagKey<Block> createTag (String name){
 			return TagKey.of(RegistryKeys.BLOCK, new Identifier(Sublunary.MOD_ID, name));
 		}

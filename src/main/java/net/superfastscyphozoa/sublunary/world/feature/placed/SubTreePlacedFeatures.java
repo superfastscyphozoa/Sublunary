@@ -1,6 +1,5 @@
 package net.superfastscyphozoa.sublunary.world.feature.placed;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.registry.Holder;
 import net.minecraft.registry.HolderProvider;
@@ -111,7 +110,7 @@ public class SubTreePlacedFeatures {
         SublunaryPlacedFeatures.register(context, LARGE_FOREST_OAK_PLACED, largeForestOak, PlacedFeatureUtil.createWouldSurvivePlacementModifier(Blocks.OAK_SAPLING));
         SublunaryPlacedFeatures.register(context, FOREST_BIRCH_PLACED, forestBirch, PlacedFeatureUtil.createWouldSurvivePlacementModifier(Blocks.BIRCH_SAPLING));
 
-        SublunaryPlacedFeatures.register(context, HICKORY_PLACED, hickory, PlacedFeatureUtil.createWouldSurvivePlacementModifier(RegisterBlocks.HICKORY_SAPLING));
+        SublunaryPlacedFeatures.register(context, HICKORY_PLACED, hickory, PlacedFeatureUtil.createWouldSurvivePlacementModifier(RegisterBlocks.HICKORY_NUT));
 
         SublunaryPlacedFeatures.register(context, FLOWER_FOREST_OAK_PLACED, flowerForestOak, PlacedFeatureUtil.createWouldSurvivePlacementModifier(Blocks.OAK_SAPLING));
         SublunaryPlacedFeatures.register(context, LARGE_FLOWER_FOREST_OAK_PLACED, largeFlowerForestOak, PlacedFeatureUtil.createWouldSurvivePlacementModifier(Blocks.OAK_SAPLING));
